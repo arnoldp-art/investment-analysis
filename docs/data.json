@@ -1,131 +1,363 @@
 {
-  "generated": "2026-06-04T17:38:55.736530+00:00",
+  "generated": "2026-06-04T17:57:15.953284+00:00",
+  "sources": [
+    "Yahoo Finance \u2014 OHLCV price history (1 year)",
+    "Yahoo Finance \u2014 fundamentals: P/E, beta, P/B, dividend yield, ROE, D/E, short ratio",
+    "Yahoo Finance \u2014 analyst consensus: price targets + buy/hold/sell breakdown",
+    "Yahoo Finance \u2014 news headlines (top 5 per holding)",
+    "Yahoo Finance \u2014 macro: VIX, S&P 500, FTSE 100, Gold, GBP/USD, US 10Y",
+    "Stooq.com \u2014 independent price cross-validation"
+  ],
   "holdings": [
     {
       "ticker": "NVDA",
       "name": "Nvidia",
       "type": "equity",
       "sector": "Technology",
-      "price": 219.11000061035156,
-      "day_change_pct": 2.030268037416327,
-      "week_change_pct": 3.7747472026818003,
-      "month_change_pct": 5.427512235921743,
+      "price": 219.5449981689453,
+      "day_change_pct": 2.2328280181351863,
+      "week_change_pct": 3.9807704857410107,
+      "month_change_pct": 5.63681674189358,
       "recommendation": "HOLD",
       "score": 0.3333333333333333,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price above EMA20 (216.05) \u2014 short-term momentum positive",
-        "RSI neutral at 54.6",
+        "Price above EMA20 (216.09) \u2014 short-term momentum positive",
+        "RSI neutral at 54.9",
         "MACD below signal line \u2014 bearish momentum"
       ],
-      "rsi": 54.57879829562161,
-      "macd": 3.6060459760130072,
-      "signal_line": 4.756145116879553,
-      "sma_50": 202.92760070800782,
-      "sma_200": 188.4164726257324,
+      "rsi": 54.89554089720676,
+      "macd": 3.640746635957811,
+      "signal_line": 4.763085248868514,
+      "sma_50": 202.9363006591797,
+      "sma_200": 188.4186476135254,
       "high_52w": 235.74000549316406,
       "low_52w": 139.95703125,
-      "pct_from_52w_high": -0.0705438385310241,
-      "atr_pct": 3.6239381359370033,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $5.3T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 36% upside from current levels. Hold current position; re-assess on a decisive technical break either way."
+      "pct_from_52w_high": -0.0686985956852723,
+      "atr_pct": 3.6167578118359085,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $5.3T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 36% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "analyst_target_mean": 298.06897,
+      "analyst_target_high": 500.0,
+      "analyst_target_low": 180.0,
+      "analyst_count": 58,
+      "recommendation_key": "strong_buy",
+      "beta": 2.244,
+      "forward_pe": 17.382925,
+      "trailing_pe": 33.621746,
+      "price_to_book": 33.923054,
+      "dividend_yield": 0.47,
+      "revenue_growth": 0.852,
+      "earnings_growth": 2.145,
+      "roe": 1.14288,
+      "debt_to_equity": 6.555,
+      "short_ratio": 1.92,
+      "analyst_breakdown": {
+        "strong_buy": 10,
+        "buy": 48,
+        "hold": 2,
+        "sell": 1,
+        "strong_sell": 0
+      },
+      "news": [
+        {
+          "title": "Tech stocks today: Chip stocks drag down tech sector as Broadcom earnings give investors pause",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com/sectors/technology/live/tech-stocks-today-chip-stocks-drag-down-tech-sector-as-broadcom-earnings-give-investors-pause-100000485.html",
+          "time": "2026-06-01T10:00:00Z"
+        },
+        {
+          "title": "Alphabet and Nvidia reveal a surprising truth about the 'Magnificent 7' stocks",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com/sectors/technology/article/alphabet-and-nvidia-reveal-a-surprising-truth-about-the-magnificent-7-stocks-135842197.html",
+          "time": "2026-06-04T13:58:42Z"
+        },
+        {
+          "title": "5 'Boring' Stocks That Crushed the Nasdaq-100 Over Past 5 Years",
+          "publisher": "TheStreet",
+          "link": "https://www.thestreet.com/investing/5-boring-stocks-that-crushed-the-nasdaq-100-over-past-5-years",
+          "time": "2026-06-04T17:47:00Z"
+        },
+        {
+          "title": "Sandisk Is Up More Than 4,900%. Is Now a Good Time to Invest or Did You Miss the Train?",
+          "publisher": "Motley Fool",
+          "link": "https://www.fool.com/investing/2026/06/04/sandisk-is-up-more-than-4900-is-now-a-good-time-to/",
+          "time": "2026-06-04T17:40:00Z"
+        },
+        {
+          "title": "TSMC Forecasts Sustained AI Chip Demand",
+          "publisher": "Investor's Business Daily",
+          "link": "https://www.investors.com/news/technology/tsm-stock-chipmaker-tsmc-forecasts-sustained-demand/?src=A00220&yptr=yahoo",
+          "time": "2026-06-04T17:39:41Z"
+        }
+      ],
+      "stooq_price": null,
+      "stooq_verified": null
     },
     {
       "ticker": "AAPL",
       "name": "Apple",
       "type": "equity",
       "sector": "Technology",
-      "price": 311.8550109863281,
-      "day_change_pct": 0.5140853382645133,
-      "week_change_pct": -0.06568819261338867,
-      "month_change_pct": 8.56746634459699,
+      "price": 311.26220703125,
+      "day_change_pct": 0.32301851159679734,
+      "week_change_pct": -0.2556529300728311,
+      "month_change_pct": 8.36109087787502,
       "recommendation": "BUY",
       "score": 0.5,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price above EMA20 (302.19) \u2014 short-term momentum positive",
-        "RSI strengthening at 67.1",
+        "Price above EMA20 (302.13) \u2014 short-term momentum positive",
+        "RSI strengthening at 66.6",
         "MACD below signal line \u2014 bearish momentum",
         "MACD histogram expanding negatively",
         "Near 52-week high \u2014 strong momentum but limited upside buffer"
       ],
-      "rsi": 67.0801379501955,
-      "macd": 9.254671430340807,
-      "signal_line": 9.694509198461025,
-      "sma_50": 279.9985998535156,
-      "sma_200": 264.379916305542,
+      "rsi": 66.63659177430401,
+      "macd": 9.207382225974584,
+      "signal_line": 9.685051357622708,
+      "sma_50": 279.98674377441404,
+      "sma_200": 264.37695198059083,
       "high_52w": 315.20001220703125,
       "low_52w": 194.86692810058594,
-      "pct_from_52w_high": -0.010612313106466648,
-      "atr_pct": 1.897179030542973,
-      "commentary": "Technical picture is constructive \u2014 multiple indicators aligned to the upside. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Market cap $4.6T \u2014 mega-cap liquidity supports institutional ownership. Overall, the balance of evidence supports accumulation on weakness."
+      "pct_from_52w_high": -0.012493036241365375,
+      "atr_pct": 1.900792238996295,
+      "commentary": "Technical picture is constructive \u2014 multiple indicators aligned to the upside. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Market cap $4.6T \u2014 mega-cap liquidity supports institutional ownership. Overall, the balance of evidence supports accumulation on weakness.",
+      "analyst_target_mean": 310.507,
+      "analyst_target_high": 400.0,
+      "analyst_target_low": 215.0,
+      "analyst_count": 43,
+      "recommendation_key": "buy",
+      "beta": 1.065,
+      "forward_pe": 32.398273,
+      "trailing_pe": 37.730907,
+      "price_to_book": 42.87603,
+      "dividend_yield": 0.35,
+      "revenue_growth": 0.166,
+      "earnings_growth": 0.218,
+      "roe": 1.4147099,
+      "debt_to_equity": 79.548,
+      "short_ratio": 2.84,
+      "analyst_breakdown": {
+        "strong_buy": 7,
+        "buy": 23,
+        "hold": 15,
+        "sell": 1,
+        "strong_sell": 2
+      },
+      "news": [
+        {
+          "title": "Alphabet and Nvidia reveal a surprising truth about the 'Magnificent 7' stocks",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com/sectors/technology/article/alphabet-and-nvidia-reveal-a-surprising-truth-about-the-magnificent-7-stocks-135842197.html",
+          "time": "2026-06-04T13:58:42Z"
+        },
+        {
+          "title": "Apple CEO Tim Cook explains why he's stepping down",
+          "publisher": "Yahoo Finance Video",
+          "link": "https://finance.yahoo.com/video/apple-ceo-tim-cook-explains-195727340.html",
+          "time": "2026-06-03T19:57:27Z"
+        },
+        {
+          "title": "Apple closing 3 stores in these 3 states in June. See locations",
+          "publisher": "USA TODAY",
+          "link": "https://www.usatoday.com/story/money/2026/06/04/apple-store-closures-june-2026/90403188007/",
+          "time": "2026-06-04T17:49:43Z"
+        },
+        {
+          "title": "TSMC Forecasts Sustained AI Chip Demand",
+          "publisher": "Investor's Business Daily",
+          "link": "https://www.investors.com/news/technology/tsm-stock-chipmaker-tsmc-forecasts-sustained-demand/?src=A00220&yptr=yahoo",
+          "time": "2026-06-04T17:39:41Z"
+        },
+        {
+          "title": "Apple: Decelerating AppStore growth could hold back Services upside, UBS says",
+          "publisher": "Investing.com",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/apple-decelerating-appstore-growth-could-173516487.html",
+          "time": "2026-06-04T17:35:16Z"
+        }
+      ],
+      "stooq_price": null,
+      "stooq_verified": null
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet (Google)",
       "type": "equity",
       "sector": "Technology",
-      "price": 372.5249938964844,
-      "day_change_pct": 3.770301131035083,
-      "week_change_pct": -2.0547411570313714,
-      "month_change_pct": -6.410163325468307,
+      "price": 372.6600036621094,
+      "day_change_pct": 3.807909356695318,
+      "week_change_pct": -2.019244031584418,
+      "month_change_pct": -6.376244683440703,
       "recommendation": "SELL",
       "score": -0.5,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price below EMA20 (377.50) \u2014 short-term momentum negative",
+        "Price below EMA20 (377.51) \u2014 short-term momentum negative",
         "RSI neutral at 48.9",
         "MACD below signal line \u2014 bearish momentum",
         "Above-average volume on price decline \u2014 distribution signal"
       ],
-      "rsi": 48.85947805603825,
-      "macd": 2.6321153719258064,
-      "signal_line": 8.150935060414064,
-      "sma_50": 352.9568994140625,
-      "sma_200": 302.9924661254883,
+      "rsi": 48.9430015401989,
+      "macd": 2.6428853817197364,
+      "signal_line": 8.153089062373422,
+      "sma_50": 352.959599609375,
+      "sma_200": 302.9931410217285,
       "high_52w": 402.6199951171875,
       "low_52w": 164.8184814453125,
-      "pct_from_52w_high": -0.07474790518524448,
-      "atr_pct": 2.732579994086852,
-      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $4.5T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 15% upside from current levels. Risk/reward is unfavourable at current levels; consider reducing exposure."
+      "pct_from_52w_high": -0.07441257716561718,
+      "atr_pct": 2.7315900166792626,
+      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $4.5T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 15% upside from current levels. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "analyst_target_mean": 429.8698,
+      "analyst_target_high": 515.0,
+      "analyst_target_low": 340.0,
+      "analyst_count": 52,
+      "recommendation_key": "strong_buy",
+      "beta": 1.267,
+      "forward_pe": 25.771427,
+      "trailing_pe": 28.447329,
+      "price_to_book": 9.4310875,
+      "dividend_yield": 0.25,
+      "revenue_growth": 0.218,
+      "earnings_growth": 0.82,
+      "roe": 0.38884997,
+      "debt_to_equity": 20.026,
+      "short_ratio": 3.02,
+      "analyst_breakdown": {
+        "strong_buy": 14,
+        "buy": 41,
+        "hold": 7,
+        "sell": 0,
+        "strong_sell": 0
+      },
+      "news": [
+        {
+          "title": "Tech stocks today: Chip stocks drag down tech sector as Broadcom earnings give investors pause",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com/sectors/technology/live/tech-stocks-today-chip-stocks-drag-down-tech-sector-as-broadcom-earnings-give-investors-pause-100000485.html",
+          "time": "2026-06-01T10:00:00Z"
+        },
+        {
+          "title": "Is OpenAI coming for Tesla's robotics business?",
+          "publisher": "Yahoo Finance Video",
+          "link": "https://finance.yahoo.com/video/openai-coming-teslas-robotics-business-120000710.html",
+          "time": "2026-06-04T12:00:00Z"
+        },
+        {
+          "title": "Former School of Rock CEO's guide to overcoming midlife burnout",
+          "publisher": "Yahoo Finance Video",
+          "link": "https://finance.yahoo.com/video/former-school-rock-ceos-guide-100000889.html",
+          "time": "2026-06-04T10:00:00Z"
+        },
+        {
+          "title": "Nvidia's $800 Billion AI Test Revives Cisco-Era Warning",
+          "publisher": "GuruFocus.com",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/nvidias-800-billion-ai-test-173627544.html",
+          "time": "2026-06-04T17:36:27Z"
+        },
+        {
+          "title": "Cathie Wood Makes a Major Move Into Alphabet",
+          "publisher": "GuruFocus.com",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/cathie-wood-makes-major-move-173547378.html",
+          "time": "2026-06-04T17:35:47Z"
+        }
+      ],
+      "stooq_price": null,
+      "stooq_verified": null
     },
     {
       "ticker": "AMZN",
       "name": "Amazon",
       "type": "equity",
       "sector": "Consumer/Cloud",
-      "price": 254.0950927734375,
-      "day_change_pct": 1.6299049801373926,
-      "week_change_pct": -6.11325782571063,
-      "month_change_pct": -7.5984211073023795,
+      "price": 253.7449951171875,
+      "day_change_pct": 1.489877122259077,
+      "week_change_pct": -6.242616988177709,
+      "month_change_pct": -7.725733980018804,
       "recommendation": "SELL",
       "score": -0.5,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price below EMA20 (262.11) \u2014 short-term momentum negative",
-        "RSI weakening at 43.8",
+        "Price below EMA20 (262.08) \u2014 short-term momentum negative",
+        "RSI weakening at 43.5",
         "MACD below signal line \u2014 bearish momentum",
         "MACD histogram expanding negatively"
       ],
-      "rsi": 43.80654689989684,
-      "macd": 0.9202893493316537,
-      "signal_line": 3.9551709263687846,
-      "sma_50": 250.47730255126953,
-      "sma_200": 232.0397255706787,
+      "rsi": 43.4524617551512,
+      "macd": 0.8923613311692407,
+      "signal_line": 3.949585322736302,
+      "sma_50": 250.47030059814452,
+      "sma_200": 232.03797508239745,
       "high_52w": 274.989990234375,
       "low_52w": 198.7899932861328,
-      "pct_from_52w_high": -0.07598421107302379,
-      "atr_pct": 2.740757191984236,
-      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $2.7T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 23% upside from current levels. Risk/reward is unfavourable at current levels; consider reducing exposure."
+      "pct_from_52w_high": -0.07725733980018804,
+      "atr_pct": 2.7445386761030495,
+      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $2.7T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 23% upside from current levels. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "analyst_target_mean": 312.7934,
+      "analyst_target_high": 370.0,
+      "analyst_target_low": 207.0,
+      "analyst_count": 62,
+      "recommendation_key": "strong_buy",
+      "beta": 1.468,
+      "forward_pe": 25.724848,
+      "trailing_pe": 32.119617,
+      "price_to_book": 6.1748962,
+      "dividend_yield": null,
+      "revenue_growth": 0.166,
+      "earnings_growth": 0.748,
+      "roe": 0.24285,
+      "debt_to_equity": 53.3,
+      "short_ratio": 2.28,
+      "analyst_breakdown": {
+        "strong_buy": 15,
+        "buy": 47,
+        "hold": 4,
+        "sell": 0,
+        "strong_sell": 0
+      },
+      "news": [
+        {
+          "title": "Alphabet and Nvidia reveal a surprising truth about the 'Magnificent 7' stocks",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com/sectors/technology/article/alphabet-and-nvidia-reveal-a-surprising-truth-about-the-magnificent-7-stocks-135842197.html",
+          "time": "2026-06-04T13:58:42Z"
+        },
+        {
+          "title": "Nvidia's $800 Billion AI Test Revives Cisco-Era Warning",
+          "publisher": "GuruFocus.com",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/nvidias-800-billion-ai-test-173627544.html",
+          "time": "2026-06-04T17:36:27Z"
+        },
+        {
+          "title": "3 Stocks Poised to Make Billions from the Anthropic IPO",
+          "publisher": "24/7 Wall St.",
+          "link": "https://247wallst.com/investing/2026/06/04/3-stocks-poised-to-make-billions-from-the-anthropic-ipo/",
+          "time": "2026-06-04T17:30:17Z"
+        },
+        {
+          "title": "Amazon Lands $4 Billion AI Cloud Deal From Pinterest. Both Stocks Are Higher.",
+          "publisher": "Investor's Business Daily",
+          "link": "https://www.investors.com/news/technology/amazon-stock-pinterest-ai-cloud-aws-4-billion/?src=A00220&yptr=yahoo",
+          "time": "2026-06-04T17:25:03Z"
+        },
+        {
+          "title": "Market Chatter: General Motors Rehires Over 100 Former Cruise Team Members",
+          "publisher": "MT Newswires",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/market-chatter-general-motors-rehires-172112783.html",
+          "time": "2026-06-04T17:21:12Z"
+        }
+      ],
+      "stooq_price": null,
+      "stooq_verified": null
     },
     {
       "ticker": "RBLX",
       "name": "Roblox",
       "type": "equity",
       "sector": "Gaming/Metaverse",
-      "price": 43.5,
-      "day_change_pct": -0.41208860787130636,
-      "week_change_pct": -7.741254311255015,
-      "month_change_pct": -0.5941460957626784,
+      "price": 43.48970031738281,
+      "day_change_pct": -0.43566846717814584,
+      "week_change_pct": -7.763098812387288,
+      "month_change_pct": -0.6176828485328888,
       "recommendation": "HOLD",
       "score": -0.2,
       "reasons": [
@@ -135,76 +367,244 @@
         "MACD above signal line \u2014 bullish momentum",
         "Down 69% from 52-week high \u2014 deep value zone"
       ],
-      "rsi": 39.49696481860154,
-      "macd": -1.7081994323347374,
-      "signal_line": -2.029662465964479,
-      "sma_50": 51.215200119018554,
-      "sma_200": 85.40729999542236,
+      "rsi": 39.475908222823996,
+      "macd": -1.7090210594381006,
+      "signal_line": -2.0298267913851515,
+      "sma_50": 51.21499412536621,
+      "sma_200": 85.40724849700928,
       "high_52w": 141.55999755859375,
       "low_52w": 41.310001373291016,
-      "pct_from_52w_high": -0.6927097997300069,
-      "atr_pct": 6.248210793904561,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. Down 69% from peak \u2014 high-risk, high-reward territory; position sizing is key. Market cap $31.1B. P/E of -35x looks undemanding \u2014 value opportunity if fundamentals hold. Consensus price target implies 49% upside from current levels. Hold current position; re-assess on a decisive technical break either way."
+      "pct_from_52w_high": -0.6927825581560795,
+      "atr_pct": 6.252975485321046,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. Down 69% from peak \u2014 high-risk, high-reward territory; position sizing is key. Market cap $31.1B. P/E of -35x looks undemanding \u2014 value opportunity if fundamentals hold. Consensus price target implies 49% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "analyst_target_mean": 64.8125,
+      "analyst_target_high": 105.0,
+      "analyst_target_low": 45.0,
+      "analyst_count": 32,
+      "recommendation_key": "buy",
+      "beta": 1.444,
+      "forward_pe": -34.5181,
+      "trailing_pe": null,
+      "price_to_book": 78.07846,
+      "dividend_yield": null,
+      "revenue_growth": 0.393,
+      "earnings_growth": null,
+      "roe": -3.11935,
+      "debt_to_equity": 435.036,
+      "short_ratio": 1.91,
+      "analyst_breakdown": {
+        "strong_buy": 4,
+        "buy": 17,
+        "hold": 14,
+        "sell": 0,
+        "strong_sell": 0
+      },
+      "news": [
+        {
+          "title": "RBLX's Discovery Shift Targets Retention: Can Monetization Hold Up?",
+          "publisher": "Zacks",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/rblxs-discovery-shift-targets-retention-142600721.html",
+          "time": "2026-06-04T14:26:00Z"
+        },
+        {
+          "title": "Brokers Suggest Investing in Roblox (RBLX): Read This Before Placing a Bet",
+          "publisher": "Zacks",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/brokers-suggest-investing-roblox-rblx-133003588.html",
+          "time": "2026-06-04T13:30:03Z"
+        },
+        {
+          "title": "Is It Time To Reassess Roblox (RBLX) After A 42% Year To Date Share Price Fall?",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/time-reassess-roblox-rblx-42-060942310.html",
+          "time": "2026-06-02T06:09:42Z"
+        },
+        {
+          "title": "2nd Princeton CorpGov Forum: Complete Highlights and Panels in 4K from Endowments to PE in Sports",
+          "publisher": "CorpGov.com",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/2nd-princeton-corpgov-forum-complete-211143574.html",
+          "time": "2026-06-01T21:11:43Z"
+        },
+        {
+          "title": "Why These Three Big Buybacks Are Sending Very Different Signals to Investors",
+          "publisher": "MarketBeat",
+          "link": "https://www.marketbeat.com/articles/why-these-three-big-buybacks-are-sending-very-different-signals-to-investors/?utm_source=yahoofinance&utm_medium=yahoofinance",
+          "time": "2026-06-01T18:20:00Z"
+        }
+      ],
+      "stooq_price": null,
+      "stooq_verified": null
     },
     {
       "ticker": "ILMN",
       "name": "Illumina",
       "type": "equity",
       "sector": "Genomics",
-      "price": 168.36000061035156,
-      "day_change_pct": -1.5035348830233846,
-      "week_change_pct": 3.313692730736037,
-      "month_change_pct": 18.081076201586814,
+      "price": 167.5800018310547,
+      "day_change_pct": -1.9598613398883136,
+      "week_change_pct": 2.835048433263447,
+      "month_change_pct": 17.53401576584555,
       "recommendation": "HOLD",
       "score": 0.4,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price above EMA20 (151.94) \u2014 short-term momentum positive",
-        "RSI overbought at 75.5 \u2014 risk of near-term pullback",
+        "Price above EMA20 (151.87) \u2014 short-term momentum positive",
+        "RSI overbought at 74.1 \u2014 risk of near-term pullback",
         "MACD above signal line \u2014 bullish momentum",
         "Near 52-week high \u2014 strong momentum but limited upside buffer",
-        "Strong 20-day momentum: +21.4%"
+        "Strong 20-day momentum: +20.8%"
       ],
-      "rsi": 75.47079122074088,
-      "macd": 8.615590089860035,
-      "signal_line": 6.521594294838976,
-      "sma_50": 137.1025994873047,
-      "sma_200": 123.58925022125244,
+      "rsi": 74.09757343226259,
+      "macd": 8.553367965015866,
+      "signal_line": 6.509149869870142,
+      "sma_50": 137.08699951171874,
+      "sma_200": 123.58535022735596,
       "high_52w": 170.92999267578125,
       "low_52w": 82.25,
-      "pct_from_52w_high": -0.015035348830233846,
-      "atr_pct": 3.811419775163057,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI elevated (75) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. The 18% monthly surge warrants trailing stop discipline. Market cap $25.5B. Consensus price target implies 15% downside from current levels. Hold current position; re-assess on a decisive technical break either way."
+      "pct_from_52w_high": -0.019598613398883136,
+      "atr_pct": 3.869865558480122,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI elevated (74) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. The 18% monthly surge warrants trailing stop discipline. Market cap $25.4B. Consensus price target implies 14% downside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "analyst_target_mean": 143.83333,
+      "analyst_target_high": 180.0,
+      "analyst_target_low": 95.0,
+      "analyst_count": 18,
+      "recommendation_key": "buy",
+      "beta": 1.424,
+      "forward_pe": 28.297539,
+      "trailing_pe": 30.469091,
+      "price_to_book": 9.518887,
+      "dividend_yield": null,
+      "revenue_growth": 0.048,
+      "earnings_growth": 0.061,
+      "roe": 0.33822,
+      "debt_to_equity": 95.067,
+      "short_ratio": 4.55,
+      "analyst_breakdown": {
+        "strong_buy": 3,
+        "buy": 7,
+        "hold": 5,
+        "sell": 1,
+        "strong_sell": 3
+      },
+      "news": [
+        {
+          "title": "Is Grail Stock a Bad-News Buy After Its Recent Pullback?",
+          "publisher": "Motley Fool",
+          "link": "https://www.fool.com/investing/2026/06/04/is-grail-stock-a-bad-news-buy-after-its-recent-pul/",
+          "time": "2026-06-04T16:35:00Z"
+        },
+        {
+          "title": "Why Is Editas (EDIT) Down 12.4% Since Last Earnings Report?",
+          "publisher": "Zacks",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/why-editas-edit-down-12-153013709.html",
+          "time": "2026-06-04T15:30:13Z"
+        },
+        {
+          "title": "Is Illumina\u2019s (ILMN) Deeper IDT DRAGEN Tie-Up Quietly Rewriting Its Oncology Software Edge?",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/sectors/healthcare/articles/illumina-ilmn-deeper-idt-dragen-191328386.html",
+          "time": "2026-06-03T19:13:28Z"
+        },
+        {
+          "title": "BioMarin (BMRN) Up 0.2% Since Last Earnings Report: Can It Continue?",
+          "publisher": "Zacks",
+          "link": "https://finance.yahoo.com/sectors/healthcare/articles/biomarin-bmrn-0-2-since-153005342.html",
+          "time": "2026-06-03T15:30:05Z"
+        },
+        {
+          "title": "ILMN Stock Jumps 98.7% in a Year: What's Powering the Surge?",
+          "publisher": "Zacks",
+          "link": "https://finance.yahoo.com/sectors/healthcare/articles/ilmn-stock-jumps-98-7-145200538.html",
+          "time": "2026-06-03T14:52:00Z"
+        }
+      ],
+      "stooq_price": null,
+      "stooq_verified": null
     },
     {
       "ticker": "NKTR",
       "name": "Nektar Therapeutics",
       "type": "equity",
       "sector": "Biotech",
-      "price": 58.849998474121094,
-      "day_change_pct": -0.6415685818877297,
-      "week_change_pct": -9.29407989298151,
-      "month_change_pct": -30.837935119389403,
+      "price": 58.540000915527344,
+      "day_change_pct": -1.1649478845883716,
+      "week_change_pct": -9.771881329043405,
+      "month_change_pct": -31.202252397489588,
       "recommendation": "HOLD",
       "score": 0.16666666666666666,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price below EMA20 (68.19) \u2014 short-term momentum negative",
-        "RSI oversold at 23.7 \u2014 potential reversal opportunity",
+        "Price below EMA20 (68.16) \u2014 short-term momentum negative",
+        "RSI oversold at 23.4 \u2014 potential reversal opportunity",
         "MACD below signal line \u2014 bearish momentum",
-        "Down 41% from 52-week high \u2014 deep value zone",
-        "Weak 20-day momentum: -29.4%"
+        "Down 42% from 52-week high \u2014 deep value zone",
+        "Weak 20-day momentum: -29.8%"
       ],
-      "rsi": 23.68926007845691,
-      "macd": -5.394502013827406,
-      "signal_line": -4.390139116047919,
-      "sma_50": 76.7633999633789,
-      "sma_200": 59.20364992141724,
+      "rsi": 23.378170172693558,
+      "macd": -5.419231163800703,
+      "signal_line": -4.395084946042579,
+      "sma_50": 76.75720001220704,
+      "sma_200": 59.20209993362427,
       "high_52w": 100.3499984741211,
       "low_52w": 8.510000228881836,
-      "pct_from_52w_high": -0.41355257230723613,
-      "atr_pct": 5.93380513439385,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI deeply oversold (24) \u2014 price may be exhausting sellers; watch for a bounce catalyst. Down 41% from peak \u2014 high-risk, high-reward territory; position sizing is key. The -31% monthly drawdown raises questions about near-term support levels. Market cap $2.0B. P/E of -5x looks undemanding \u2014 value opportunity if fundamentals hold. Consensus price target implies 160% upside from current levels. Hold current position; re-assess on a decisive technical break either way."
+      "pct_from_52w_high": -0.4166417358678484,
+      "atr_pct": 6.034776973060698,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI deeply oversold (23) \u2014 price may be exhausting sellers; watch for a bounce catalyst. Down 42% from peak \u2014 high-risk, high-reward territory; position sizing is key. The -31% monthly drawdown raises questions about near-term support levels. Market cap $2.0B. P/E of -5x looks undemanding \u2014 value opportunity if fundamentals hold. Consensus price target implies 162% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "analyst_target_mean": 153.25,
+      "analyst_target_high": 192.0,
+      "analyst_target_low": 80.0,
+      "analyst_count": 8,
+      "recommendation_key": "none",
+      "beta": 1.249,
+      "forward_pe": -4.6599007,
+      "trailing_pe": null,
+      "price_to_book": 2.9942203,
+      "dividend_yield": null,
+      "revenue_growth": 0.038,
+      "earnings_growth": null,
+      "roe": -0.53597,
+      "debt_to_equity": 24.892,
+      "short_ratio": 3.5,
+      "analyst_breakdown": {
+        "strong_buy": 1,
+        "buy": 8,
+        "hold": 1,
+        "sell": 0,
+        "strong_sell": 0
+      },
+      "news": [
+        {
+          "title": "What to Know About This Fund's $10 Million Nektar Bet Ahead of a Key Phase 3 Launch",
+          "publisher": "Motley Fool",
+          "link": "https://www.fool.com/coverage/filings/2026/05/23/what-to-know-about-this-fund-s-usd10-million-nektar-bet-ahead-of-a-key-phase-3-launch/",
+          "time": "2026-05-23T20:48:41Z"
+        },
+        {
+          "title": "This Healthcare Investor Added $43 Million to a Genomics Leader Growing Volume 34%",
+          "publisher": "Motley Fool",
+          "link": "https://www.fool.com/coverage/filings/2026/05/23/this-healthcare-investor-added-usd43-million-to-a-genomics-leader-growing-volume-34/",
+          "time": "2026-05-23T20:37:22Z"
+        },
+        {
+          "title": "Assessing Nektar Therapeutics (NKTR) Valuation After Strong REZPEG Prospects And Recent Share Price Momentum",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/news/assessing-nektar-therapeutics-nktr-valuation-002658314.html",
+          "time": "2026-05-13T00:26:58Z"
+        },
+        {
+          "title": "Nektar Therapeutics Q1 2026 Earnings Call Summary",
+          "publisher": "Moby",
+          "link": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-nektar-therapeutics-q1-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss",
+          "time": "2026-05-08T12:30:00Z"
+        },
+        {
+          "title": "Nektar Therapeutics Q1 Earnings Call Highlights",
+          "publisher": "MarketBeat",
+          "link": "https://www.marketbeat.com/instant-alerts/nektar-therapeutics-q1-earnings-call-highlights-2026-05-08/?utm_source=yahoofinance&utm_medium=yahoofinance",
+          "time": "2026-05-08T11:07:36Z"
+        }
+      ],
+      "stooq_price": null,
+      "stooq_verified": null
     },
     {
       "ticker": "VWRL.L",
@@ -224,16 +624,34 @@
         "MACD above signal line \u2014 bullish momentum",
         "Near 52-week high \u2014 strong momentum but limited upside buffer"
       ],
-      "rsi": 72.14047493055728,
-      "macd": 2.246350382611496,
-      "signal_line": 2.2305333025913576,
+      "rsi": 72.14047493921676,
+      "macd": 2.2463503825224507,
+      "signal_line": 2.230533302460451,
       "sma_50": 129.94780014038085,
-      "sma_200": 123.93758090972901,
+      "sma_200": 123.93758117675782,
       "high_52w": 138.63999938964844,
-      "low_52w": 106.11397552490234,
+      "low_52w": 106.11398315429688,
       "pct_from_52w_high": -0.004832646940961671,
-      "atr_pct": 0.8887304423431761,
-      "commentary": "Vanguard FTSE All-World ETF provides diversified exposure. Mixed signals present \u2014 no clear directional conviction. RSI elevated (72) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Hold current position; re-assess on a decisive technical break either way."
+      "atr_pct": 0.8887304422354263,
+      "commentary": "Vanguard FTSE All-World ETF provides diversified exposure. Mixed signals present \u2014 no clear directional conviction. RSI elevated (72) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Hold current position; re-assess on a decisive technical break either way.",
+      "analyst_target_mean": null,
+      "analyst_target_high": null,
+      "analyst_target_low": null,
+      "analyst_count": null,
+      "recommendation_key": null,
+      "beta": null,
+      "forward_pe": null,
+      "trailing_pe": null,
+      "price_to_book": null,
+      "dividend_yield": null,
+      "revenue_growth": null,
+      "earnings_growth": null,
+      "roe": null,
+      "debt_to_equity": null,
+      "short_ratio": null,
+      "news": [],
+      "stooq_price": null,
+      "stooq_verified": null
     },
     {
       "ticker": "XDWH.L",
@@ -262,7 +680,25 @@
       "low_52w": 49.310001373291016,
       "pct_from_52w_high": -0.05821238151099758,
       "atr_pct": 1.4499501107755635,
-      "commentary": "Xtrackers MSCI World Hedged ETF provides diversified exposure. Technical picture is constructive \u2014 multiple indicators aligned to the upside. Overall, the balance of evidence supports accumulation on weakness."
+      "commentary": "Xtrackers MSCI World Hedged ETF provides diversified exposure. Technical picture is constructive \u2014 multiple indicators aligned to the upside. Overall, the balance of evidence supports accumulation on weakness.",
+      "analyst_target_mean": null,
+      "analyst_target_high": null,
+      "analyst_target_low": null,
+      "analyst_count": null,
+      "recommendation_key": null,
+      "beta": null,
+      "forward_pe": null,
+      "trailing_pe": 25.833551,
+      "price_to_book": null,
+      "dividend_yield": 0.0,
+      "revenue_growth": null,
+      "earnings_growth": null,
+      "roe": null,
+      "debt_to_equity": null,
+      "short_ratio": null,
+      "news": [],
+      "stooq_price": null,
+      "stooq_verified": null
     },
     {
       "ticker": "IIND.L",
@@ -291,7 +727,25 @@
       "low_52w": 6.091000080108643,
       "pct_from_52w_high": -0.35973665935508337,
       "atr_pct": 1.6349562625505871,
-      "commentary": "iShares MSCI India ETF provides diversified exposure. Technical picture is cautious \u2014 indicators skew negative. Risk/reward is unfavourable at current levels; consider reducing exposure."
+      "commentary": "iShares MSCI India ETF provides diversified exposure. Technical picture is cautious \u2014 indicators skew negative. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "analyst_target_mean": null,
+      "analyst_target_high": null,
+      "analyst_target_low": null,
+      "analyst_count": null,
+      "recommendation_key": null,
+      "beta": null,
+      "forward_pe": null,
+      "trailing_pe": null,
+      "price_to_book": null,
+      "dividend_yield": null,
+      "revenue_growth": null,
+      "earnings_growth": null,
+      "roe": null,
+      "debt_to_equity": null,
+      "short_ratio": null,
+      "news": [],
+      "stooq_price": null,
+      "stooq_verified": null
     },
     {
       "ticker": "SGLN.L",
@@ -319,9 +773,72 @@
       "low_52w": 4636.0,
       "pct_from_52w_high": -0.1600780234070221,
       "atr_pct": 1.7144749249003093,
-      "commentary": "iShares Physical Gold ETC is a physical commodity instrument. Technical picture is cautious \u2014 indicators skew negative. Risk/reward is unfavourable at current levels; consider reducing exposure."
+      "commentary": "iShares Physical Gold ETC is a physical commodity instrument. Technical picture is cautious \u2014 indicators skew negative. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "analyst_target_mean": null,
+      "analyst_target_high": null,
+      "analyst_target_low": null,
+      "analyst_count": null,
+      "recommendation_key": null,
+      "beta": null,
+      "forward_pe": null,
+      "trailing_pe": null,
+      "price_to_book": null,
+      "dividend_yield": null,
+      "revenue_growth": null,
+      "earnings_growth": null,
+      "roe": null,
+      "debt_to_equity": null,
+      "short_ratio": null,
+      "news": [
+        {
+          "title": "The most popular stocks and funds investors bought in September",
+          "publisher": "Yahoo Finance UK",
+          "link": "https://uk.finance.yahoo.com/news/most-popular-stocks-funds-investors-uk-september-103611811.html",
+          "time": "2025-10-08T10:36:11Z"
+        },
+        {
+          "title": "The most popular stocks and funds investors bought in August",
+          "publisher": "Yahoo Finance UK",
+          "link": "https://uk.finance.yahoo.com/news/popular-stocks-funds-investors-bought-august-114043112.html",
+          "time": "2025-09-10T11:40:43Z"
+        }
+      ],
+      "stooq_price": null,
+      "stooq_verified": null
     }
   ],
+  "macro": {
+    "vix": {
+      "label": "VIX",
+      "value": 15.4,
+      "change_pct": -4.11
+    },
+    "sp500": {
+      "label": "S&P 500",
+      "value": 7590.6699,
+      "change_pct": 0.49
+    },
+    "ftse100": {
+      "label": "FTSE 100",
+      "value": 10360.3203,
+      "change_pct": 0.27
+    },
+    "gold": {
+      "label": "Gold",
+      "value": 4506.3999,
+      "change_pct": 1.57
+    },
+    "treasury10y": {
+      "label": "US 10Y",
+      "value": 4.471,
+      "change_pct": -0.45
+    },
+    "gbpusd": {
+      "label": "GBP/USD",
+      "value": 1.3428,
+      "change_pct": -0.2
+    }
+  },
   "errors": [
     "HMI: insufficient data"
   ]
