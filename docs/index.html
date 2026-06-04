@@ -17,6 +17,7 @@
     --yellow: #f59e0b;
     --blue: #38bdf8;
     --accent: #6366f1;
+    --gold: #f59e0b;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -24,28 +25,38 @@
     color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
-    padding-bottom: 48px;
+    padding-bottom: 64px;
   }
 
+  /* ── Header ── */
   header {
     background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
     border-bottom: 1px solid var(--border);
     padding: 14px 18px 10px;
     position: sticky; top: 0; z-index: 100;
   }
-  .header-row { display: flex; align-items: center; justify-content: space-between; }
-  .logo { font-size: 1.15rem; font-weight: 800; color: var(--blue); letter-spacing: -0.5px; }
+  .header-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .logo { font-size: 1.15rem; font-weight: 800; color: var(--blue); letter-spacing: -0.5px; flex: 1; }
   .logo span { color: var(--accent); }
+  .header-btns { display: flex; gap: 8px; align-items: center; }
   .refresh-btn {
     background: var(--accent); color: #fff; border: none; border-radius: 8px;
     padding: 7px 14px; font-size: 0.78rem; font-weight: 600; cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
+  .portfolio-btn {
+    background: var(--surface); color: var(--muted); border: 1px solid var(--border);
+    border-radius: 8px; padding: 7px 12px; font-size: 0.78rem; font-weight: 600;
+    cursor: pointer; -webkit-tap-highlight-color: transparent; display: flex; align-items: center; gap: 5px;
+    transition: all 0.2s;
+  }
+  .portfolio-btn.authed { background: rgba(245,158,11,0.15); color: var(--gold); border-color: rgba(245,158,11,0.4); }
   .status-bar { margin-top: 6px; font-size: 0.7rem; color: var(--muted); display: flex; align-items: center; gap: 7px; }
   .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
   .dot.live { background: var(--green); }
   .dot.error { background: var(--red); }
 
+  /* ── Macro bar ── */
   .macro-bar {
     display: flex; gap: 8px; overflow-x: auto; padding: 10px 14px 4px;
     scrollbar-width: none; border-bottom: 1px solid var(--border);
@@ -61,6 +72,22 @@
   .macro-val   { font-size: 0.82rem; font-weight: 700; margin-top: 1px; }
   .macro-chg   { font-size: 0.68rem; font-weight: 600; }
 
+  /* ── Portfolio summary bar ── */
+  .portfolio-summary {
+    display: none; gap: 0; border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(245,158,11,0.05) 0%, rgba(99,102,241,0.05) 100%);
+  }
+  .portfolio-summary.visible { display: flex; overflow-x: auto; padding: 12px 14px; gap: 10px; scrollbar-width: none; }
+  .portfolio-summary::-webkit-scrollbar { display: none; }
+  .ps-card {
+    flex-shrink: 0; background: var(--surface); border: 1px solid rgba(245,158,11,0.25);
+    border-radius: 12px; padding: 10px 16px; min-width: 90px; text-align: center;
+  }
+  .ps-label { font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .ps-val   { font-size: 1.05rem; font-weight: 800; margin-top: 3px; }
+  .ps-sub   { font-size: 0.68rem; margin-top: 2px; }
+
+  /* ── Summary strip ── */
   .summary {
     display: flex; gap: 10px; overflow-x: auto; padding: 12px 14px 6px;
     scrollbar-width: none;
@@ -71,8 +98,9 @@
     border-radius: 12px; padding: 10px 16px; min-width: 80px; text-align: center;
   }
   .s-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-  .s-val { font-size: 1.2rem; font-weight: 800; margin-top: 3px; }
+  .s-val   { font-size: 1.2rem; font-weight: 800; margin-top: 3px; }
 
+  /* ── Filter tabs ── */
   .tabs {
     display: flex; gap: 7px; padding: 8px 14px 0;
     overflow-x: auto; scrollbar-width: none;
@@ -86,6 +114,7 @@
   }
   .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
+  /* ── Loading overlay ── */
   .loading-overlay {
     position: fixed; inset: 0; background: var(--bg);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -98,6 +127,42 @@
   }
   .loading-msg { color: var(--muted); font-size: 0.9rem; text-align: center; max-width: 280px; line-height: 1.5; }
 
+  /* ── Login modal ── */
+  .modal-backdrop {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px); z-index: 200; align-items: center; justify-content: center;
+  }
+  .modal-backdrop.open { display: flex; }
+  .modal {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+    padding: 28px 24px; width: 320px; max-width: 90vw;
+  }
+  .modal-title { font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+  .modal-sub { font-size: 0.78rem; color: var(--muted); margin-bottom: 20px; line-height: 1.5; }
+  .modal label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 5px; }
+  .modal input {
+    width: 100%; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text); padding: 10px 12px; font-size: 0.9rem;
+    outline: none; margin-bottom: 14px;
+  }
+  .modal input:focus { border-color: var(--accent); }
+  .modal-btns { display: flex; gap: 10px; margin-top: 4px; }
+  .modal-ok {
+    flex: 1; background: var(--accent); color: #fff; border: none; border-radius: 8px;
+    padding: 10px; font-size: 0.88rem; font-weight: 600; cursor: pointer;
+  }
+  .modal-cancel {
+    background: var(--surface2); color: var(--muted); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 16px; font-size: 0.88rem; cursor: pointer;
+  }
+  .modal-error { font-size: 0.78rem; color: var(--red); margin-top: 8px; min-height: 18px; }
+  .modal-spinner {
+    width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite;
+    display: none; margin: 0 auto;
+  }
+
+  /* ── Cards ── */
   .cards { padding: 12px 12px; display: flex; flex-direction: column; gap: 12px; }
   .card {
     background: var(--surface); border: 1px solid var(--border);
@@ -122,30 +187,42 @@
   .badge.sell { background: rgba(239,68,68,0.14); color: var(--red); }
 
   .delta-chip {
-    display: inline-flex; align-items: center; gap: 3px;
-    font-size: 0.62rem; font-weight: 700; border-radius: 20px;
-    padding: 2px 8px; margin-left: 6px; vertical-align: middle;
+    display: inline-flex; align-items: center; font-size: 0.62rem; font-weight: 700;
+    border-radius: 20px; padding: 2px 8px; margin-left: 6px; vertical-align: middle;
   }
   .delta-up   { background: rgba(34,197,94,0.15);  color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
   .delta-down { background: rgba(239,68,68,0.15);  color: var(--red);   border: 1px solid rgba(239,68,68,0.3); }
 
   .verified-chip {
-    display: inline-flex; align-items: center; gap: 3px;
-    font-size: 0.62rem; color: #34d399; background: rgba(52,211,153,0.1);
-    border: 1px solid rgba(52,211,153,0.25); border-radius: 20px;
-    padding: 2px 7px; margin-left: 6px; vertical-align: middle;
+    display: inline-flex; align-items: center; font-size: 0.62rem; color: #34d399;
+    background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25);
+    border-radius: 20px; padding: 2px 7px; margin-left: 6px; vertical-align: middle;
   }
 
   .card-right { text-align: right; flex-shrink: 0; }
   .card-price { font-size: 1.08rem; font-weight: 800; }
-  .card-day { font-size: 0.84rem; font-weight: 600; margin-top: 3px; }
+  .card-day   { font-size: 0.84rem; font-weight: 600; margin-top: 3px; }
 
+  /* ── Position strip (shown when authenticated) ── */
+  .position-strip {
+    display: none; border-top: 1px solid rgba(245,158,11,0.2);
+    background: rgba(245,158,11,0.04); padding: 8px 16px;
+    flex-wrap: wrap; gap: 14px;
+  }
+  .position-strip.visible { display: flex; }
+  .pos-item { display: flex; flex-direction: column; align-items: center; min-width: 60px; }
+  .pos-label { font-size: 0.58rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .pos-val   { font-size: 0.88rem; font-weight: 700; margin-top: 2px; }
+  .pos-no-position { font-size: 0.75rem; color: var(--muted); font-style: italic; padding: 4px 0; }
+
+  /* ── Metrics row ── */
   .metrics { display: flex; border-top: 1px solid var(--border); padding: 9px 16px; }
   .metric { flex: 1; text-align: center; }
   .metric:not(:last-child) { border-right: 1px solid var(--border); }
   .m-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
-  .m-val { font-size: 0.88rem; font-weight: 600; margin-top: 2px; }
+  .m-val   { font-size: 0.88rem; font-weight: 600; margin-top: 2px; }
 
+  /* ── Detail panel ── */
   .detail { display: none; border-top: 1px solid var(--border); padding: 16px; background: var(--surface2); }
   .detail.open { display: block; }
   .d-section { margin-bottom: 16px; }
@@ -154,7 +231,6 @@
     font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
     letter-spacing: 0.8px; color: var(--muted); margin-bottom: 9px;
   }
-
   .signals { list-style: none; display: flex; flex-direction: column; gap: 5px; }
   .signals li { font-size: 0.81rem; color: #94a3b8; padding-left: 14px; position: relative; line-height: 1.4; }
   .signals li::before { content: "\2022"; position: absolute; left: 0; color: var(--accent); }
@@ -168,7 +244,7 @@
   .analyst-target { font-size: 0.88rem; color: var(--text); margin-bottom: 9px; }
   .analyst-target span { font-weight: 700; }
   .analyst-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; gap: 1px; margin: 7px 0 4px; }
-  .ab-seg { height: 100%; transition: width 0.3s; }
+  .ab-seg { height: 100%; }
   .ab-strong-buy  { background: #16a34a; }
   .ab-buy         { background: #22c55e; }
   .ab-hold        { background: #f59e0b; }
@@ -178,12 +254,12 @@
   .al-item { font-size: 0.66rem; color: var(--muted); display: flex; align-items: center; gap: 4px; }
   .al-dot  { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
   .rec-key {
-    display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 700;
-    text-transform: capitalize; margin-bottom: 8px;
+    display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.72rem;
+    font-weight: 700; text-transform: capitalize; margin-bottom: 8px;
   }
-  .rec-key.buy, .rec-key.strongbuy { background: rgba(34,197,94,0.15); color: var(--green); }
-  .rec-key.hold                     { background: rgba(245,158,11,0.15); color: var(--yellow); }
-  .rec-key.sell, .rec-key.strongsell{ background: rgba(239,68,68,0.15); color: var(--red); }
+  .rec-key.buy, .rec-key.strongbuy  { background: rgba(34,197,94,0.15); color: var(--green); }
+  .rec-key.hold                      { background: rgba(245,158,11,0.15); color: var(--yellow); }
+  .rec-key.sell, .rec-key.strongsell { background: rgba(239,68,68,0.15); color: var(--red); }
 
   .news-list { display: flex; flex-direction: column; gap: 8px; }
   .news-item { border-left: 2px solid var(--border); padding-left: 10px; }
@@ -224,10 +300,33 @@
   <div class="loading-msg">Loading portfolio data&hellip;</div>
 </div>
 
+<!-- Login modal -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="handleBackdropClick(event)">
+  <div class="modal">
+    <div class="modal-title">&#128274; My Portfolio</div>
+    <div class="modal-sub">Enter your portfolio password to overlay your actual positions on the market data.</div>
+    <label for="pwd-input">Password</label>
+    <input type="password" id="pwd-input" placeholder="Password" autocomplete="current-password"
+           onkeydown="if(event.key==='Enter')doLogin()">
+    <div class="modal-btns">
+      <button class="modal-cancel" onclick="closeModal()">Cancel</button>
+      <button class="modal-ok" id="login-btn" onclick="doLogin()">Unlock</button>
+    </div>
+    <div class="modal-error" id="modal-error"></div>
+    <div class="modal-spinner" id="modal-spinner"></div>
+  </div>
+</div>
+
 <header>
   <div class="header-row">
     <div class="logo">Portfolio<span>Tracker</span></div>
-    <button class="refresh-btn" onclick="location.reload()">&#8635; Refresh</button>
+    <div class="header-btns">
+      <button class="portfolio-btn" id="portfolio-btn" onclick="handlePortfolioBtn()">
+        <span id="portfolio-btn-icon">&#128274;</span>
+        <span id="portfolio-btn-label">My Portfolio</span>
+      </button>
+      <button class="refresh-btn" onclick="location.reload()">&#8635;</button>
+    </div>
   </div>
   <div class="status-bar">
     <div class="dot" id="dot"></div>
@@ -236,6 +335,7 @@
 </header>
 
 <div class="macro-bar" id="macro-bar"></div>
+<div class="portfolio-summary" id="portfolio-summary"></div>
 <div class="summary" id="summary"></div>
 
 <div class="tabs">
@@ -252,38 +352,205 @@
 <div id="sources-footer"></div>
 
 <script>
+// ── State ────────────────────────────────────────────────────────────────────
 let allData = [], filter = 'all';
+let positionsMap = {};   // {ticker: {shares, avg_cost}}
+let isPortfolioMode = false;
 
+// ── Helpers ──────────────────────────────────────────────────────────────────
 const pc  = v => v == null ? '&mdash;' : (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
 const pcC = v => v == null ? '' : v > 0 ? 'g' : v < 0 ? 'r' : '';
 const fmt = (v, d=2) => v == null ? '&mdash;' : Number(v).toFixed(d);
 const pct = v => v == null ? '&mdash;' : (v >= 0 ? '+' : '') + (v * 100).toFixed(1) + '%';
-
 const REC_RANK = { 'SELL': 0, 'HOLD': 1, 'BUY': 2 };
+
+function fmtMoney(v, decimals=2) {
+  if (v == null) return '&mdash;';
+  const abs = Math.abs(v);
+  const s = abs >= 1e6 ? (abs/1e6).toFixed(2)+'M'
+           : abs >= 1e3 ? (abs/1e3).toFixed(1)+'k'
+           : abs.toFixed(decimals);
+  return (v < 0 ? '-' : '') + s;
+}
 
 function deltaChip(current, previous) {
   if (!previous || previous === current) return '';
   const up = REC_RANK[current] > REC_RANK[previous];
-  const cls = up ? 'delta-up' : 'delta-down';
-  const arrow = up ? '&#8593;' : '&#8595;';
-  return `<span class="delta-chip ${cls}">${arrow} was ${previous}</span>`;
+  return `<span class="delta-chip ${up?'delta-up':'delta-down'}">${up?'&#8593;':'&#8595;'} was ${previous}</span>`;
 }
 
+// ── Crypto helpers ────────────────────────────────────────────────────────────
+const SALT_STR = "portfolio-tracker-v1-salt";
+const ITERATIONS = 100000;
+
+async function deriveKey(password) {
+  const enc = new TextEncoder();
+  const raw = await crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt: enc.encode(SALT_STR), iterations: ITERATIONS, hash: "SHA-256" },
+    raw, { name: "AES-GCM", length: 256 }, false, ["decrypt"]
+  );
+}
+
+function b64ToBytes(b64) {
+  const bin = atob(b64);
+  return Uint8Array.from(bin, c => c.charCodeAt(0));
+}
+
+async function decryptPositions(password, enc) {
+  const key = await deriveKey(password);
+  const iv   = b64ToBytes(enc.iv);
+  const data = b64ToBytes(enc.data);
+  const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, data);
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+
+// ── Login ─────────────────────────────────────────────────────────────────────
+function handlePortfolioBtn() {
+  if (isPortfolioMode) {
+    // logout
+    isPortfolioMode = false;
+    positionsMap = {};
+    sessionStorage.removeItem('ptpwd');
+    document.getElementById('portfolio-btn').classList.remove('authed');
+    document.getElementById('portfolio-btn-icon').textContent = '🔒';
+    document.getElementById('portfolio-btn-label').textContent = 'My Portfolio';
+    document.getElementById('portfolio-summary').classList.remove('visible');
+    renderCards();
+  } else {
+    openModal();
+  }
+}
+
+function openModal() {
+  document.getElementById('modal-backdrop').classList.add('open');
+  document.getElementById('pwd-input').value = '';
+  document.getElementById('modal-error').textContent = '';
+  setTimeout(() => document.getElementById('pwd-input').focus(), 100);
+}
+function closeModal() {
+  document.getElementById('modal-backdrop').classList.remove('open');
+}
+function handleBackdropClick(e) {
+  if (e.target === document.getElementById('modal-backdrop')) closeModal();
+}
+
+async function doLogin() {
+  const pwd = document.getElementById('pwd-input').value.trim();
+  if (!pwd) return;
+
+  document.getElementById('login-btn').style.display = 'none';
+  document.getElementById('modal-spinner').style.display = 'block';
+  document.getElementById('modal-error').textContent = '';
+
+  try {
+    const res = await fetch('positions.enc?v=' + Date.now());
+    if (!res.ok) throw new Error('positions.enc not found');
+    const enc = await res.json();
+    const data = await decryptPositions(pwd, enc);
+
+    positionsMap = {};
+    (data.positions || []).forEach(p => { positionsMap[p.ticker] = p; });
+    isPortfolioMode = true;
+    sessionStorage.setItem('ptpwd', pwd);
+
+    closeModal();
+    document.getElementById('portfolio-btn').classList.add('authed');
+    document.getElementById('portfolio-btn-icon').textContent = '✅';
+    document.getElementById('portfolio-btn-label').textContent = 'Portfolio On';
+
+    renderPortfolioSummary();
+    renderCards();
+  } catch(e) {
+    document.getElementById('modal-error').textContent = 'Incorrect password — try again.';
+  } finally {
+    document.getElementById('login-btn').style.display = '';
+    document.getElementById('modal-spinner').style.display = 'none';
+  }
+}
+
+// ── Portfolio summary ─────────────────────────────────────────────────────────
+function renderPortfolioSummary() {
+  if (!isPortfolioMode) return;
+
+  let totalCost = 0, totalValue = 0, positions = 0;
+
+  allData.forEach(d => {
+    const pos = positionsMap[d.ticker];
+    if (!pos || !pos.shares || !d.price) return;
+    positions++;
+    totalCost  += pos.shares * pos.avg_cost;
+    totalValue += pos.shares * d.price;
+  });
+
+  const pnl    = totalValue - totalCost;
+  const pnlPct = totalCost > 0 ? pnl / totalCost * 100 : 0;
+  const pnlCls = pnl >= 0 ? 'g' : 'r';
+
+  const el = document.getElementById('portfolio-summary');
+  el.innerHTML =
+    card('Positions', positions, '', '') +
+    card('Total Cost',  fmtMoney(totalCost),  '', '') +
+    card('Market Value', fmtMoney(totalValue), '', '') +
+    card('Unrealised P&amp;L',
+      `<span class="${pnlCls}">${pnl >= 0 ? '+' : ''}${fmtMoney(pnl)}</span>`,
+      `<span class="${pnlCls}">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%</span>`, '');
+  el.classList.add('visible');
+
+  function card(label, val, sub) {
+    return `<div class="ps-card"><div class="ps-label">${label}</div><div class="ps-val">${val}</div>${sub ? `<div class="ps-sub">${sub}</div>` : ''}</div>`;
+  }
+}
+
+// ── Position strip (per card) ────────────────────────────────────────────────
+function positionStrip(d) {
+  if (!isPortfolioMode) return '<div class="position-strip"></div>';
+
+  const pos = positionsMap[d.ticker];
+  if (!pos || !pos.shares) {
+    return '<div class="position-strip visible"><span class="pos-no-position">No position held</span></div>';
+  }
+
+  const { shares, avg_cost } = pos;
+  const price    = d.price;
+  const value    = shares * price;
+  const cost     = shares * avg_cost;
+  const pnl      = value - cost;
+  const pnlPct   = cost > 0 ? pnl / cost * 100 : 0;
+  const pnlCls   = pnl >= 0 ? 'g' : 'r';
+  const dayPnl   = shares * price * (d.day_change_pct || 0) / 100;
+  const dayPnlCls = dayPnl >= 0 ? 'g' : 'r';
+
+  // Portfolio weight
+  let totalValue = 0;
+  allData.forEach(dd => {
+    const pp = positionsMap[dd.ticker];
+    if (pp && pp.shares && dd.price) totalValue += pp.shares * dd.price;
+  });
+  const weight = totalValue > 0 ? value / totalValue * 100 : 0;
+
+  return `<div class="position-strip visible">
+    <div class="pos-item"><div class="pos-label">Shares</div><div class="pos-val">${shares.toLocaleString()}</div></div>
+    <div class="pos-item"><div class="pos-label">Avg Cost</div><div class="pos-val">${avg_cost < 1000 ? avg_cost.toFixed(2) : avg_cost.toFixed(0)}</div></div>
+    <div class="pos-item"><div class="pos-label">Value</div><div class="pos-val">${fmtMoney(value)}</div></div>
+    <div class="pos-item"><div class="pos-label">P&amp;L</div><div class="pos-val ${pnlCls}">${pnl >= 0 ? '+' : ''}${fmtMoney(pnl)}</div></div>
+    <div class="pos-item"><div class="pos-label">P&amp;L %</div><div class="pos-val ${pnlCls}">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(1)}%</div></div>
+    <div class="pos-item"><div class="pos-label">Today</div><div class="pos-val ${dayPnlCls}">${dayPnl >= 0 ? '+' : ''}${fmtMoney(dayPnl)}</div></div>
+    <div class="pos-item"><div class="pos-label">Weight</div><div class="pos-val">${weight.toFixed(1)}%</div></div>
+  </div>`;
+}
+
+// ── Render helpers ────────────────────────────────────────────────────────────
 function renderMacro(macro) {
   if (!macro || !Object.keys(macro).length) return;
-  const bar = document.getElementById('macro-bar');
-  bar.innerHTML = Object.values(macro).map(m => {
+  document.getElementById('macro-bar').innerHTML = Object.values(macro).map(m => {
     const chg = m.change_pct;
     const cls = chg == null ? '' : chg >= 0 ? 'g' : 'r';
     const chgStr = chg == null ? '' : (chg >= 0 ? '+' : '') + chg.toFixed(2) + '%';
     const valStr = m.value >= 1000 ? m.value.toLocaleString(undefined, {maximumFractionDigits:0})
                  : m.value >= 10   ? m.value.toFixed(2)
                  :                   m.value.toFixed(4);
-    return `<div class="macro-item">
-      <div class="macro-label">${m.label}</div>
-      <div class="macro-val">${valStr}</div>
-      ${chgStr ? `<div class="macro-chg ${cls}">${chgStr}</div>` : ''}
-    </div>`;
+    return `<div class="macro-item"><div class="macro-label">${m.label}</div><div class="macro-val">${valStr}</div>${chgStr?`<div class="macro-chg ${cls}">${chgStr}</div>`:''}</div>`;
   }).join('');
 }
 
@@ -294,53 +561,33 @@ function renderSummary() {
   const up      = allData.filter(d => d.day_change_pct > 0).length;
   const changed = allData.filter(d => d.previous_recommendation && d.previous_recommendation !== d.recommendation).length;
   document.getElementById('summary').innerHTML =
-    `<div class="s-card"><div class="s-label">Holdings</div><div class="s-val">${allData.length}</div></div>` +
-    `<div class="s-card"><div class="s-label">Buy</div><div class="s-val g">${buys}</div></div>` +
-    `<div class="s-card"><div class="s-label">Hold</div><div class="s-val y">${holds}</div></div>` +
-    `<div class="s-card"><div class="s-label">Sell</div><div class="s-val r">${sells}</div></div>` +
-    `<div class="s-card"><div class="s-label">Up today</div><div class="s-val g">${up}</div></div>` +
-    (changed ? `<div class="s-card"><div class="s-label">Changed</div><div class="s-val y">${changed}</div></div>` : '');
+    sc('Holdings', allData.length, '') +
+    sc('Buy',    buys,  'g') +
+    sc('Hold',   holds, 'y') +
+    sc('Sell',   sells, 'r') +
+    sc('Up today', up, 'g') +
+    (changed ? sc('Changed', changed, 'y') : '');
+  function sc(l,v,c) { return `<div class="s-card"><div class="s-label">${l}</div><div class="s-val ${c}">${v}</div></div>`; }
 }
 
 function analystSection(d) {
-  const bd = d.analyst_breakdown;
-  const rk = d.recommendation_key;
-  const mean = d.analyst_target_mean;
-  const hi   = d.analyst_target_high;
-  const lo   = d.analyst_target_low;
-  const cnt  = d.analyst_count;
-  const price = d.price;
-
+  const { analyst_breakdown: bd, recommendation_key: rk, analyst_target_mean: mean,
+          analyst_target_high: hi, analyst_target_low: lo, analyst_count: cnt, price } = d;
   if (!bd && !rk && !mean) return '';
 
-  let html = `<div class="d-section"><div class="d-title">Analyst Consensus`;
-  if (cnt) html += ` &nbsp;<span style="font-weight:400;color:var(--muted)">(${cnt} analysts)</span>`;
-  html += `</div>`;
-
+  let h = `<div class="d-section"><div class="d-title">Analyst Consensus${cnt?` &nbsp;<span style="font-weight:400;color:var(--muted)">(${cnt} analysts)</span>`:''}</div>`;
   if (rk) {
-    const cls = rk.replace(/_/g, '');
-    const label = rk.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-    html += `<div class="rec-key ${cls}">${label}</div>`;
+    const cls = rk.replace(/_/g,'');
+    h += `<div class="rec-key ${cls}">${rk.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</div>`;
   }
-
   if (mean && price) {
-    const upside = ((mean - price) / price * 100);
-    const dir = upside >= 0 ? 'upside' : 'downside';
-    const cls = upside >= 0 ? 'g' : 'r';
-    html += `<div class="analyst-target">Target: <span>${lo ? fmt(lo) : '?'} &ndash; <span class="${cls}">${fmt(mean)}</span> &ndash; ${hi ? fmt(hi) : '?'}</span>
-      &nbsp;<span class="${cls}">(${upside >= 0 ? '+' : ''}${upside.toFixed(1)}% ${dir})</span></div>`;
+    const u = (mean-price)/price*100, cls=u>=0?'g':'r', dir=u>=0?'upside':'downside';
+    h += `<div class="analyst-target">Target: <span>${lo?fmt(lo):'?'} &ndash; <span class="${cls}">${fmt(mean)}</span> &ndash; ${hi?fmt(hi):'?'}</span> &nbsp;<span class="${cls}">(${u>=0?'+':''}${u.toFixed(1)}% ${dir})</span></div>`;
   }
-
   if (bd) {
-    const total = bd.strong_buy + bd.buy + bd.hold + bd.sell + bd.strong_sell || 1;
-    const p = n => (n / total * 100).toFixed(1) + '%';
-    html += `<div class="analyst-bar">
-      <div class="ab-seg ab-strong-buy"  style="width:${p(bd.strong_buy)}"></div>
-      <div class="ab-seg ab-buy"         style="width:${p(bd.buy)}"></div>
-      <div class="ab-seg ab-hold"        style="width:${p(bd.hold)}"></div>
-      <div class="ab-seg ab-sell"        style="width:${p(bd.sell)}"></div>
-      <div class="ab-seg ab-strong-sell" style="width:${p(bd.strong_sell)}"></div>
-    </div>
+    const t = bd.strong_buy+bd.buy+bd.hold+bd.sell+bd.strong_sell||1;
+    const p = n=>(n/t*100).toFixed(1)+'%';
+    h += `<div class="analyst-bar"><div class="ab-seg ab-strong-buy" style="width:${p(bd.strong_buy)}"></div><div class="ab-seg ab-buy" style="width:${p(bd.buy)}"></div><div class="ab-seg ab-hold" style="width:${p(bd.hold)}"></div><div class="ab-seg ab-sell" style="width:${p(bd.sell)}"></div><div class="ab-seg ab-strong-sell" style="width:${p(bd.strong_sell)}"></div></div>
     <div class="analyst-legend">
       <div class="al-item"><div class="al-dot" style="background:#16a34a"></div>Strong Buy ${bd.strong_buy}</div>
       <div class="al-item"><div class="al-dot" style="background:#22c55e"></div>Buy ${bd.buy}</div>
@@ -349,56 +596,36 @@ function analystSection(d) {
       <div class="al-item"><div class="al-dot" style="background:#b91c1c"></div>Strong Sell ${bd.strong_sell}</div>
     </div>`;
   }
-  html += `</div>`;
-  return html;
+  return h + '</div>';
 }
 
 function fundamentalsSection(d) {
   const items = [
-    ['Beta',        d.beta        != null ? d.beta.toFixed(2) : null],
-    ['Fwd P/E',     d.forward_pe  != null ? d.forward_pe.toFixed(1) : null],
-    ['P/Book',      d.price_to_book != null ? d.price_to_book.toFixed(2) : null],
-    ['Div Yield',   d.dividend_yield != null ? (d.dividend_yield * 100).toFixed(2) + '%' : null],
-    ['Rev Growth',  d.revenue_growth  != null ? pct(d.revenue_growth) : null],
-    ['EPS Growth',  d.earnings_growth != null ? pct(d.earnings_growth) : null],
-    ['ROE',         d.roe != null ? pct(d.roe) : null],
-    ['D/E',         d.debt_to_equity != null ? d.debt_to_equity.toFixed(2) : null],
-    ['Short Ratio', d.short_ratio != null ? d.short_ratio.toFixed(1) + 'd' : null],
-  ].filter(([,v]) => v != null);
-
+    ['Beta',d.beta!=null?d.beta.toFixed(2):null],
+    ['Fwd P/E',d.forward_pe!=null?d.forward_pe.toFixed(1):null],
+    ['P/Book',d.price_to_book!=null?d.price_to_book.toFixed(2):null],
+    ['Div Yield',d.dividend_yield!=null?(d.dividend_yield*100).toFixed(2)+'%':null],
+    ['Rev Growth',d.revenue_growth!=null?pct(d.revenue_growth):null],
+    ['EPS Growth',d.earnings_growth!=null?pct(d.earnings_growth):null],
+    ['ROE',d.roe!=null?pct(d.roe):null],
+    ['D/E',d.debt_to_equity!=null?d.debt_to_equity.toFixed(2):null],
+    ['Short Ratio',d.short_ratio!=null?d.short_ratio.toFixed(1)+'d':null],
+  ].filter(([,v])=>v!=null);
   if (!items.length) return '';
-  return `<div class="d-section"><div class="d-title">Fundamentals</div>
-    <div class="stat-grid">
-      ${items.map(([k,v]) => `<div class="stat-box"><div class="sk">${k}</div><div class="sv">${v}</div></div>`).join('')}
-    </div></div>`;
+  return `<div class="d-section"><div class="d-title">Fundamentals</div><div class="stat-grid">${items.map(([k,v])=>`<div class="stat-box"><div class="sk">${k}</div><div class="sv">${v}</div></div>`).join('')}</div></div>`;
 }
 
 function newsSection(d) {
-  const news = d.news;
-  if (!news || !news.length) return '';
-  function relTime(ts) {
-    if (!ts) return '';
-    let ms;
-    if (/^\d+$/.test(ts)) ms = parseInt(ts) * 1000;
-    else ms = Date.parse(ts);
-    if (isNaN(ms)) return '';
-    const diff = (Date.now() - ms) / 1000;
-    if (diff < 3600)  return Math.round(diff / 60) + 'm ago';
-    if (diff < 86400) return Math.round(diff / 3600) + 'h ago';
-    return Math.round(diff / 86400) + 'd ago';
-  }
-  const items = news.map(n => {
-    const t = relTime(n.time);
-    const titleHtml = n.link
-      ? `<a href="${n.link}" target="_blank" rel="noopener">${n.title}</a>`
-      : n.title;
-    return `<div class="news-item">
-      <div class="news-title">${titleHtml}</div>
-      <div class="news-meta">${[n.publisher, t].filter(Boolean).join(' &middot; ')}</div>
-    </div>`;
+  if (!d.news?.length) return '';
+  const items = d.news.map(n => {
+    let ms; const ts = n.time;
+    if (/^\d+$/.test(ts)) ms = parseInt(ts)*1000; else ms = Date.parse(ts);
+    const diff = (Date.now()-ms)/1000;
+    const rel = isNaN(ms)?'':diff<3600?Math.round(diff/60)+'m ago':diff<86400?Math.round(diff/3600)+'h ago':Math.round(diff/86400)+'d ago';
+    const title = n.link?`<a href="${n.link}" target="_blank" rel="noopener">${n.title}</a>`:n.title;
+    return `<div class="news-item"><div class="news-title">${title}</div><div class="news-meta">${[n.publisher,rel].filter(Boolean).join(' &middot; ')}</div></div>`;
   }).join('');
-  return `<div class="d-section"><div class="d-title">Recent News</div>
-    <div class="news-list">${items}</div></div>`;
+  return `<div class="d-section"><div class="d-title">Recent News</div><div class="news-list">${items}</div></div>`;
 }
 
 function renderCards() {
@@ -413,9 +640,7 @@ function renderCards() {
   });
   const el = document.getElementById('cards');
   if (!f.length) {
-    const msg = filter === 'changed'
-      ? 'No signal changes since last run.'
-      : 'No holdings match this filter.';
+    const msg = filter==='changed' ? 'No signal changes since last run.' : 'No holdings match this filter.';
     el.innerHTML = `<div style="text-align:center;padding:40px;color:var(--muted)">${msg}</div>`;
     return;
   }
@@ -424,8 +649,7 @@ function renderCards() {
     const rec = d.recommendation.toLowerCase();
     const sigs = (d.reasons||[]).map(r=>`<li>${r}</li>`).join('');
     const delta = deltaChip(d.recommendation, d.previous_recommendation);
-    const verifiedBadge = d.stooq_verified
-      ? '<span class="verified-chip">&#10003; Stooq verified</span>' : '';
+    const verified = d.stooq_verified ? '<span class="verified-chip">&#10003; Stooq</span>' : '';
 
     return `<div class="card ${rec}" id="c${i}" onclick="toggle(${i})">
       <div class="card-top">
@@ -433,13 +657,14 @@ function renderCards() {
           <div class="card-ticker">${d.ticker} <span class="chevron">&#9660;</span></div>
           <div class="card-name">${d.name}</div>
           <div class="card-sector">${d.sector} &middot; ${d.type.toUpperCase()}</div>
-          <div class="badge ${rec}">${d.recommendation}</div>${delta}${verifiedBadge}
+          <div class="badge ${rec}">${d.recommendation}</div>${delta}${verified}
         </div>
         <div class="card-right">
           <div class="card-price">${d.price!=null?(d.price<100?d.price.toFixed(2):d.price.toFixed(1)):'&mdash;'}</div>
           <div class="card-day ${pcC(d.day_change_pct)}">${pc(d.day_change_pct)}</div>
         </div>
       </div>
+      ${positionStrip(d)}
       <div class="metrics">
         <div class="metric"><div class="m-label">Week</div><div class="m-val ${pcC(d.week_change_pct)}">${pc(d.week_change_pct)}</div></div>
         <div class="metric"><div class="m-label">Month</div><div class="m-val ${pcC(d.month_change_pct)}">${pc(d.month_change_pct)}</div></div>
@@ -447,27 +672,18 @@ function renderCards() {
         <div class="metric"><div class="m-label">RSI</div><div class="m-val">${d.rsi!=null?d.rsi.toFixed(0):'&mdash;'}</div></div>
       </div>
       <div class="detail" id="d${i}">
-        <div class="d-section">
-          <div class="d-title">Technical Signals</div>
-          <ul class="signals">${sigs}</ul>
-        </div>
-        <div class="d-section">
-          <div class="d-title">Key Levels</div>
-          <div class="stat-grid">
-            <div class="stat-box"><div class="sk">SMA 50</div><div class="sv">${fmt(d.sma_50)}</div></div>
-            <div class="stat-box"><div class="sk">SMA 200</div><div class="sv">${fmt(d.sma_200)}</div></div>
-            <div class="stat-box"><div class="sk">52W High</div><div class="sv">${fmt(d.high_52w)}</div></div>
-            <div class="stat-box"><div class="sk">52W Low</div><div class="sv">${fmt(d.low_52w)}</div></div>
-            ${d.stooq_price ? `<div class="stat-box"><div class="sk">Stooq Price</div><div class="sv">${d.stooq_price.toFixed(2)}</div></div>` : ''}
-          </div>
-        </div>
+        <div class="d-section"><div class="d-title">Technical Signals</div><ul class="signals">${sigs}</ul></div>
+        <div class="d-section"><div class="d-title">Key Levels</div><div class="stat-grid">
+          <div class="stat-box"><div class="sk">SMA 50</div><div class="sv">${fmt(d.sma_50)}</div></div>
+          <div class="stat-box"><div class="sk">SMA 200</div><div class="sv">${fmt(d.sma_200)}</div></div>
+          <div class="stat-box"><div class="sk">52W High</div><div class="sv">${fmt(d.high_52w)}</div></div>
+          <div class="stat-box"><div class="sk">52W Low</div><div class="sv">${fmt(d.low_52w)}</div></div>
+          ${d.stooq_price?`<div class="stat-box"><div class="sk">Stooq Price</div><div class="sv">${d.stooq_price.toFixed(2)}</div></div>`:''}
+        </div></div>
         ${analystSection(d)}
         ${fundamentalsSection(d)}
         ${newsSection(d)}
-        <div class="d-section">
-          <div class="d-title">Fund Manager View</div>
-          <div class="commentary">${d.commentary}</div>
-        </div>
+        <div class="d-section"><div class="d-title">Fund Manager View</div><div class="commentary">${d.commentary}</div></div>
       </div>
     </div>`;
   }).join('');
@@ -484,6 +700,29 @@ function setFilter(f, el) {
   renderCards();
 }
 
+// ── Auto-restore session ──────────────────────────────────────────────────────
+async function tryRestoreSession() {
+  const pwd = sessionStorage.getItem('ptpwd');
+  if (!pwd || !allData.length) return;
+  try {
+    const res = await fetch('positions.enc?v=' + Date.now());
+    if (!res.ok) return;
+    const enc = await res.json();
+    const data = await decryptPositions(pwd, enc);
+    positionsMap = {};
+    (data.positions || []).forEach(p => { positionsMap[p.ticker] = p; });
+    isPortfolioMode = true;
+    document.getElementById('portfolio-btn').classList.add('authed');
+    document.getElementById('portfolio-btn-icon').textContent = '✅';
+    document.getElementById('portfolio-btn-label').textContent = 'Portfolio On';
+    renderPortfolioSummary();
+    renderCards();
+  } catch(e) {
+    sessionStorage.removeItem('ptpwd');
+  }
+}
+
+// ── Main load ─────────────────────────────────────────────────────────────────
 async function load() {
   try {
     const res = await fetch('data.json?v=' + Date.now());
@@ -503,16 +742,16 @@ async function load() {
       'Data from ' + d.toLocaleDateString([], {weekday:'short',day:'numeric',month:'short'}) +
       ' ' + d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) + ' UTC';
 
-    if (payload.sources && payload.sources.length) {
+    if (payload.sources?.length) {
       document.getElementById('sources-footer').innerHTML =
-        `<div class="sources-footer"><strong>Data sources:</strong><br>` +
-        payload.sources.map(s => `&bull; ${s}`).join('<br>') + `</div>`;
+        `<div class="sources-footer"><strong>Data sources:</strong><br>${payload.sources.map(s=>`&bull; ${s}`).join('<br>')}</div>`;
     }
+
+    await tryRestoreSession();
   } catch(e) {
     document.getElementById('overlay').style.display = 'none';
     document.getElementById('cards').innerHTML =
-      '<div class="error-banner">&#9888;&#65039; Could not load data.json &mdash; ' + e.message +
-      '<br><br>The data file is generated daily by GitHub Actions. If this is the first load, it may not exist yet. Check back in a few minutes after the Actions workflow completes.</div>';
+      `<div class="error-banner">&#9888;&#65039; Could not load data.json &mdash; ${e.message}<br><br>The data file is generated daily by GitHub Actions. Check back after the workflow completes.</div>`;
     document.getElementById('dot').className = 'dot error';
     document.getElementById('status-txt').textContent = 'Data unavailable';
   }
