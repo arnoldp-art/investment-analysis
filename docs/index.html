@@ -27,7 +27,6 @@
     padding-bottom: 48px;
   }
 
-  /* ── Header ── */
   header {
     background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
     border-bottom: 1px solid var(--border);
@@ -47,7 +46,6 @@
   .dot.live { background: var(--green); }
   .dot.error { background: var(--red); }
 
-  /* ── Macro bar ── */
   .macro-bar {
     display: flex; gap: 8px; overflow-x: auto; padding: 10px 14px 4px;
     scrollbar-width: none; border-bottom: 1px solid var(--border);
@@ -63,7 +61,6 @@
   .macro-val   { font-size: 0.82rem; font-weight: 700; margin-top: 1px; }
   .macro-chg   { font-size: 0.68rem; font-weight: 600; }
 
-  /* ── Summary strip ── */
   .summary {
     display: flex; gap: 10px; overflow-x: auto; padding: 12px 14px 6px;
     scrollbar-width: none;
@@ -76,7 +73,6 @@
   .s-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
   .s-val { font-size: 1.2rem; font-weight: 800; margin-top: 3px; }
 
-  /* ── Filter tabs ── */
   .tabs {
     display: flex; gap: 7px; padding: 8px 14px 0;
     overflow-x: auto; scrollbar-width: none;
@@ -90,7 +86,6 @@
   }
   .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-  /* ── Loading overlay ── */
   .loading-overlay {
     position: fixed; inset: 0; background: var(--bg);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -103,7 +98,6 @@
   }
   .loading-msg { color: var(--muted); font-size: 0.9rem; text-align: center; max-width: 280px; line-height: 1.5; }
 
-  /* ── Cards ── */
   .cards { padding: 12px 12px; display: flex; flex-direction: column; gap: 12px; }
   .card {
     background: var(--surface); border: 1px solid var(--border);
@@ -127,6 +121,14 @@
   .badge.hold { background: rgba(245,158,11,0.14); color: var(--yellow); }
   .badge.sell { background: rgba(239,68,68,0.14); color: var(--red); }
 
+  .delta-chip {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 0.62rem; font-weight: 700; border-radius: 20px;
+    padding: 2px 8px; margin-left: 6px; vertical-align: middle;
+  }
+  .delta-up   { background: rgba(34,197,94,0.15);  color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+  .delta-down { background: rgba(239,68,68,0.15);  color: var(--red);   border: 1px solid rgba(239,68,68,0.3); }
+
   .verified-chip {
     display: inline-flex; align-items: center; gap: 3px;
     font-size: 0.62rem; color: #34d399; background: rgba(52,211,153,0.1);
@@ -138,14 +140,12 @@
   .card-price { font-size: 1.08rem; font-weight: 800; }
   .card-day { font-size: 0.84rem; font-weight: 600; margin-top: 3px; }
 
-  /* ── Metrics row ── */
   .metrics { display: flex; border-top: 1px solid var(--border); padding: 9px 16px; }
   .metric { flex: 1; text-align: center; }
   .metric:not(:last-child) { border-right: 1px solid var(--border); }
   .m-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
   .m-val { font-size: 0.88rem; font-weight: 600; margin-top: 2px; }
 
-  /* ── Detail panel ── */
   .detail { display: none; border-top: 1px solid var(--border); padding: 16px; background: var(--surface2); }
   .detail.open { display: block; }
   .d-section { margin-bottom: 16px; }
@@ -157,7 +157,7 @@
 
   .signals { list-style: none; display: flex; flex-direction: column; gap: 5px; }
   .signals li { font-size: 0.81rem; color: #94a3b8; padding-left: 14px; position: relative; line-height: 1.4; }
-  .signals li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
+  .signals li::before { content: "\2022"; position: absolute; left: 0; color: var(--accent); }
   .commentary { font-size: 0.84rem; line-height: 1.65; color: #94a3b8; }
 
   .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
@@ -165,7 +165,6 @@
   .stat-box .sk { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
   .stat-box .sv { font-size: 0.9rem; font-weight: 600; margin-top: 2px; }
 
-  /* ── Analyst section ── */
   .analyst-target { font-size: 0.88rem; color: var(--text); margin-bottom: 9px; }
   .analyst-target span { font-weight: 700; }
   .analyst-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; gap: 1px; margin: 7px 0 4px; }
@@ -186,7 +185,6 @@
   .rec-key.hold                     { background: rgba(245,158,11,0.15); color: var(--yellow); }
   .rec-key.sell, .rec-key.strongsell{ background: rgba(239,68,68,0.15); color: var(--red); }
 
-  /* ── News section ── */
   .news-list { display: flex; flex-direction: column; gap: 8px; }
   .news-item { border-left: 2px solid var(--border); padding-left: 10px; }
   .news-title { font-size: 0.82rem; color: var(--text); line-height: 1.35; }
@@ -194,11 +192,9 @@
   .news-title a:hover { color: var(--blue); }
   .news-meta { font-size: 0.66rem; color: var(--muted); margin-top: 3px; }
 
-  /* ── Chevron ── */
   .chevron { transition: transform 0.2s; display: inline-block; font-size: 0.65rem; margin-left: 4px; color: var(--muted); }
   .card.open .chevron { transform: rotate(180deg); }
 
-  /* ── Colors ── */
   .g { color: var(--green); } .r { color: var(--red); } .y { color: var(--yellow); }
 
   .error-banner {
@@ -206,8 +202,6 @@
     border-radius: 12px; padding: 14px 16px; margin: 14px 12px;
     font-size: 0.84rem; color: #fca5a5; line-height: 1.5;
   }
-
-  /* ── Sources footer ── */
   .sources-footer {
     margin: 18px 14px 0; padding: 12px 14px;
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
@@ -251,6 +245,7 @@
   <div class="tab" onclick="setFilter('sell',this)">&#128308; Sell</div>
   <div class="tab" onclick="setFilter('equity',this)">Equities</div>
   <div class="tab" onclick="setFilter('etf',this)">ETFs / ETC</div>
+  <div class="tab" onclick="setFilter('changed',this)">&#128260; Changed</div>
 </div>
 
 <div class="cards" id="cards"></div>
@@ -263,6 +258,16 @@ const pc  = v => v == null ? '&mdash;' : (v >= 0 ? '+' : '') + v.toFixed(2) + '%
 const pcC = v => v == null ? '' : v > 0 ? 'g' : v < 0 ? 'r' : '';
 const fmt = (v, d=2) => v == null ? '&mdash;' : Number(v).toFixed(d);
 const pct = v => v == null ? '&mdash;' : (v >= 0 ? '+' : '') + (v * 100).toFixed(1) + '%';
+
+const REC_RANK = { 'SELL': 0, 'HOLD': 1, 'BUY': 2 };
+
+function deltaChip(current, previous) {
+  if (!previous || previous === current) return '';
+  const up = REC_RANK[current] > REC_RANK[previous];
+  const cls = up ? 'delta-up' : 'delta-down';
+  const arrow = up ? '&#8593;' : '&#8595;';
+  return `<span class="delta-chip ${cls}">${arrow} was ${previous}</span>`;
+}
 
 function renderMacro(macro) {
   if (!macro || !Object.keys(macro).length) return;
@@ -283,16 +288,18 @@ function renderMacro(macro) {
 }
 
 function renderSummary() {
-  const buys  = allData.filter(d => d.recommendation === 'BUY').length;
-  const holds = allData.filter(d => d.recommendation === 'HOLD').length;
-  const sells = allData.filter(d => d.recommendation === 'SELL').length;
-  const up    = allData.filter(d => d.day_change_pct > 0).length;
+  const buys    = allData.filter(d => d.recommendation === 'BUY').length;
+  const holds   = allData.filter(d => d.recommendation === 'HOLD').length;
+  const sells   = allData.filter(d => d.recommendation === 'SELL').length;
+  const up      = allData.filter(d => d.day_change_pct > 0).length;
+  const changed = allData.filter(d => d.previous_recommendation && d.previous_recommendation !== d.recommendation).length;
   document.getElementById('summary').innerHTML =
     `<div class="s-card"><div class="s-label">Holdings</div><div class="s-val">${allData.length}</div></div>` +
     `<div class="s-card"><div class="s-label">Buy</div><div class="s-val g">${buys}</div></div>` +
     `<div class="s-card"><div class="s-label">Hold</div><div class="s-val y">${holds}</div></div>` +
     `<div class="s-card"><div class="s-label">Sell</div><div class="s-val r">${sells}</div></div>` +
-    `<div class="s-card"><div class="s-label">Up today</div><div class="s-val g">${up}</div></div>`;
+    `<div class="s-card"><div class="s-label">Up today</div><div class="s-val g">${up}</div></div>` +
+    (changed ? `<div class="s-card"><div class="s-label">Changed</div><div class="s-val y">${changed}</div></div>` : '');
 }
 
 function analystSection(d) {
@@ -396,19 +403,27 @@ function newsSection(d) {
 
 function renderCards() {
   const f = allData.filter(d => {
-    if (filter==='all')    return true;
-    if (filter==='buy')    return d.recommendation==='BUY';
-    if (filter==='hold')   return d.recommendation==='HOLD';
-    if (filter==='sell')   return d.recommendation==='SELL';
-    if (filter==='equity') return d.type==='equity';
-    if (filter==='etf')    return d.type==='etf'||d.type==='etc';
+    if (filter==='all')     return true;
+    if (filter==='buy')     return d.recommendation==='BUY';
+    if (filter==='hold')    return d.recommendation==='HOLD';
+    if (filter==='sell')    return d.recommendation==='SELL';
+    if (filter==='equity')  return d.type==='equity';
+    if (filter==='etf')     return d.type==='etf'||d.type==='etc';
+    if (filter==='changed') return d.previous_recommendation && d.previous_recommendation !== d.recommendation;
   });
   const el = document.getElementById('cards');
-  if (!f.length) { el.innerHTML='<div style="text-align:center;padding:40px;color:var(--muted)">No holdings match this filter.</div>'; return; }
+  if (!f.length) {
+    const msg = filter === 'changed'
+      ? 'No signal changes since last run.'
+      : 'No holdings match this filter.';
+    el.innerHTML = `<div style="text-align:center;padding:40px;color:var(--muted)">${msg}</div>`;
+    return;
+  }
 
   el.innerHTML = f.map((d, i) => {
     const rec = d.recommendation.toLowerCase();
     const sigs = (d.reasons||[]).map(r=>`<li>${r}</li>`).join('');
+    const delta = deltaChip(d.recommendation, d.previous_recommendation);
     const verifiedBadge = d.stooq_verified
       ? '<span class="verified-chip">&#10003; Stooq verified</span>' : '';
 
@@ -418,7 +433,7 @@ function renderCards() {
           <div class="card-ticker">${d.ticker} <span class="chevron">&#9660;</span></div>
           <div class="card-name">${d.name}</div>
           <div class="card-sector">${d.sector} &middot; ${d.type.toUpperCase()}</div>
-          <div class="badge ${rec}">${d.recommendation}</div>${verifiedBadge}
+          <div class="badge ${rec}">${d.recommendation}</div>${delta}${verifiedBadge}
         </div>
         <div class="card-right">
           <div class="card-price">${d.price!=null?(d.price<100?d.price.toFixed(2):d.price.toFixed(1)):'&mdash;'}</div>
