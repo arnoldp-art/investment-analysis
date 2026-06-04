@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Portfolio Tracker</title>
+<style>
+  :root {
+    --bg: #0a0f1e;
+    --surface: #111827;
+    --surface2: #1a2235;
+    --border: #1f2d45;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --blue: #38bdf8;
+    --accent: #6366f1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding-bottom: 48px;
+  }
+
+  /* ── Header ── */
+  header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 18px 10px;
+    position: sticky; top: 0; z-index: 100;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  .header-row { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-size: 1.15rem; font-weight: 800; color: var(--blue); letter-spacing: -0.5px; }
+  .logo span { color: var(--accent); }
+  .header-actions { display: flex; align-items: center; gap: 10px; }
+  .refresh-btn {
+    background: var(--accent); color: #fff; border: none; border-radius: 8px;
+    padding: 7px 14px; font-size: 0.78rem; font-weight: 600; cursor: pointer;
+    display: flex; align-items: center; gap: 5px; transition: opacity 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .refresh-btn:disabled { opacity: 0.5; cursor: default; }
+  .status-bar { margin-top: 6px; font-size: 0.7rem; color: var(--muted); display: flex; align-items: center; gap: 7px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+  .dot.live { background: var(--green); }
+  .dot.loading { background: var(--yellow); animation: pulse 1s infinite; }
+  .dot.error { background: var(--red); }
+
+  /* ── Summary strip ── */
+  .summary {
+    display: flex; gap: 10px; overflow-x: auto; padding: 14px 16px 6px;
+    scrollbar-width: none;
+  }
+  .summary::-webkit-scrollbar { display: none; }
+  .s-card {
+    flex-shrink: 0; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 10px 16px; min-width: 80px; text-align: center;
+  }
+  .s-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .s-val { font-size: 1.2rem; font-weight: 800; margin-top: 3px; }
+
+  /* ── Filter tabs ── */
+  .tabs {
+    display: flex; gap: 7px; padding: 10px 16px 0;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    flex-shrink: 0; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; padding: 5px 13px; font-size: 0.76rem; font-weight: 500;
+    color: var(--muted); cursor: pointer; transition: all 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* ── Loading / error ── */
+  .loading-overlay {
+    position: fixed; inset: 0; background: var(--bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    z-index: 999;
+  }
+  .spinner {
+    width: 48px; height: 48px; border: 3px solid var(--border);
+    border-top-color: var(--accent); border-radius: 50%;
+    animation: spin 0.8s linear infinite; margin-bottom: 18px;
+  }
+  .loading-msg { color: var(--muted); font-size: 0.9rem; text-align: center; max-width: 280px; line-height: 1.5; }
+  .loading-sub { color: var(--muted); font-size: 0.75rem; margin-top: 8px; opacity: 0.6; }
+
+  /* ── Cards ── */
+  .cards { padding: 14px 12px; display: flex; flex-direction: column; gap: 12px; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden; cursor: pointer;
+    transition: transform 0.12s; -webkit-tap-highlight-color: transparent;
+  }
+  .card:active { transform: scale(0.985); }
+  .card.buy  { border-left: 3px solid var(--green); }
+  .card.hold { border-left: 3px solid var(--yellow); }
+  .card.sell { border-left: 3px solid var(--red); }
+
+  .card-top { padding: 14px 16px 10px; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .card-ticker { font-size: 0.72rem; font-weight: 700; color: var(--muted); letter-spacing: 0.6px; }
+  .card-name { font-size: 0.98rem; font-weight: 700; color: var(--text); margin-top: 1px; line-height: 1.2; }
+  .card-sector { font-size: 0.7rem; color: var(--muted); margin-top: 3px; }
+  .badge {
+    display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 20px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; margin-top: 8px;
+  }
+  .badge.buy  { background: rgba(34,197,94,0.14); color: var(--green); }
+  .badge.hold { background: rgba(245,158,11,0.14); color: var(--yellow); }
+  .badge.sell { background: rgba(239,68,68,0.14); color: var(--red); }
+
+  .card-right { text-align: right; flex-shrink: 0; }
+  .card-price { font-size: 1.08rem; font-weight: 800; }
+  .card-day { font-size: 0.84rem; font-weight: 600; margin-top: 3px; }
+
+  /* ── Metrics ── */
+  .metrics {
+    display: flex; border-top: 1px solid var(--border); padding: 9px 16px;
+  }
+  .metric { flex: 1; text-align: center; }
+  .metric:not(:last-child) { border-right: 1px solid var(--border); }
+  .m-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .m-val { font-size: 0.88rem; font-weight: 600; margin-top: 2px; }
+
+  /* ── Detail panel ── */
+  .detail {
+    display: none; border-top: 1px solid var(--border);
+    padding: 16px; background: var(--surface2);
+  }
+  .detail.open { display: block; }
+  .d-section { margin-bottom: 16px; }
+  .d-section:last-child { margin-bottom: 0; }
+  .d-title {
+    font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.8px; color: var(--muted); margin-bottom: 9px;
+  }
+  .signals { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .signals li { font-size: 0.81rem; color: #94a3b8; padding-left: 14px; position: relative; line-height: 1.4; }
+  .signals li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
+  .commentary { font-size: 0.84rem; line-height: 1.65; color: #94a3b8; }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+  .stat-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 10px;
+  }
+  .stat-box .sk { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .stat-box .sv { font-size: 0.9rem; font-weight: 600; margin-top: 2px; }
+
+  .chevron { transition: transform 0.2s; display: inline-block; font-size: 0.65rem; margin-left: 4px; color: var(--muted); }
+  .card.open .chevron { transform: rotate(180deg); }
+
+  /* ── Colours ── */
+  .g { color: var(--green); }
+  .r { color: var(--red); }
+  .y { color: var(--yellow); }
+
+  /* ── Error banner ── */
+  .error-banner {
+    background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3);
+    border-radius: 12px; padding: 14px 16px; margin: 14px 12px;
+    font-size: 0.84rem; color: #fca5a5; line-height: 1.5;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  @media (min-width: 640px) {
+    .cards { max-width: 700px; margin: 0 auto; }
+    .summary { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div id="overlay" class="loading-overlay">
+  <div class="spinner"></div>
+  <div class="loading-msg" id="loading-msg">Fetching live market data…</div>
+  <div class="loading-sub">Pulling prices for 12 holdings</div>
+</div>
+
+<header>
+  <div class="header-row">
+    <div class="logo">Portfolio<span>Tracker</span></div>
+    <div class="header-actions">
+      <button class="refresh-btn" id="refresh-btn" onclick="refreshAll()">↻ Refresh</button>
+    </div>
+  </div>
+  <div class="status-bar">
+    <div class="dot" id="dot"></div>
+    <span id="status-txt">Initialising…</span>
+  </div>
+</header>
+
+<div class="summary" id="summary"></div>
+
+<div class="tabs" id="tabs">
+  <div class="tab active" onclick="setFilter('all',this)">All</div>
+  <div class="tab" onclick="setFilter('buy',this)">🟢 Buy</div>
+  <div class="tab" onclick="setFilter('hold',this)">🟡 Hold</div>
+  <div class="tab" onclick="setFilter('sell',this)">🔴 Sell</div>
+  <div class="tab" onclick="setFilter('equity',this)">Equities</div>
+  <div class="tab" onclick="setFilter('etf',this)">ETFs / ETC</div>
+</div>
+
+<div class="cards" id="cards"></div>
+
+<script>
+// ── Holdings definition ──────────────────────────────────────────────────────
+const HOLDINGS = [
+  {ticker:'NVDA',   yf:'NVDA',    name:'Nvidia',                      type:'equity', sector:'Technology'},
+  {ticker:'AAPL',   yf:'AAPL',    name:'Apple',                       type:'equity', sector:'Technology'},
+  {ticker:'GOOGL',  yf:'GOOGL',   name:'Alphabet (Google)',            type:'equity', sector:'Technology'},
+  {ticker:'AMZN',   yf:'AMZN',    name:'Amazon',                      type:'equity', sector:'Consumer / Cloud'},
+  {ticker:'RBLX',   yf:'RBLX',    name:'Roblox',                      type:'equity', sector:'Gaming / Metaverse'},
+  {ticker:'ILMN',   yf:'ILMN',    name:'Illumina',                    type:'equity', sector:'Genomics'},
+  {ticker:'NKTR',   yf:'NKTR',    name:'Nektar Therapeutics',         type:'equity', sector:'Biotech'},
+  {ticker:'HMI',    yf:'HMI',     name:'Harte-Hanks',                 type:'equity', sector:'Marketing Services'},
+  {ticker:'VWRL.L', yf:'VWRL.L',  name:'Vanguard FTSE All-World ETF', type:'etf',    sector:'Global Equity'},
+  {ticker:'XDWH.L', yf:'XDWH.L',  name:'Xtrackers MSCI World Hdg ETF',type:'etf',   sector:'Developed Markets'},
+  {ticker:'IIND.L', yf:'IIND.L',  name:'iShares MSCI India ETF',      type:'etf',    sector:'Emerging Markets'},
+  {ticker:'SGLN.L', yf:'SGLN.L',  name:'iShares Physical Gold ETC',   type:'etc',    sector:'Commodities'},
+];
+
+// ── Technical analysis helpers ───────────────────────────────────────────────
+function ema(arr, n) {
+  const k = 2 / (n + 1);
+  const out = new Array(arr.length).fill(null);
+  let e = arr[n - 1];
+  out[n - 1] = e;
+  for (let i = n; i < arr.length; i++) { e = arr[i] * k + e * (1 - k); out[i] = e; }
+  return out;
+}
+function sma(arr, n) {
+  return arr.map((_, i) => {
+    if (i < n - 1) return null;
+    return arr.slice(i - n + 1, i + 1).reduce((a, b) => a + b, 0) / n;
+  });
+}
+function computeRSI(closes, n = 14) {
+  const rsi = new Array(closes.length).fill(null);
+  if (closes.length < n + 1) return rsi;
+  let avgGain = 0, avgLoss = 0;
+  for (let i = 1; i <= n; i++) {
+    const d = closes[i] - closes[i - 1];
+    if (d > 0) avgGain += d; else avgLoss -= d;
+  }
+  avgGain /= n; avgLoss /= n;
+  for (let i = n; i < closes.length; i++) {
+    const d = closes[i] - closes[i - 1];
+    const gain = d > 0 ? d : 0;
+    const loss = d < 0 ? -d : 0;
+    avgGain = (avgGain * (n - 1) + gain) / n;
+    avgLoss = (avgLoss * (n - 1) + loss) / n;
+    rsi[i] = avgLoss === 0 ? 100 : 100 - 100 / (1 + avgGain / avgLoss);
+  }
+  return rsi;
+}
+function computeMACD(closes) {
+  const e12 = ema(closes, 12);
+  const e26 = ema(closes, 26);
+  const macd = closes.map((_, i) => (e12[i] != null && e26[i] != null) ? e12[i] - e26[i] : null);
+  const validMacd = macd.map(v => v ?? 0);
+  const signal = ema(validMacd, 9);
+  return { macd, signal };
+}
+function computeBB(closes, n = 20) {
+  const mid = sma(closes, n);
+  const upper = closes.map((_, i) => {
+    if (mid[i] == null) return null;
+    const slice = closes.slice(i - n + 1, i + 1);
+    const std = Math.sqrt(slice.reduce((s, v) => s + (v - mid[i]) ** 2, 0) / n);
+    return mid[i] + 2 * std;
+  });
+  const lower = closes.map((_, i) => {
+    if (mid[i] == null) return null;
+    const slice = closes.slice(i - n + 1, i + 1);
+    const std = Math.sqrt(slice.reduce((s, v) => s + (v - mid[i]) ** 2, 0) / n);
+    return mid[i] - 2 * std;
+  });
+  return { upper, mid, lower };
+}
+
+function analyse(closes, highs, lows, volumes) {
+  const n = closes.length;
+  const price = closes[n - 1];
+  const signals = [];
+  const reasons = [];
+
+  const sma50  = sma(closes, 50);
+  const sma200 = sma(closes, 200);
+  const ema20  = ema(closes, 20);
+  const s50 = sma50[n - 1], s200 = sma200[n - 1], e20 = ema20[n - 1];
+
+  if (s50 && s200) {
+    if (s50 > s200) { signals.push(1); reasons.push('Golden Cross (SMA50 > SMA200) — bullish trend structure'); }
+    else            { signals.push(-1); reasons.push('Death Cross (SMA50 < SMA200) — bearish trend structure'); }
+  }
+  if (e20) {
+    if (price > e20) { signals.push(1); reasons.push(`Price above EMA20 (${e20.toFixed(2)}) — short-term momentum positive`); }
+    else             { signals.push(-1); reasons.push(`Price below EMA20 (${e20.toFixed(2)}) — short-term momentum negative`); }
+  }
+
+  const rsiArr = computeRSI(closes);
+  const rsi = rsiArr[n - 1];
+  if (rsi != null) {
+    if      (rsi < 30) { signals.push(2);  reasons.push(`RSI oversold at ${rsi.toFixed(1)} — potential reversal opportunity`); }
+    else if (rsi > 70) { signals.push(-2); reasons.push(`RSI overbought at ${rsi.toFixed(1)} — risk of near-term pullback`); }
+    else if (rsi < 45) { signals.push(-1); reasons.push(`RSI weakening at ${rsi.toFixed(1)}`); }
+    else if (rsi > 55) { signals.push(1);  reasons.push(`RSI strengthening at ${rsi.toFixed(1)}`); }
+    else               { signals.push(0);  reasons.push(`RSI neutral at ${rsi.toFixed(1)}`); }
+  }
+
+  const { macd, signal } = computeMACD(closes);
+  const mv = macd[n - 1], sv = signal[n - 1];
+  if (mv != null && sv != null) {
+    if (mv > sv) { signals.push(1);  reasons.push('MACD above signal line — bullish momentum'); }
+    else         { signals.push(-1); reasons.push('MACD below signal line — bearish momentum'); }
+    const hist = mv - sv, prevHist = macd[n - 2] - signal[n - 2];
+    if (hist > prevHist && hist > 0) reasons.push('MACD histogram expanding positively');
+    if (hist < prevHist && hist < 0) reasons.push('MACD histogram expanding negatively');
+  }
+
+  const { upper: bbu, lower: bbl, mid: bbm } = computeBB(closes);
+  const bbuV = bbu[n - 1], bblV = bbl[n - 1], bbmV = bbm[n - 1];
+  if (bbuV && bblV) {
+    if (price <= bblV)      { signals.push(2);  reasons.push('Price at/below lower Bollinger Band — mean reversion candidate'); }
+    else if (price >= bbuV) { signals.push(-1); reasons.push('Price at/above upper Bollinger Band — stretched, watch for reversal'); }
+    else if (bbmV && (bbuV - bblV) / bbmV < 0.05) reasons.push('Bollinger Band squeeze — volatility breakout imminent');
+  }
+
+  if (n >= 20 && volumes) {
+    const avgVol = volumes.slice(-20).reduce((a, b) => a + b, 0) / 20;
+    const recentVol = volumes.slice(-5).reduce((a, b) => a + b, 0) / 5;
+    const pChg = (closes[n - 1] - closes[n - 6]) / closes[n - 6];
+    if (recentVol > avgVol * 1.3) {
+      if (pChg > 0) { signals.push(1);  reasons.push('Above-average volume confirming upward price move'); }
+      else          { signals.push(-1); reasons.push('Above-average volume on price decline — distribution signal'); }
+    }
+  }
+
+  const windowSize = Math.min(252, n);
+  const recentCloses = closes.slice(-windowSize);
+  const high52 = Math.max(...recentCloses);
+  const low52  = Math.min(...recentCloses);
+  const pctFromHigh = (price - high52) / high52;
+  if (pctFromHigh < -0.30) { signals.push(1); reasons.push(`Down ${Math.abs(pctFromHigh * 100).toFixed(0)}% from 52-week high — deep value zone`); }
+  else if (pctFromHigh > -0.05) reasons.push('Near 52-week high — strong momentum but limited upside buffer');
+
+  if (n >= 20) {
+    const roc = (closes[n - 1] - closes[n - 21]) / closes[n - 21];
+    if      (roc > 0.10) { signals.push(1);  reasons.push(`Strong 20-day momentum: +${(roc*100).toFixed(1)}%`); }
+    else if (roc < -0.10){ signals.push(-1); reasons.push(`Weak 20-day momentum: ${(roc*100).toFixed(1)}%`); }
+  }
+
+  const nonZero = signals.filter(s => s !== 0);
+  const score = nonZero.length ? signals.reduce((a, b) => a + b, 0) / nonZero.length : 0;
+  const recommendation = score >= 0.5 ? 'BUY' : score <= -0.5 ? 'SELL' : 'HOLD';
+
+  const prev   = closes[n - 2] ?? price;
+  const week   = closes[Math.max(0, n - 6)] ?? price;
+  const month  = closes[Math.max(0, n - 22)] ?? price;
+
+  return {
+    price, rsi, macd: mv, sma50: s50, sma200: s200,
+    high52, low52, pctFromHigh,
+    dayPct:   (price - prev) / prev * 100,
+    weekPct:  (price - week) / week * 100,
+    monthPct: (price - month) / month * 100,
+    recommendation, score, reasons,
+  };
+}
+
+// ── Fund manager commentary ───────────────────────────────────────────────────
+function commentary(holding, result) {
+  const { name, sector, type } = holding;
+  const { recommendation: rec, score, rsi, pctFromHigh, monthPct } = result;
+  const lines = [];
+
+  if (type === 'etf' || type === 'etc')
+    lines.push(`${name} provides diversified exposure to ${sector}. `);
+
+  if (score >= 0.5)       lines.push('Technical picture is constructive — multiple indicators aligned to the upside. ');
+  else if (score <= -0.5) lines.push('Technical picture is cautious — indicators skew negative. ');
+  else                    lines.push('Mixed signals present — no clear directional conviction. ');
+
+  if (rsi != null) {
+    if      (rsi < 30) lines.push(`RSI deeply oversold (${rsi.toFixed(0)}) — price may be exhausting sellers; watch for a bounce catalyst. `);
+    else if (rsi > 70) lines.push(`RSI elevated (${rsi.toFixed(0)}) — momentum is stretched; disciplined investors may trim on further strength. `);
+  }
+  if (pctFromHigh < -0.40) lines.push(`Down ${Math.abs(pctFromHigh*100).toFixed(0)}% from peak — high-risk, high-reward territory; position sizing is key. `);
+  else if (pctFromHigh > -0.05) lines.push('Near all-time/52-week highs — momentum is strong but entry risk is elevated. ');
+
+  if      (monthPct > 15)  lines.push(`The ${monthPct.toFixed(0)}% monthly surge warrants trailing stop discipline. `);
+  else if (monthPct < -15) lines.push(`The ${monthPct.toFixed(0)}% monthly drawdown raises questions about near-term support levels. `);
+
+  if      (rec === 'BUY')  lines.push('Overall, the balance of evidence supports accumulation on weakness.');
+  else if (rec === 'SELL') lines.push('Risk/reward is unfavourable at current levels; consider reducing exposure.');
+  else                     lines.push('Hold current position; re-assess on a decisive technical break either way.');
+
+  return lines.join('');
+}
+
+// ── Yahoo Finance fetcher ────────────────────────────────────────────────────
+async function fetchTicker(yf) {
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(yf)}?range=1y&interval=1d&includePrePost=false`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const json = await res.json();
+  const result = json.chart?.result?.[0];
+  if (!result) throw new Error('No data');
+  const closes  = result.indicators.quote[0].close;
+  const highs   = result.indicators.quote[0].high;
+  const lows    = result.indicators.quote[0].low;
+  const volumes = result.indicators.quote[0].volume;
+  // Filter out nulls
+  const valid = closes.map((c, i) => c != null).reduce((acc, ok, i) => { if (ok) acc.push(i); return acc; }, []);
+  return {
+    closes:  valid.map(i => closes[i]),
+    highs:   valid.map(i => highs[i]),
+    lows:    valid.map(i => lows[i]),
+    volumes: valid.map(i => volumes[i]),
+  };
+}
+
+// ── State ────────────────────────────────────────────────────────────────────
+let allData = [];
+let filter = 'all';
+
+// ── Render helpers ───────────────────────────────────────────────────────────
+const pc = v => v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
+const pcCls = v => v == null ? '' : v > 0 ? 'g' : v < 0 ? 'r' : '';
+const fmt = (v, d=2) => v == null ? '—' : v.toFixed(d);
+
+function renderSummary() {
+  const buys  = allData.filter(d => d.rec === 'BUY').length;
+  const holds = allData.filter(d => d.rec === 'HOLD').length;
+  const sells = allData.filter(d => d.rec === 'SELL').length;
+  const up    = allData.filter(d => d.dayPct > 0).length;
+  document.getElementById('summary').innerHTML = `
+    <div class="s-card"><div class="s-label">Holdings</div><div class="s-val">${allData.length}</div></div>
+    <div class="s-card"><div class="s-label">Buy</div><div class="s-val g">${buys}</div></div>
+    <div class="s-card"><div class="s-label">Hold</div><div class="s-val y">${holds}</div></div>
+    <div class="s-card"><div class="s-label">Sell</div><div class="s-val r">${sells}</div></div>
+    <div class="s-card"><div class="s-label">Up today</div><div class="s-val g">${up}</div></div>
+  `;
+}
+
+function renderCards() {
+  const filtered = allData.filter(d => {
+    if (filter === 'all') return true;
+    if (filter === 'buy')    return d.rec === 'BUY';
+    if (filter === 'hold')   return d.rec === 'HOLD';
+    if (filter === 'sell')   return d.rec === 'SELL';
+    if (filter === 'equity') return d.type === 'equity';
+    if (filter === 'etf')    return d.type === 'etf' || d.type === 'etc';
+  });
+
+  const container = document.getElementById('cards');
+  if (!filtered.length) {
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--muted)">No holdings match this filter.</div>';
+    return;
+  }
+
+  container.innerHTML = filtered.map((d, i) => {
+    const rec = d.rec.toLowerCase();
+    const signals = (d.reasons || []).map(r => `<li>${r}</li>`).join('');
+    return `
+    <div class="card ${rec}" id="c${i}" onclick="toggle(${i})">
+      <div class="card-top">
+        <div>
+          <div class="card-ticker">${d.ticker} <span class="chevron">▼</span></div>
+          <div class="card-name">${d.name}</div>
+          <div class="card-sector">${d.sector} · ${d.type.toUpperCase()}</div>
+          <div class="badge ${rec}">${d.rec}</div>
+        </div>
+        <div class="card-right">
+          <div class="card-price">${d.price < 100 ? d.price.toFixed(2) : d.price.toFixed(1)}</div>
+          <div class="card-day ${pcCls(d.dayPct)}">${pc(d.dayPct)}</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="m-label">Week</div><div class="m-val ${pcCls(d.weekPct)}">${pc(d.weekPct)}</div></div>
+        <div class="metric"><div class="m-label">Month</div><div class="m-val ${pcCls(d.monthPct)}">${pc(d.monthPct)}</div></div>
+        <div class="metric"><div class="m-label">vs 52W High</div><div class="m-val ${pcCls(d.pctFromHigh*100)}">${pc(d.pctFromHigh*100)}</div></div>
+        <div class="metric"><div class="m-label">RSI</div><div class="m-val">${d.rsi != null ? d.rsi.toFixed(0) : '—'}</div></div>
+      </div>
+      <div class="detail" id="d${i}">
+        <div class="d-section">
+          <div class="d-title">Technical Signals</div>
+          <ul class="signals">${signals}</ul>
+        </div>
+        <div class="d-section">
+          <div class="d-title">Key Levels</div>
+          <div class="stat-grid">
+            <div class="stat-box"><div class="sk">SMA 50</div><div class="sv">${fmt(d.sma50)}</div></div>
+            <div class="stat-box"><div class="sk">SMA 200</div><div class="sv">${fmt(d.sma200)}</div></div>
+            <div class="stat-box"><div class="sk">52W High</div><div class="sv">${fmt(d.high52)}</div></div>
+            <div class="stat-box"><div class="sk">52W Low</div><div class="sv">${fmt(d.low52)}</div></div>
+          </div>
+        </div>
+        <div class="d-section">
+          <div class="d-title">Fund Manager View</div>
+          <div class="commentary">${d.commentary}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggle(i) {
+  document.getElementById('c' + i).classList.toggle('open');
+  document.getElementById('d' + i).classList.toggle('open');
+}
+
+function setFilter(f, el) {
+  filter = f;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderCards();
+}
+
+// ── Main load ────────────────────────────────────────────────────────────────
+async function loadAll() {
+  document.getElementById('overlay').style.display = 'flex';
+  document.getElementById('dot').className = 'dot loading';
+  document.getElementById('status-txt').textContent = 'Loading…';
+
+  const results = [];
+  let loaded = 0;
+
+  await Promise.allSettled(HOLDINGS.map(async h => {
+    try {
+      const { closes, highs, lows, volumes } = await fetchTicker(h.yf);
+      const result = analyse(closes, highs, lows, volumes);
+      const comment = commentary(h, result);
+      results.push({
+        ticker: h.ticker, name: h.name, type: h.type, sector: h.sector,
+        rec: result.recommendation,
+        price: result.price,
+        dayPct: result.dayPct, weekPct: result.weekPct, monthPct: result.monthPct,
+        pctFromHigh: result.pctFromHigh,
+        rsi: result.rsi, sma50: result.sma50, sma200: result.sma200,
+        high52: result.high52, low52: result.low52,
+        reasons: result.reasons,
+        commentary: comment,
+        _order: HOLDINGS.findIndex(x => x.ticker === h.ticker),
+      });
+    } catch(e) {
+      console.warn('Failed:', h.ticker, e.message);
+    }
+    loaded++;
+    document.getElementById('loading-msg').textContent =
+      `Fetching market data… ${loaded}/${HOLDINGS.length}`;
+  }));
+
+  results.sort((a, b) => a._order - b._order);
+  allData = results;
+
+  document.getElementById('overlay').style.display = 'none';
+
+  if (!allData.length) {
+    document.getElementById('cards').innerHTML = `
+      <div class="error-banner">
+        ⚠️ Could not load market data. This may be because the Yahoo Finance API is unavailable in your region or browser.
+        Try opening this page in a different browser, or disable any ad blockers / privacy extensions that may be blocking finance.yahoo.com.
+      </div>`;
+    document.getElementById('dot').className = 'dot error';
+    document.getElementById('status-txt').textContent = 'Data unavailable';
+    return;
+  }
+
+  renderSummary();
+  renderCards();
+  const now = new Date();
+  document.getElementById('dot').className = 'dot live';
+  document.getElementById('status-txt').textContent =
+    `Live · Updated ${now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})} · ${allData.length} holdings`;
+}
+
+async function refreshAll() {
+  const btn = document.getElementById('refresh-btn');
+  btn.disabled = true; btn.textContent = '↻ Refreshing…';
+  await loadAll();
+  btn.disabled = false; btn.innerHTML = '↻ Refresh';
+}
+
+loadAll();
+
+// Auto-refresh every 15 minutes when page is visible
+setInterval(() => { if (!document.hidden) refreshAll(); }, 15 * 60 * 1000);
+</script>
+</body>
+</html>
