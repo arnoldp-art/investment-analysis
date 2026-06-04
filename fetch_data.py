@@ -164,9 +164,30 @@ def fetch_extras(ticker: str) -> dict:
 
 
 # ── Main fetch loop ───────────────────────────────────────────────────────────
+def load_previous_recommendations() -> dict:
+    """Read existing data.json and return {ticker: {recommendation, generated}}."""
+    try:
+        with open("docs/data.json") as f:
+            prev = json.load(f)
+        return {
+            h["ticker"]: {
+                "recommendation": h.get("recommendation"),
+                "generated": prev.get("generated"),
+            }
+            for h in prev.get("holdings", [])
+            if h.get("recommendation")
+        }
+    except Exception:
+        return {}
+
+
 def fetch_and_analyse():
     output = []
     errors = []
+
+    prev_recs = load_previous_recommendations()
+    if prev_recs:
+        print(f"Loaded previous recommendations for {len(prev_recs)} holdings.")
 
     print("Fetching macro indicators (Yahoo Finance)...")
     macro = fetch_macro()
@@ -206,16 +227,22 @@ def fetch_and_analyse():
 
             clean = {k: _clean(v) for k, v in result.items()}
 
+            prev = prev_recs.get(ticker, {})
+            prev_rec = prev.get("recommendation")
+            prev_generated = prev.get("generated")
+
             output.append({
-                "ticker":         holding["ticker"],
-                "name":           holding["name"],
-                "type":           holding["type"],
-                "sector":         holding["sector"],
+                "ticker":                  holding["ticker"],
+                "name":                    holding["name"],
+                "type":                    holding["type"],
+                "sector":                  holding["sector"],
                 **clean,
-                "commentary":     commentary,
+                "commentary":              commentary,
                 **extras,
-                "stooq_price":    stooq_price,
-                "stooq_verified": stooq_verified,
+                "stooq_price":             stooq_price,
+                "stooq_verified":          stooq_verified,
+                "previous_recommendation": prev_rec,
+                "previous_generated":      prev_generated,
             })
 
             sv = "ok" if stooq_verified else ("diff" if stooq_price else "n/a")

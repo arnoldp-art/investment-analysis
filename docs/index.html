@@ -133,6 +133,14 @@
     border: 1px solid rgba(52,211,153,0.25); border-radius: 20px;
     padding: 2px 7px; margin-left: 6px; vertical-align: middle;
   }
+  .delta-chip {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 0.62rem; font-weight: 700; border-radius: 20px;
+    padding: 2px 8px; margin-left: 6px; vertical-align: middle;
+  }
+  .delta-up   { background: rgba(34,197,94,0.15);  color: var(--green);  border: 1px solid rgba(34,197,94,0.3); }
+  .delta-down { background: rgba(239,68,68,0.15);  color: var(--red);    border: 1px solid rgba(239,68,68,0.3); }
+  .delta-same { background: rgba(100,116,139,0.15);color: var(--muted);  border: 1px solid rgba(100,116,139,0.3); }
 
   .card-right { text-align: right; flex-shrink: 0; }
   .card-price { font-size: 1.08rem; font-weight: 800; }
@@ -251,6 +259,7 @@
   <div class="tab" onclick="setFilter('sell',this)">&#128308; Sell</div>
   <div class="tab" onclick="setFilter('equity',this)">Equities</div>
   <div class="tab" onclick="setFilter('etf',this)">ETFs / ETC</div>
+  <div class="tab" onclick="setFilter('changed',this)">&#128260; Changed</div>
 </div>
 
 <div class="cards" id="cards"></div>
@@ -263,6 +272,16 @@ const pc  = v => v == null ? '&mdash;' : (v >= 0 ? '+' : '') + v.toFixed(2) + '%
 const pcC = v => v == null ? '' : v > 0 ? 'g' : v < 0 ? 'r' : '';
 const fmt = (v, d=2) => v == null ? '&mdash;' : Number(v).toFixed(d);
 const pct = v => v == null ? '&mdash;' : (v >= 0 ? '+' : '') + (v * 100).toFixed(1) + '%';
+
+const REC_RANK = { 'SELL': 0, 'HOLD': 1, 'BUY': 2 };
+
+function deltaChip(current, previous) {
+  if (!previous || previous === current) return '';
+  const up = REC_RANK[current] > REC_RANK[previous];
+  const cls = up ? 'delta-up' : 'delta-down';
+  const arrow = up ? '&#8593;' : '&#8595;';
+  return `<span class="delta-chip ${cls}">${arrow} was ${previous}</span>`;
+}
 
 function renderMacro(macro) {
   if (!macro || !Object.keys(macro).length) return;
@@ -402,6 +421,7 @@ function renderCards() {
     if (filter==='sell')   return d.recommendation==='SELL';
     if (filter==='equity') return d.type==='equity';
     if (filter==='etf')    return d.type==='etf'||d.type==='etc';
+    if (filter==='changed') return d.previous_recommendation && d.previous_recommendation !== d.recommendation;
   });
   const el = document.getElementById('cards');
   if (!f.length) { el.innerHTML='<div style="text-align:center;padding:40px;color:var(--muted)">No holdings match this filter.</div>'; return; }
@@ -411,6 +431,7 @@ function renderCards() {
     const sigs = (d.reasons||[]).map(r=>`<li>${r}</li>`).join('');
     const verifiedBadge = d.stooq_verified
       ? '<span class="verified-chip">&#10003; Stooq verified</span>' : '';
+    const delta = deltaChip(d.recommendation, d.previous_recommendation);
 
     return `<div class="card ${rec}" id="c${i}" onclick="toggle(${i})">
       <div class="card-top">
@@ -418,7 +439,7 @@ function renderCards() {
           <div class="card-ticker">${d.ticker} <span class="chevron">&#9660;</span></div>
           <div class="card-name">${d.name}</div>
           <div class="card-sector">${d.sector} &middot; ${d.type.toUpperCase()}</div>
-          <div class="badge ${rec}">${d.recommendation}</div>${verifiedBadge}
+          <div class="badge ${rec}">${d.recommendation}</div>${delta}${verifiedBadge}
         </div>
         <div class="card-right">
           <div class="card-price">${d.price!=null?(d.price<100?d.price.toFixed(2):d.price.toFixed(1)):'&mdash;'}</div>
