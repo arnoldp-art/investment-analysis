@@ -410,12 +410,29 @@ function commentary(holding, result) {
   return lines.join('');
 }
 
-// ── Yahoo Finance fetcher ────────────────────────────────────────────────────
+// ── Yahoo Finance fetcher (with CORS proxy fallback) ─────────────────────────
 async function fetchTicker(yf) {
-  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(yf)}?range=1y&interval=1d&includePrePost=false`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const json = await res.json();
+  const yfUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(yf)}?range=1y&interval=1d&includePrePost=false`;
+
+  // Try direct first, then fall back through CORS proxies
+  const attempts = [
+    () => fetch(yfUrl, {headers: {'Accept': 'application/json'}}),
+    () => fetch(`https://corsproxy.io/?${encodeURIComponent(yfUrl)}`),
+    () => fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(yfUrl)}`),
+  ];
+
+  let json = null;
+  for (const attempt of attempts) {
+    try {
+      const res = await attempt();
+      if (!res.ok) continue;
+      const text = await res.text();
+      json = JSON.parse(text);
+      if (json?.chart?.result?.[0]) break;
+    } catch(e) { continue; }
+  }
+  if (!json) throw new Error('All fetch attempts failed');
+
   const result = json.chart?.result?.[0];
   if (!result) throw new Error('No data');
   const closes  = result.indicators.quote[0].close;
@@ -571,11 +588,10 @@ async function loadAll() {
   if (!allData.length) {
     document.getElementById('cards').innerHTML = `
       <div class="error-banner">
-        ⚠️ Could not load market data. This may be because the Yahoo Finance API is unavailable in your region or browser.
-        Try opening this page in a different browser, or disable any ad blockers / privacy extensions that may be blocking finance.yahoo.com.
+        ⚠️ Could not load market data. Please try refreshing the page. If the problem persists, try a different browser or network connection.
       </div>`;
     document.getElementById('dot').className = 'dot error';
-    document.getElementById('status-txt').textContent = 'Data unavailable';
+    document.getElementById('status-txt').textContent = 'Data unavailable — tap Refresh to retry';
     return;
   }
 
