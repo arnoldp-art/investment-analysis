@@ -5,3 +5,4 @@ reports/
 *.egg-info/
 .venv/
 venv/
+positions.json
