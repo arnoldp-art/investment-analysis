@@ -26,6 +26,8 @@
     min-height: 100vh;
     padding-bottom: 48px;
   }
+
+  /* ── Header ── */
   header {
     background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
     border-bottom: 1px solid var(--border);
@@ -44,8 +46,26 @@
   .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
   .dot.live { background: var(--green); }
   .dot.error { background: var(--red); }
+
+  /* ── Macro bar ── */
+  .macro-bar {
+    display: flex; gap: 8px; overflow-x: auto; padding: 10px 14px 4px;
+    scrollbar-width: none; border-bottom: 1px solid var(--border);
+    background: rgba(15,23,42,0.6);
+  }
+  .macro-bar::-webkit-scrollbar { display: none; }
+  .macro-item {
+    flex-shrink: 0; display: flex; flex-direction: column; align-items: center;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 5px 10px; min-width: 64px;
+  }
+  .macro-label { font-size: 0.58rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .macro-val   { font-size: 0.82rem; font-weight: 700; margin-top: 1px; }
+  .macro-chg   { font-size: 0.68rem; font-weight: 600; }
+
+  /* ── Summary strip ── */
   .summary {
-    display: flex; gap: 10px; overflow-x: auto; padding: 14px 16px 6px;
+    display: flex; gap: 10px; overflow-x: auto; padding: 12px 14px 6px;
     scrollbar-width: none;
   }
   .summary::-webkit-scrollbar { display: none; }
@@ -55,8 +75,10 @@
   }
   .s-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
   .s-val { font-size: 1.2rem; font-weight: 800; margin-top: 3px; }
+
+  /* ── Filter tabs ── */
   .tabs {
-    display: flex; gap: 7px; padding: 10px 16px 0;
+    display: flex; gap: 7px; padding: 8px 14px 0;
     overflow-x: auto; scrollbar-width: none;
   }
   .tabs::-webkit-scrollbar { display: none; }
@@ -67,6 +89,8 @@
     -webkit-tap-highlight-color: transparent;
   }
   .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* ── Loading overlay ── */
   .loading-overlay {
     position: fixed; inset: 0; background: var(--bg);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -78,7 +102,9 @@
     animation: spin 0.8s linear infinite; margin-bottom: 18px;
   }
   .loading-msg { color: var(--muted); font-size: 0.9rem; text-align: center; max-width: 280px; line-height: 1.5; }
-  .cards { padding: 14px 12px; display: flex; flex-direction: column; gap: 12px; }
+
+  /* ── Cards ── */
+  .cards { padding: 12px 12px; display: flex; flex-direction: column; gap: 12px; }
   .card {
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 16px; overflow: hidden; cursor: pointer;
@@ -88,6 +114,7 @@
   .card.buy  { border-left: 3px solid var(--green); }
   .card.hold { border-left: 3px solid var(--yellow); }
   .card.sell { border-left: 3px solid var(--red); }
+
   .card-top { padding: 14px 16px 10px; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
   .card-ticker { font-size: 0.72rem; font-weight: 700; color: var(--muted); letter-spacing: 0.6px; }
   .card-name { font-size: 0.98rem; font-weight: 700; color: var(--text); margin-top: 1px; line-height: 1.2; }
@@ -99,39 +126,100 @@
   .badge.buy  { background: rgba(34,197,94,0.14); color: var(--green); }
   .badge.hold { background: rgba(245,158,11,0.14); color: var(--yellow); }
   .badge.sell { background: rgba(239,68,68,0.14); color: var(--red); }
+
+  .verified-chip {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 0.62rem; color: #34d399; background: rgba(52,211,153,0.1);
+    border: 1px solid rgba(52,211,153,0.25); border-radius: 20px;
+    padding: 2px 7px; margin-left: 6px; vertical-align: middle;
+  }
+
   .card-right { text-align: right; flex-shrink: 0; }
   .card-price { font-size: 1.08rem; font-weight: 800; }
   .card-day { font-size: 0.84rem; font-weight: 600; margin-top: 3px; }
+
+  /* ── Metrics row ── */
   .metrics { display: flex; border-top: 1px solid var(--border); padding: 9px 16px; }
   .metric { flex: 1; text-align: center; }
   .metric:not(:last-child) { border-right: 1px solid var(--border); }
   .m-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
   .m-val { font-size: 0.88rem; font-weight: 600; margin-top: 2px; }
+
+  /* ── Detail panel ── */
   .detail { display: none; border-top: 1px solid var(--border); padding: 16px; background: var(--surface2); }
   .detail.open { display: block; }
   .d-section { margin-bottom: 16px; }
   .d-section:last-child { margin-bottom: 0; }
-  .d-title { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 9px; }
+  .d-title {
+    font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.8px; color: var(--muted); margin-bottom: 9px;
+  }
+
   .signals { list-style: none; display: flex; flex-direction: column; gap: 5px; }
   .signals li { font-size: 0.81rem; color: #94a3b8; padding-left: 14px; position: relative; line-height: 1.4; }
   .signals li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
   .commentary { font-size: 0.84rem; line-height: 1.65; color: #94a3b8; }
+
   .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
   .stat-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
   .stat-box .sk { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
   .stat-box .sv { font-size: 0.9rem; font-weight: 600; margin-top: 2px; }
+
+  /* ── Analyst section ── */
+  .analyst-target { font-size: 0.88rem; color: var(--text); margin-bottom: 9px; }
+  .analyst-target span { font-weight: 700; }
+  .analyst-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; gap: 1px; margin: 7px 0 4px; }
+  .ab-seg { height: 100%; transition: width 0.3s; }
+  .ab-strong-buy  { background: #16a34a; }
+  .ab-buy         { background: #22c55e; }
+  .ab-hold        { background: #f59e0b; }
+  .ab-sell        { background: #ef4444; }
+  .ab-strong-sell { background: #b91c1c; }
+  .analyst-legend { display: flex; gap: 10px; flex-wrap: wrap; }
+  .al-item { font-size: 0.66rem; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+  .al-dot  { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+  .rec-key {
+    display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 700;
+    text-transform: capitalize; margin-bottom: 8px;
+  }
+  .rec-key.buy, .rec-key.strongbuy { background: rgba(34,197,94,0.15); color: var(--green); }
+  .rec-key.hold                     { background: rgba(245,158,11,0.15); color: var(--yellow); }
+  .rec-key.sell, .rec-key.strongsell{ background: rgba(239,68,68,0.15); color: var(--red); }
+
+  /* ── News section ── */
+  .news-list { display: flex; flex-direction: column; gap: 8px; }
+  .news-item { border-left: 2px solid var(--border); padding-left: 10px; }
+  .news-title { font-size: 0.82rem; color: var(--text); line-height: 1.35; }
+  .news-title a { color: inherit; text-decoration: none; }
+  .news-title a:hover { color: var(--blue); }
+  .news-meta { font-size: 0.66rem; color: var(--muted); margin-top: 3px; }
+
+  /* ── Chevron ── */
   .chevron { transition: transform 0.2s; display: inline-block; font-size: 0.65rem; margin-left: 4px; color: var(--muted); }
   .card.open .chevron { transform: rotate(180deg); }
+
+  /* ── Colors ── */
   .g { color: var(--green); } .r { color: var(--red); } .y { color: var(--yellow); }
+
   .error-banner {
     background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3);
     border-radius: 12px; padding: 14px 16px; margin: 14px 12px;
     font-size: 0.84rem; color: #fca5a5; line-height: 1.5;
   }
+
+  /* ── Sources footer ── */
+  .sources-footer {
+    margin: 18px 14px 0; padding: 12px 14px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    font-size: 0.68rem; color: var(--muted); line-height: 1.7;
+  }
+  .sources-footer strong { color: #94a3b8; }
+
   @keyframes spin { to { transform: rotate(360deg); } }
   @media (min-width: 640px) {
     .cards { max-width: 700px; margin: 0 auto; }
     .summary { justify-content: center; }
+    .stat-grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
 </head>
@@ -139,7 +227,7 @@
 
 <div id="overlay" class="loading-overlay">
   <div class="spinner"></div>
-  <div class="loading-msg">Loading portfolio data&#8230;</div>
+  <div class="loading-msg">Loading portfolio data&hellip;</div>
 </div>
 
 <header>
@@ -149,10 +237,11 @@
   </div>
   <div class="status-bar">
     <div class="dot" id="dot"></div>
-    <span id="status-txt">Loading&#8230;</span>
+    <span id="status-txt">Loading&hellip;</span>
   </div>
 </header>
 
+<div class="macro-bar" id="macro-bar"></div>
 <div class="summary" id="summary"></div>
 
 <div class="tabs">
@@ -165,12 +254,33 @@
 </div>
 
 <div class="cards" id="cards"></div>
+<div id="sources-footer"></div>
 
 <script>
 let allData = [], filter = 'all';
-const pc  = v => v == null ? '&#8212;' : (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
+
+const pc  = v => v == null ? '&mdash;' : (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
 const pcC = v => v == null ? '' : v > 0 ? 'g' : v < 0 ? 'r' : '';
-const fmt = (v, d=2) => v == null ? '&#8212;' : v.toFixed(d);
+const fmt = (v, d=2) => v == null ? '&mdash;' : Number(v).toFixed(d);
+const pct = v => v == null ? '&mdash;' : (v >= 0 ? '+' : '') + (v * 100).toFixed(1) + '%';
+
+function renderMacro(macro) {
+  if (!macro || !Object.keys(macro).length) return;
+  const bar = document.getElementById('macro-bar');
+  bar.innerHTML = Object.values(macro).map(m => {
+    const chg = m.change_pct;
+    const cls = chg == null ? '' : chg >= 0 ? 'g' : 'r';
+    const chgStr = chg == null ? '' : (chg >= 0 ? '+' : '') + chg.toFixed(2) + '%';
+    const valStr = m.value >= 1000 ? m.value.toLocaleString(undefined, {maximumFractionDigits:0})
+                 : m.value >= 10   ? m.value.toFixed(2)
+                 :                   m.value.toFixed(4);
+    return `<div class="macro-item">
+      <div class="macro-label">${m.label}</div>
+      <div class="macro-val">${valStr}</div>
+      ${chgStr ? `<div class="macro-chg ${cls}">${chgStr}</div>` : ''}
+    </div>`;
+  }).join('');
+}
 
 function renderSummary() {
   const buys  = allData.filter(d => d.recommendation === 'BUY').length;
@@ -185,6 +295,105 @@ function renderSummary() {
     `<div class="s-card"><div class="s-label">Up today</div><div class="s-val g">${up}</div></div>`;
 }
 
+function analystSection(d) {
+  const bd = d.analyst_breakdown;
+  const rk = d.recommendation_key;
+  const mean = d.analyst_target_mean;
+  const hi   = d.analyst_target_high;
+  const lo   = d.analyst_target_low;
+  const cnt  = d.analyst_count;
+  const price = d.price;
+
+  if (!bd && !rk && !mean) return '';
+
+  let html = `<div class="d-section"><div class="d-title">Analyst Consensus`;
+  if (cnt) html += ` &nbsp;<span style="font-weight:400;color:var(--muted)">(${cnt} analysts)</span>`;
+  html += `</div>`;
+
+  if (rk) {
+    const cls = rk.replace(/_/g, '');
+    const label = rk.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    html += `<div class="rec-key ${cls}">${label}</div>`;
+  }
+
+  if (mean && price) {
+    const upside = ((mean - price) / price * 100);
+    const dir = upside >= 0 ? 'upside' : 'downside';
+    const cls = upside >= 0 ? 'g' : 'r';
+    html += `<div class="analyst-target">Target: <span>${lo ? fmt(lo) : '?'} &ndash; <span class="${cls}">${fmt(mean)}</span> &ndash; ${hi ? fmt(hi) : '?'}</span>
+      &nbsp;<span class="${cls}">(${upside >= 0 ? '+' : ''}${upside.toFixed(1)}% ${dir})</span></div>`;
+  }
+
+  if (bd) {
+    const total = bd.strong_buy + bd.buy + bd.hold + bd.sell + bd.strong_sell || 1;
+    const p = n => (n / total * 100).toFixed(1) + '%';
+    html += `<div class="analyst-bar">
+      <div class="ab-seg ab-strong-buy"  style="width:${p(bd.strong_buy)}"></div>
+      <div class="ab-seg ab-buy"         style="width:${p(bd.buy)}"></div>
+      <div class="ab-seg ab-hold"        style="width:${p(bd.hold)}"></div>
+      <div class="ab-seg ab-sell"        style="width:${p(bd.sell)}"></div>
+      <div class="ab-seg ab-strong-sell" style="width:${p(bd.strong_sell)}"></div>
+    </div>
+    <div class="analyst-legend">
+      <div class="al-item"><div class="al-dot" style="background:#16a34a"></div>Strong Buy ${bd.strong_buy}</div>
+      <div class="al-item"><div class="al-dot" style="background:#22c55e"></div>Buy ${bd.buy}</div>
+      <div class="al-item"><div class="al-dot" style="background:#f59e0b"></div>Hold ${bd.hold}</div>
+      <div class="al-item"><div class="al-dot" style="background:#ef4444"></div>Sell ${bd.sell}</div>
+      <div class="al-item"><div class="al-dot" style="background:#b91c1c"></div>Strong Sell ${bd.strong_sell}</div>
+    </div>`;
+  }
+  html += `</div>`;
+  return html;
+}
+
+function fundamentalsSection(d) {
+  const items = [
+    ['Beta',        d.beta        != null ? d.beta.toFixed(2) : null],
+    ['Fwd P/E',     d.forward_pe  != null ? d.forward_pe.toFixed(1) : null],
+    ['P/Book',      d.price_to_book != null ? d.price_to_book.toFixed(2) : null],
+    ['Div Yield',   d.dividend_yield != null ? (d.dividend_yield * 100).toFixed(2) + '%' : null],
+    ['Rev Growth',  d.revenue_growth  != null ? pct(d.revenue_growth) : null],
+    ['EPS Growth',  d.earnings_growth != null ? pct(d.earnings_growth) : null],
+    ['ROE',         d.roe != null ? pct(d.roe) : null],
+    ['D/E',         d.debt_to_equity != null ? d.debt_to_equity.toFixed(2) : null],
+    ['Short Ratio', d.short_ratio != null ? d.short_ratio.toFixed(1) + 'd' : null],
+  ].filter(([,v]) => v != null);
+
+  if (!items.length) return '';
+  return `<div class="d-section"><div class="d-title">Fundamentals</div>
+    <div class="stat-grid">
+      ${items.map(([k,v]) => `<div class="stat-box"><div class="sk">${k}</div><div class="sv">${v}</div></div>`).join('')}
+    </div></div>`;
+}
+
+function newsSection(d) {
+  const news = d.news;
+  if (!news || !news.length) return '';
+  function relTime(ts) {
+    if (!ts) return '';
+    let ms;
+    if (/^\d+$/.test(ts)) ms = parseInt(ts) * 1000;
+    else ms = Date.parse(ts);
+    if (isNaN(ms)) return '';
+    const diff = (Date.now() - ms) / 1000;
+    if (diff < 3600)  return Math.round(diff / 60) + 'm ago';
+    if (diff < 86400) return Math.round(diff / 3600) + 'h ago';
+    return Math.round(diff / 86400) + 'd ago';
+  }
+  const items = news.map(n => {
+    const t = relTime(n.time);
+    const titleHtml = n.link
+      ? `<a href="${n.link}" target="_blank" rel="noopener">${n.title}</a>`
+      : n.title;
+    return `<div class="news-item">
+      <div class="news-title">${titleHtml}</div>
+      <div class="news-meta">${[n.publisher, t].filter(Boolean).join(' &middot; ')}</div>
+    </div>`;
+  }).join('');
+  return `<div class="d-section"><div class="d-title">Recent News</div>
+    <div class="news-list">${items}</div></div>`;
+}
+
 function renderCards() {
   const f = allData.filter(d => {
     if (filter==='all')    return true;
@@ -196,19 +405,23 @@ function renderCards() {
   });
   const el = document.getElementById('cards');
   if (!f.length) { el.innerHTML='<div style="text-align:center;padding:40px;color:var(--muted)">No holdings match this filter.</div>'; return; }
-  el.innerHTML = f.map((d,i) => {
+
+  el.innerHTML = f.map((d, i) => {
     const rec = d.recommendation.toLowerCase();
     const sigs = (d.reasons||[]).map(r=>`<li>${r}</li>`).join('');
+    const verifiedBadge = d.stooq_verified
+      ? '<span class="verified-chip">&#10003; Stooq verified</span>' : '';
+
     return `<div class="card ${rec}" id="c${i}" onclick="toggle(${i})">
       <div class="card-top">
         <div>
           <div class="card-ticker">${d.ticker} <span class="chevron">&#9660;</span></div>
           <div class="card-name">${d.name}</div>
           <div class="card-sector">${d.sector} &middot; ${d.type.toUpperCase()}</div>
-          <div class="badge ${rec}">${d.recommendation}</div>
+          <div class="badge ${rec}">${d.recommendation}</div>${verifiedBadge}
         </div>
         <div class="card-right">
-          <div class="card-price">${d.price!=null?(d.price<100?d.price.toFixed(2):d.price.toFixed(1)):'&#8212;'}</div>
+          <div class="card-price">${d.price!=null?(d.price<100?d.price.toFixed(2):d.price.toFixed(1)):'&mdash;'}</div>
           <div class="card-day ${pcC(d.day_change_pct)}">${pc(d.day_change_pct)}</div>
         </div>
       </div>
@@ -216,19 +429,30 @@ function renderCards() {
         <div class="metric"><div class="m-label">Week</div><div class="m-val ${pcC(d.week_change_pct)}">${pc(d.week_change_pct)}</div></div>
         <div class="metric"><div class="m-label">Month</div><div class="m-val ${pcC(d.month_change_pct)}">${pc(d.month_change_pct)}</div></div>
         <div class="metric"><div class="m-label">vs 52W High</div><div class="m-val ${pcC(d.pct_from_52w_high!=null?d.pct_from_52w_high*100:null)}">${pc(d.pct_from_52w_high!=null?d.pct_from_52w_high*100:null)}</div></div>
-        <div class="metric"><div class="m-label">RSI</div><div class="m-val">${d.rsi!=null?d.rsi.toFixed(0):'&#8212;'}</div></div>
+        <div class="metric"><div class="m-label">RSI</div><div class="m-val">${d.rsi!=null?d.rsi.toFixed(0):'&mdash;'}</div></div>
       </div>
       <div class="detail" id="d${i}">
-        <div class="d-section"><div class="d-title">Technical Signals</div><ul class="signals">${sigs}</ul></div>
-        <div class="d-section"><div class="d-title">Key Levels</div>
+        <div class="d-section">
+          <div class="d-title">Technical Signals</div>
+          <ul class="signals">${sigs}</ul>
+        </div>
+        <div class="d-section">
+          <div class="d-title">Key Levels</div>
           <div class="stat-grid">
             <div class="stat-box"><div class="sk">SMA 50</div><div class="sv">${fmt(d.sma_50)}</div></div>
             <div class="stat-box"><div class="sk">SMA 200</div><div class="sv">${fmt(d.sma_200)}</div></div>
             <div class="stat-box"><div class="sk">52W High</div><div class="sv">${fmt(d.high_52w)}</div></div>
             <div class="stat-box"><div class="sk">52W Low</div><div class="sv">${fmt(d.low_52w)}</div></div>
+            ${d.stooq_price ? `<div class="stat-box"><div class="sk">Stooq Price</div><div class="sv">${d.stooq_price.toFixed(2)}</div></div>` : ''}
           </div>
         </div>
-        <div class="d-section"><div class="d-title">Fund Manager View</div><div class="commentary">${d.commentary}</div></div>
+        ${analystSection(d)}
+        ${fundamentalsSection(d)}
+        ${newsSection(d)}
+        <div class="d-section">
+          <div class="d-title">Fund Manager View</div>
+          <div class="commentary">${d.commentary}</div>
+        </div>
       </div>
     </div>`;
   }).join('');
@@ -238,9 +462,9 @@ function toggle(i) {
   document.getElementById('c'+i).classList.toggle('open');
   document.getElementById('d'+i).classList.toggle('open');
 }
-function setFilter(f,el) {
-  filter=f;
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+function setFilter(f, el) {
+  filter = f;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
   renderCards();
 }
@@ -253,17 +477,26 @@ async function load() {
     allData = payload.holdings || [];
     document.getElementById('overlay').style.display = 'none';
     if (!allData.length) throw new Error('No holdings in data');
+
+    renderMacro(payload.macro || {});
     renderSummary();
     renderCards();
+
     const d = new Date(payload.generated);
     document.getElementById('dot').className = 'dot live';
     document.getElementById('status-txt').textContent =
       'Data from ' + d.toLocaleDateString([], {weekday:'short',day:'numeric',month:'short'}) +
       ' ' + d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) + ' UTC';
+
+    if (payload.sources && payload.sources.length) {
+      document.getElementById('sources-footer').innerHTML =
+        `<div class="sources-footer"><strong>Data sources:</strong><br>` +
+        payload.sources.map(s => `&bull; ${s}`).join('<br>') + `</div>`;
+    }
   } catch(e) {
     document.getElementById('overlay').style.display = 'none';
     document.getElementById('cards').innerHTML =
-      '<div class="error-banner">&#9888;&#65039; Could not load data.json &#8212; ' + e.message +
+      '<div class="error-banner">&#9888;&#65039; Could not load data.json &mdash; ' + e.message +
       '<br><br>The data file is generated daily by GitHub Actions. If this is the first load, it may not exist yet. Check back in a few minutes after the Actions workflow completes.</div>';
     document.getElementById('dot').className = 'dot error';
     document.getElementById('status-txt').textContent = 'Data unavailable';

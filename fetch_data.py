@@ -1,30 +1,186 @@
 #!/usr/bin/env python3
 """
-Fetch market data and technical analysis for all holdings.
-Writes docs/data.json -- consumed by the static GitHub Pages frontend.
+Multi-source market data fetch.
+
+Sources:
+  1. Yahoo Finance  — price history (OHLCV 1y), fundamentals, analyst targets, news headlines
+  2. Stooq          — independent price cross-validation
+  3. Yahoo Finance  — macro context: VIX, S&P 500, FTSE 100, Gold, GBP/USD, US 10Y Treasury
+
+Writes docs/data.json consumed by the static GitHub Pages frontend.
 """
 
+import io
 import json
 import sys
 from datetime import datetime, timezone
 
 import numpy as np
+import pandas as pd
+import requests
 import yfinance as yf
 
 sys.path.insert(0, ".")
 from analysis import analyse
 from tracker import HOLDINGS, _fund_manager_commentary
 
+# ── Macro indicator symbols (Yahoo Finance) ───────────────────────────────────
+MACRO_SYMBOLS = {
+    "vix":         ("^VIX",     "VIX"),
+    "sp500":       ("^GSPC",    "S&P 500"),
+    "ftse100":     ("^FTSE",    "FTSE 100"),
+    "gold":        ("GC=F",     "Gold"),
+    "treasury10y": ("^TNX",     "US 10Y"),
+    "gbpusd":      ("GBPUSD=X", "GBP/USD"),
+}
 
+# ── Stooq symbols for independent price cross-validation ─────────────────────
+STOOQ_MAP = {
+    "NVDA":   "nvda.us",
+    "AAPL":   "aapl.us",
+    "GOOGL":  "googl.us",
+    "AMZN":   "amzn.us",
+    "RBLX":   "rblx.us",
+    "ILMN":   "ilmn.us",
+    "NKTR":   "nktr.us",
+    "HMI":    "hmi.us",
+    "VWRL.L": "vwrl.uk",
+    "XDWH.L": "xdwh.uk",
+    "IIND.L": "iind.uk",
+    "SGLN.L": "sgln.uk",
+}
+
+
+def _clean(v):
+    if isinstance(v, float) and (np.isnan(v) or np.isinf(v)):
+        return None
+    return v
+
+
+# ── Source 1/3: Yahoo Finance macro context ───────────────────────────────────
+def fetch_macro() -> dict:
+    macro = {}
+    for key, (sym, label) in MACRO_SYMBOLS.items():
+        try:
+            hist = yf.Ticker(sym).history(period="5d")
+            if hist is not None and len(hist) >= 2:
+                price = float(hist["Close"].iloc[-1])
+                prev  = float(hist["Close"].iloc[-2])
+                macro[key] = {
+                    "label":      label,
+                    "value":      round(price, 4),
+                    "change_pct": round((price - prev) / prev * 100, 2),
+                }
+            elif hist is not None and len(hist) == 1:
+                macro[key] = {
+                    "label":      label,
+                    "value":      round(float(hist["Close"].iloc[-1]), 4),
+                    "change_pct": None,
+                }
+        except Exception as exc:
+            print(f"  macro {key}: {exc}")
+    return macro
+
+
+# ── Source 2: Stooq independent price cross-validation ───────────────────────
+def fetch_stooq_price(ticker: str) -> float | None:
+    sym = STOOQ_MAP.get(ticker)
+    if not sym:
+        return None
+    try:
+        r = requests.get(f"https://stooq.com/q/d/l/?s={sym}&i=d", timeout=15)
+        if r.status_code != 200:
+            return None
+        df = pd.read_csv(io.StringIO(r.text))
+        if df.empty or "Close" not in df.columns:
+            return None
+        val = float(df["Close"].iloc[-1])
+        return val if np.isfinite(val) else None
+    except Exception:
+        return None
+
+
+# ── Source 1: Yahoo Finance enhanced — analyst data, news, fundamentals ───────
+def fetch_extras(ticker: str) -> dict:
+    out: dict = {}
+    try:
+        t    = yf.Ticker(ticker)
+        info = t.info or {}
+
+        # Analyst price targets
+        out["analyst_target_mean"] = _clean(info.get("targetMeanPrice"))
+        out["analyst_target_high"] = _clean(info.get("targetHighPrice"))
+        out["analyst_target_low"]  = _clean(info.get("targetLowPrice"))
+        out["analyst_count"]       = info.get("numberOfAnalystOpinions")
+        out["recommendation_key"]  = info.get("recommendationKey")
+
+        # Valuation & growth
+        out["beta"]            = _clean(info.get("beta"))
+        out["forward_pe"]      = _clean(info.get("forwardPE"))
+        out["trailing_pe"]     = _clean(info.get("trailingPE"))
+        out["price_to_book"]   = _clean(info.get("priceToBook"))
+        out["dividend_yield"]  = _clean(info.get("dividendYield"))
+        out["revenue_growth"]  = _clean(info.get("revenueGrowth"))
+        out["earnings_growth"] = _clean(info.get("earningsGrowth"))
+        out["roe"]             = _clean(info.get("returnOnEquity"))
+        out["debt_to_equity"]  = _clean(info.get("debtToEquity"))
+        out["short_ratio"]     = _clean(info.get("shortRatio"))
+
+        # Analyst buy/hold/sell breakdown (most recent period)
+        try:
+            rec_df = t.recommendations_summary
+            if rec_df is not None and not rec_df.empty:
+                row = rec_df.iloc[0]
+                out["analyst_breakdown"] = {
+                    "strong_buy":  int(row.get("strongBuy",  0)),
+                    "buy":         int(row.get("buy",        0)),
+                    "hold":        int(row.get("hold",       0)),
+                    "sell":        int(row.get("sell",       0)),
+                    "strong_sell": int(row.get("strongSell", 0)),
+                }
+        except Exception:
+            pass
+
+        # News headlines — top 5, from Yahoo Finance news API
+        try:
+            raw = t.news or []
+            headlines = []
+            for n in raw[:5]:
+                # yfinance >=0.2.38 wraps headlines under content{}
+                content = n.get("content", {}) or {}
+                title  = content.get("title")   or n.get("title",     "")
+                pub    = (content.get("provider", {}) or {}).get("displayName", "") or n.get("publisher", "")
+                link   = (content.get("canonicalUrl", {}) or {}).get("url", "")     or n.get("link",      "")
+                ts     = content.get("pubDate",   "") or str(n.get("providerPublishTime", ""))
+                if title:
+                    headlines.append({"title": title, "publisher": pub, "link": link, "time": ts})
+            out["news"] = headlines
+        except Exception:
+            out["news"] = []
+
+    except Exception as exc:
+        print(f"  extras {ticker}: {exc}")
+    return out
+
+
+# ── Main fetch loop ───────────────────────────────────────────────────────────
 def fetch_and_analyse():
     output = []
     errors = []
 
+    print("Fetching macro indicators (Yahoo Finance)...")
+    macro = fetch_macro()
+    for k, v in macro.items():
+        chg = v.get("change_pct")
+        sign = "+" if (chg or 0) >= 0 else ""
+        print(f"  {k}: {v.get('value')}  ({sign}{chg}%)")
+
+    print("\nFetching holdings...")
     for holding in HOLDINGS:
         ticker = holding["ticker"]
         try:
-            t = yf.Ticker(ticker)
-            hist = t.history(period="1y")
+            # Primary: Yahoo Finance price history
+            hist = yf.Ticker(ticker).history(period="1y")
             if hist is None or len(hist) < 30:
                 errors.append(f"{ticker}: insufficient data")
                 continue
@@ -32,46 +188,64 @@ def fetch_and_analyse():
             result = analyse(hist)
             info = {}
             try:
-                info = t.info or {}
+                info = yf.Ticker(ticker).info or {}
             except Exception:
                 pass
 
             commentary = _fund_manager_commentary(holding, result, info)
 
-            # Sanitise NaN/Inf
-            clean = {}
-            for k, v in result.items():
-                if isinstance(v, float) and (np.isnan(v) or np.isinf(v)):
-                    clean[k] = None
-                else:
-                    clean[k] = v
+            # Enhanced: Yahoo Finance analyst + news + fundamentals
+            extras = fetch_extras(ticker)
+
+            # Cross-check: Stooq independent price
+            stooq_price    = fetch_stooq_price(ticker)
+            stooq_verified = None
+            if stooq_price and result.get("price"):
+                diff_pct = abs(stooq_price - result["price"]) / result["price"] * 100
+                stooq_verified = diff_pct < 2.0
+
+            clean = {k: _clean(v) for k, v in result.items()}
 
             output.append({
-                "ticker": holding["ticker"],
-                "name": holding["name"],
-                "type": holding["type"],
-                "sector": holding["sector"],
+                "ticker":         holding["ticker"],
+                "name":           holding["name"],
+                "type":           holding["type"],
+                "sector":         holding["sector"],
                 **clean,
-                "commentary": commentary,
+                "commentary":     commentary,
+                **extras,
+                "stooq_price":    stooq_price,
+                "stooq_verified": stooq_verified,
             })
-            print(f"  OK {ticker}")
-        except Exception as e:
-            errors.append(f"{ticker}: {e}")
-            print(f"  FAIL {ticker}: {e}")
+
+            sv = "ok" if stooq_verified else ("diff" if stooq_price else "n/a")
+            print(f"  OK {ticker}  stooq={sv}  news={len(extras.get('news', []))}")
+
+        except Exception as exc:
+            errors.append(f"{ticker}: {exc}")
+            print(f"  FAIL {ticker}: {exc}")
 
     payload = {
         "generated": datetime.now(timezone.utc).isoformat(),
+        "sources": [
+            "Yahoo Finance — OHLCV price history (1 year)",
+            "Yahoo Finance — fundamentals: P/E, beta, P/B, dividend yield, ROE, D/E, short ratio",
+            "Yahoo Finance — analyst consensus: price targets + buy/hold/sell breakdown",
+            "Yahoo Finance — news headlines (top 5 per holding)",
+            "Yahoo Finance — macro: VIX, S&P 500, FTSE 100, Gold, GBP/USD, US 10Y",
+            "Stooq.com — independent price cross-validation",
+        ],
         "holdings": output,
-        "errors": errors,
+        "macro":    macro,
+        "errors":   errors,
     }
 
     with open("docs/data.json", "w") as f:
         json.dump(payload, f, indent=2, default=str)
 
-    print(f"\nWrote docs/data.json -- {len(output)} holdings, {len(errors)} errors")
+    print(f"\nWrote docs/data.json — {len(output)} holdings, {len(errors)} errors")
     return len(output) > 0
 
 
 if __name__ == "__main__":
-    ok = fetch_and_analyse()
-    sys.exit(0 if ok else 1)
+    sys.exit(0 if fetch_and_analyse() else 1)
