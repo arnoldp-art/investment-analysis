@@ -211,7 +211,54 @@ def load_previous_recommendations() -> dict:
         return {}
 
 
-def fetch_and_analyse():
+def _blend_recommendation(tech_result: dict, extras: dict) -> tuple[str, str | None]:
+    """
+    Blend technical score with analyst consensus.
+    Returns (recommendation, blend_note) where blend_note explains any override.
+    Weights: 40% technical, 60% analyst consensus.
+    """
+    tech_norm = tech_result.get("score", 0)  # already in [-1, 1]
+
+    # Compute analyst consensus score in [-1, 1]
+    analyst_norm = None
+    bd = extras.get("analyst_breakdown")
+    if bd:
+        total = bd["strong_buy"] + bd["buy"] + bd["hold"] + bd["sell"] + bd["strong_sell"]
+        if total >= 3:  # need at least 3 analysts to be meaningful
+            raw = bd["strong_buy"] * 2 + bd["buy"] * 1 + bd["sell"] * -1 + bd["strong_sell"] * -2
+            analyst_norm = raw / (total * 2)  # normalise to [-1, 1]
+
+    # Fall back to recommendation_key if no breakdown
+    if analyst_norm is None:
+        key_map = {
+            "strongbuy": 0.9, "strong_buy": 0.9,
+            "buy": 0.6,
+            "hold": 0.0,
+            "sell": -0.6,
+            "strongsell": -0.9, "strong_sell": -0.9,
+        }
+        rk = (extras.get("recommendation_key") or "").replace(" ", "").lower()
+        analyst_norm = key_map.get(rk)
+
+    if analyst_norm is None:
+        # No analyst data — use technical only
+        blended = tech_norm
+        note = None
+    else:
+        blended = 0.4 * tech_norm + 0.6 * analyst_norm
+        note = f"Blended: {round(tech_norm,2)} technical + {round(analyst_norm,2)} analyst consensus"
+
+    if blended >= 0.15:
+        rec = "BUY"
+    elif blended <= -0.15:
+        rec = "SELL"
+    else:
+        rec = "HOLD"
+
+    return rec, note
+
+
+
     output = []
     errors = []
 
@@ -267,6 +314,14 @@ def fetch_and_analyse():
                 stooq_verified = diff_pct < 2.0
 
             clean = {k: _clean(v) for k, v in result.items()}
+
+            # Override recommendation with analyst-blended signal
+            blended_rec, blend_note = _blend_recommendation(result, extras)
+            if blended_rec != clean.get("recommendation") and blend_note:
+                clean["recommendation"] = blended_rec
+                clean["reasons"] = list(clean.get("reasons") or []) + [f"Signal adjusted: {blend_note}"]
+            else:
+                clean["recommendation"] = blended_rec
 
             prev = prev_recs.get(ticker, {})
             prev_rec = prev.get("recommendation")
