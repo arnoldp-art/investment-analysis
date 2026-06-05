@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-05T05:38:36.219997+00:00",
+  "generated": "2026-06-05T05:44:06.382260+00:00",
   "sources": [
     "Yahoo Finance \u2014 OHLCV price history (1 year)",
     "Yahoo Finance \u2014 fundamentals: P/E, beta, P/B, dividend yield, ROE, D/E, short ratio",
@@ -25,9 +25,9 @@
         "RSI neutral at 51.1",
         "MACD below signal line \u2014 bearish momentum"
       ],
-      "rsi": 51.139714741467536,
-      "macd": 3.7588991163769094,
-      "signal_line": 4.786715754954536,
+      "rsi": 51.13971474146721,
+      "macd": 3.75889911637654,
+      "signal_line": 4.786715754954031,
       "sma_50": null,
       "sma_200": null,
       "high_52w": 235.74000549316406,
@@ -151,10 +151,6 @@
         {
           "d": "2026-06-03",
           "c": 214.75
-        },
-        {
-          "d": "2026-06-04",
-          "c": NaN
         }
       ],
       "analyst_target_mean": 298.06897,
@@ -216,8 +212,8 @@
       "ex_dividend_date": "2026-06-04",
       "stooq_price": null,
       "stooq_verified": null,
-      "previous_recommendation": "BUY",
-      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
+      "previous_recommendation": "SELL",
+      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
     },
     {
       "ticker": "AAPL",
@@ -235,13 +231,13 @@
         "RSI strengthening at 65.9",
         "MACD below signal line \u2014 bearish momentum"
       ],
-      "rsi": 65.85891293485153,
-      "macd": 9.558799856961173,
-      "signal_line": 9.755334895084957,
+      "rsi": 65.85891293468838,
+      "macd": 9.55879985696788,
+      "signal_line": 9.755334895094123,
       "sma_50": null,
       "sma_200": null,
       "high_52w": 315.20001220703125,
-      "low_52w": 194.86691284179688,
+      "low_52w": 194.86692810058594,
       "pct_from_52w_high": null,
       "atr_pct": null,
       "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $4.6T \u2014 mega-cap liquidity supports institutional ownership. Hold current position; re-assess on a decisive technical break either way.",
@@ -361,10 +357,6 @@
         {
           "d": "2026-06-03",
           "c": 310.26
-        },
-        {
-          "d": "2026-06-04",
-          "c": NaN
         }
       ],
       "analyst_target_mean": 310.507,
@@ -426,8 +418,8 @@
       "ex_dividend_date": "2026-05-11",
       "stooq_price": null,
       "stooq_verified": null,
-      "previous_recommendation": "BUY",
-      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
+      "previous_recommendation": "HOLD",
+      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
     },
     {
       "ticker": "GOOGL",
@@ -446,9 +438,9 @@
         "MACD below signal line \u2014 bearish momentum",
         "Above-average volume on price decline \u2014 distribution signal"
       ],
-      "rsi": 38.82705311541171,
-      "macd": 3.344408643697136,
-      "signal_line": 8.293393714085003,
+      "rsi": 38.827053114367786,
+      "macd": 3.3444086435767986,
+      "signal_line": 8.29339371391941,
       "sma_50": null,
       "sma_200": null,
       "high_52w": 402.6199951171875,
@@ -572,10 +564,6 @@
         {
           "d": "2026-06-03",
           "c": 358.99
-        },
-        {
-          "d": "2026-06-04",
-          "c": NaN
         }
       ],
       "analyst_target_mean": 429.8698,
@@ -638,7 +626,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
+      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
     },
     {
       "ticker": "AMZN",
@@ -782,10 +770,6 @@
         {
           "d": "2026-06-03",
           "c": 250.02
-        },
-        {
-          "d": "2026-06-04",
-          "c": NaN
         }
       ],
       "analyst_target_mean": 312.7934,
@@ -847,7 +831,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
+      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
     },
     {
       "ticker": "RBLX",
@@ -991,10 +975,6 @@
         {
           "d": "2026-06-03",
           "c": 43.68
-        },
-        {
-          "d": "2026-06-04",
-          "c": NaN
         }
       ],
       "analyst_target_mean": 64.8125,
@@ -1056,7 +1036,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
+      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
     },
     {
       "ticker": "ILMN",
@@ -1201,10 +1181,6 @@
         {
           "d": "2026-06-03",
           "c": 170.93
-        },
-        {
-          "d": "2026-06-04",
-          "c": NaN
         }
       ],
       "analyst_target_mean": 143.83333,
@@ -1265,8 +1241,8 @@
       "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
-      "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
+      "previous_recommendation": "SELL",
+      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
     },
     {
       "ticker": "NKTR",
@@ -1410,10 +1386,6 @@
         {
           "d": "2026-06-03",
           "c": 59.23
-        },
-        {
-          "d": "2026-06-04",
-          "c": NaN
         }
       ],
       "analyst_target_mean": 153.25,
@@ -1475,7 +1447,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
+      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
     },
     {
       "ticker": "VWRL.L",
@@ -1495,15 +1467,15 @@
         "MACD above signal line \u2014 bullish momentum",
         "Near 52-week high \u2014 strong momentum but limited upside buffer"
       ],
-      "rsi": 72.14047493051947,
-      "macd": 2.2463503826101316,
-      "signal_line": 2.2305333025893845,
+      "rsi": 72.14047493055696,
+      "macd": 2.246350382611382,
+      "signal_line": 2.2305333025912346,
       "sma_50": 129.94780014038085,
-      "sma_200": 123.93758094787597,
+      "sma_200": 123.93758090972901,
       "high_52w": 138.63999938964844,
-      "low_52w": 106.11398315429688,
+      "low_52w": 106.11397552490234,
       "pct_from_52w_high": -0.004832646940961671,
-      "atr_pct": 0.8887304423418908,
+      "atr_pct": 0.888730442343166,
       "commentary": "Vanguard FTSE All-World ETF provides diversified exposure. Mixed signals present \u2014 no clear directional conviction. RSI elevated (72) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Hold current position; re-assess on a decisive technical break either way.",
       "price_history": [
         {
@@ -1647,7 +1619,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
+      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
     },
     {
       "ticker": "XDWH.L",
@@ -1819,7 +1791,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "BUY",
-      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
+      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
     },
     {
       "ticker": "IIND.L",
@@ -1991,7 +1963,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
+      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
     },
     {
       "ticker": "SGLN.L",
@@ -2175,7 +2147,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
+      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
     }
   ],
   "macro": {
@@ -2186,8 +2158,8 @@
     },
     "sp500": {
       "label": "S&P 500",
-      "value": NaN,
-      "change_pct": NaN
+      "value": null,
+      "change_pct": null
     },
     "ftse100": {
       "label": "FTSE 100",
@@ -2196,8 +2168,8 @@
     },
     "gold": {
       "label": "Gold",
-      "value": 4471.2002,
-      "change_pct": -0.1
+      "value": 4468.2998,
+      "change_pct": -0.17
     },
     "treasury10y": {
       "label": "US 10Y",
@@ -2206,8 +2178,8 @@
     },
     "gbpusd": {
       "label": "GBP/USD",
-      "value": 1.3431,
-      "change_pct": 0.03
+      "value": 1.343,
+      "change_pct": 0.02
     }
   },
   "errors": [
