@@ -849,9 +849,11 @@ function renderMacro(macro) {
     const chg = m.change_pct;
     const cls = chg == null ? '' : chg >= 0 ? 'g' : 'r';
     const chgStr = chg == null ? '' : (chg >= 0 ? '+' : '') + chg.toFixed(2) + '%';
-    const valStr = m.value >= 1000 ? m.value.toLocaleString(undefined, {maximumFractionDigits:0})
-                 : m.value >= 10   ? m.value.toFixed(2)
-                 :                   m.value.toFixed(4);
+    const v = m.value;
+    const valStr = v == null ? '&mdash;'
+                 : v >= 1000 ? v.toLocaleString(undefined, {maximumFractionDigits:0})
+                 : v >= 10   ? v.toFixed(2)
+                 :              v.toFixed(4);
     return `<div class="macro-item"><div class="macro-label">${m.label}</div><div class="macro-val">${valStr}</div>${chgStr?`<div class="macro-chg ${cls}">${chgStr}</div>`:''}</div>`;
   }).join('');
 }
@@ -1041,7 +1043,7 @@ function renderCards() {
     return;
   }
 
-  el.innerHTML = f.map((d, i) => {
+  el.innerHTML = f.map((d, i) => { try {
     const rec   = d.recommendation.toLowerCase();
     const sigs  = (d.reasons || []).map(r => `<li>${r}</li>`).join('');
     const delta    = deltaChip(d.recommendation, d.previous_recommendation);
@@ -1091,6 +1093,7 @@ function renderCards() {
         <div class="d-section"><div class="d-title">Fund Manager View</div><div class="commentary">${d.commentary}</div></div>
       </div>
     </div>`;
+  } catch(e) { return `<div class="error-banner" style="margin:0">&#9888; ${d.ticker}: render error — ${e.message}</div>`; }
   }).join('');
 }
 
