@@ -283,6 +283,42 @@
   .signals li::before { content: "\2022"; position: absolute; left: 0; color: var(--accent); }
   .commentary { font-size: 0.84rem; line-height: 1.65; color: #94a3b8; }
 
+  /* ── Tooltips ── */
+  .tip {
+    cursor: help;
+    border-bottom: 1px dotted var(--muted);
+    position: relative;
+    display: inline;
+  }
+  .tip::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 7px 11px;
+    border-radius: 9px;
+    font-size: 0.71rem;
+    font-weight: 400;
+    width: 210px;
+    white-space: normal;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 9999;
+    border: 1px solid var(--border);
+    line-height: 1.45;
+    text-transform: none;
+    letter-spacing: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
+  .tip:hover::after, .tip.show::after { opacity: 1; }
+  /* keep tooltip on screen for left-edge labels */
+  .tip.tip-right::after { left: 0; transform: none; }
+  .tip.tip-left::after  { left: auto; right: 0; transform: none; }
+
   .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
   .stat-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
   .stat-box .sk { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
@@ -423,6 +459,56 @@
 <div id="sources-footer"></div>
 
 <script>
+// ── Tooltip helper ────────────────────────────────────────────────────────────
+const TIPS = {
+  vix:         "VIX — Volatility Index. Measures expected market turbulence over 30 days. Above 30 = high fear; below 20 = calm markets.",
+  sp500:       "S&P 500 — Index of the 500 largest US companies. The main US market benchmark.",
+  ftse100:     "FTSE 100 — Index of the 100 largest companies on the London Stock Exchange. Main UK market benchmark.",
+  gold:        "Gold futures price (USD/oz). Often rises when investors seek safety from market uncertainty.",
+  treasury10y: "US 10-Year Treasury yield — interest rate on US government bonds. Rising yields often pressure growth stock valuations.",
+  gbpusd:      "GBP/USD exchange rate — pounds to dollars. Affects the GBP value of US-listed holdings.",
+  rsi:         "RSI (Relative Strength Index, 0–100) — momentum indicator. Below 30 = oversold, may bounce. Above 70 = overbought, may pull back. 40–60 = neutral.",
+  '52whigh':   "52-Week High — how far the current price sits below the highest price of the past year. At 0% means near the top.",
+  sma50:       "SMA 50 — Simple Moving Average over 50 trading days. Average closing price for the past ~10 weeks. Used to gauge medium-term trend direction.",
+  sma200:      "SMA 200 — Simple Moving Average over 200 trading days (~10 months). The most-watched long-term trend indicator on Wall Street.",
+  ema20:       "EMA 20 — Exponential Moving Average over 20 days. Like SMA but gives more weight to recent prices. Used for short-term momentum.",
+  goldencross: "Golden Cross — when the 50-day average crosses above the 200-day average. Widely watched bullish signal.",
+  deathcross:  "Death Cross — when the 50-day average crosses below the 200-day average. Widely watched bearish signal.",
+  macd:        "MACD (Moving Average Convergence Divergence) — compares two moving averages to show momentum. Above signal line = bullish momentum; below = bearish.",
+  bollinger:   "Bollinger Bands — a band 2 standard deviations above and below a 20-day average. Price near the lower band = potentially oversold; near the upper = potentially overbought.",
+  atr:         "ATR (Average True Range) — average daily price swing over 14 days. Shows how volatile a stock is. Higher % = bigger daily moves.",
+  beta:        "Beta — how much this stock moves relative to the overall market. Beta 1.5 = moves 50% more than the market. Beta 0.5 = half as much. Negative = moves opposite.",
+  fwdpe:       "Forward P/E — share price divided by expected earnings per share for the next 12 months. Lower can mean cheaper relative to future profits, but high-growth stocks often have high P/E.",
+  trailingpe:  "Trailing P/E — share price divided by actual earnings per share over the past 12 months. Based on real, not forecast, numbers.",
+  pb:          "Price-to-Book — share price divided by the company's net assets per share. Below 1 can signal undervaluation; above 3 is common for profitable tech companies.",
+  divyield:    "Dividend Yield — annual dividend as a % of the current share price. E.g. 3% yield on a £10 share = 30p per share per year.",
+  revgrowth:   "Revenue Growth — year-on-year change in the company's total sales.",
+  epsgrowth:   "EPS Growth (Earnings Per Share) — year-on-year change in profit per share. Positive and accelerating is a strong quality signal.",
+  roe:         "Return on Equity — annual profit as a % of shareholders' equity. Measures how efficiently management uses the money invested. Above 15% is generally considered strong.",
+  de:          "Debt-to-Equity ratio — total debt divided by shareholders' equity. Higher = more borrowed money relative to own funds = more financial risk.",
+  shortratio:  "Short Ratio (Days to Cover) — how many days of average trading volume short sellers would need to buy back all their shares. Higher = more bearish bets outstanding.",
+  stooq:       "Stooq.com — independent financial data site used to cross-check the Yahoo Finance price. A tick means the two sources agree within 2%.",
+  yoc:         "Yield on Cost — your personal dividend yield based on what you originally paid, not today's price. If you bought years ago at a lower price, this is higher than the current yield.",
+  exdiv:       "Ex-Dividend Date — you must own the stock before this date to receive the next dividend. If you buy on or after this date, the seller keeps the dividend.",
+  avco:        "AVCO (Average Cost) — your average purchase price per share calculated across all buy transactions, adjusted when you sell. This is what HMRC uses for UK capital gains calculation.",
+  rebalancing: "Rebalancing — adjusting how much of each holding you own so it matches your target allocation. Keeps your risk in line with your original plan.",
+  analystcons: "Analyst Consensus — the combined opinion of professional equity analysts who research this stock. Based on their buy/hold/sell ratings and price targets.",
+  blended:     "This signal is a blend: 40% technical indicators + 60% analyst consensus, so short-term chart noise is balanced by longer-term professional research.",
+};
+
+function tip(label, key, cls) {
+  const text = TIPS[key];
+  if (!text) return label;
+  return `<span class="tip${cls?' '+cls:''}" data-tip="${text.replace(/"/g,'&quot;')}">${label}</span>`;
+}
+
+// Mobile tap to show tooltip
+document.addEventListener('click', e => {
+  const t = e.target.closest('.tip');
+  document.querySelectorAll('.tip.show').forEach(el => { if (el !== t) el.classList.remove('show'); });
+  if (t) { t.classList.toggle('show'); e.stopPropagation(); }
+});
+
 // ── State ────────────────────────────────────────────────────────────────────
 let allData = [], filter = 'all', macroData = {};
 let positionsMap = {};   // {ticker: {shares, avg_cost, alert_above, alert_below, target_weight_pct, transactions}}
@@ -854,7 +940,9 @@ function renderMacro(macro) {
                  : v >= 1000 ? v.toLocaleString(undefined, {maximumFractionDigits:0})
                  : v >= 10   ? v.toFixed(2)
                  :              v.toFixed(4);
-    return `<div class="macro-item"><div class="macro-label">${m.label}</div><div class="macro-val">${valStr}</div>${chgStr?`<div class="macro-chg ${cls}">${chgStr}</div>`:''}</div>`;
+    const MACRO_KEYS = { 'VIX':'vix','S&P 500':'sp500','FTSE 100':'ftse100','Gold':'gold','US 10Y':'treasury10y','GBP/USD':'gbpusd' };
+    const labelHTML = tip(m.label, MACRO_KEYS[m.label] || '');
+    return `<div class="macro-item"><div class="macro-label">${labelHTML}</div><div class="macro-val">${valStr}</div>${chgStr?`<div class="macro-chg ${cls}">${chgStr}</div>`:''}</div>`;
   }).join('');
 }
 
@@ -879,7 +967,7 @@ function analystSection(d) {
           analyst_target_high: hi, analyst_target_low: lo, analyst_count: cnt, price } = d;
   if (!bd && !rk && !mean) return '';
 
-  let h = `<div class="d-section"><div class="d-title">Analyst Consensus${cnt?` &nbsp;<span style="font-weight:400;color:var(--muted)">(${cnt} analysts)</span>`:''}</div>`;
+  let h = `<div class="d-section"><div class="d-title">${tip('Analyst Consensus','analystcons')}${cnt?` &nbsp;<span style="font-weight:400;color:var(--muted)">(${cnt} analysts)</span>`:''}</div>`;
   if (rk) {
     const cls = rk.replace(/_/g,'');
     h += `<div class="rec-key ${cls}">${rk.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</div>`;
@@ -905,15 +993,15 @@ function analystSection(d) {
 
 function fundamentalsSection(d) {
   const items = [
-    ['Beta',d.beta!=null?d.beta.toFixed(2):null],
-    ['Fwd P/E',d.forward_pe!=null?d.forward_pe.toFixed(1):null],
-    ['P/Book',d.price_to_book!=null?d.price_to_book.toFixed(2):null],
-    ['Div Yield',d.dividend_yield!=null?(d.dividend_yield*100).toFixed(2)+'%':null],
-    ['Rev Growth',d.revenue_growth!=null?pct(d.revenue_growth):null],
-    ['EPS Growth',d.earnings_growth!=null?pct(d.earnings_growth):null],
-    ['ROE',d.roe!=null?pct(d.roe):null],
-    ['D/E',d.debt_to_equity!=null?d.debt_to_equity.toFixed(2):null],
-    ['Short Ratio',d.short_ratio!=null?d.short_ratio.toFixed(1)+'d':null],
+    [tip('Beta','beta'),                d.beta!=null?d.beta.toFixed(2):null],
+    [tip('Fwd P/E','fwdpe'),            d.forward_pe!=null?d.forward_pe.toFixed(1):null],
+    [tip('P/Book','pb'),                d.price_to_book!=null?d.price_to_book.toFixed(2):null],
+    [tip('Div Yield','divyield'),       d.dividend_yield!=null?(d.dividend_yield*100).toFixed(2)+'%':null],
+    [tip('Rev Growth','revgrowth'),     d.revenue_growth!=null?pct(d.revenue_growth):null],
+    [tip('EPS Growth','epsgrowth'),     d.earnings_growth!=null?pct(d.earnings_growth):null],
+    [tip('ROE','roe'),                  d.roe!=null?pct(d.roe):null],
+    [tip('D/E','de'),                   d.debt_to_equity!=null?d.debt_to_equity.toFixed(2):null],
+    [tip('Short Ratio','shortratio'),   d.short_ratio!=null?d.short_ratio.toFixed(1)+'d':null],
   ].filter(([,v])=>v!=null);
   if (!items.length) return '';
   return `<div class="d-section"><div class="d-title">Fundamentals</div><div class="stat-grid">${items.map(([k,v])=>`<div class="stat-box"><div class="sk">${k}</div><div class="sv">${v}</div></div>`).join('')}</div></div>`;
@@ -933,11 +1021,11 @@ function dividendSection(d) {
   const exDivDays = exDiv ? daysUntil(exDiv) : null;
 
   const items = [
-    ['Div Yield', d.dividend_yield ? (d.dividend_yield*100).toFixed(2)+'%' : null],
-    ['Annual Div/Share', d.annual_dividend ? fmt(d.annual_dividend) : null],
-    ['Yield on Cost', yoc],
-    ['Proj. Income/yr', projIncome],
-    ['Ex-Div Date', exDiv ? `${exDiv}${exDivDays != null ? ` (${exDivDays >= 0 ? 'in ' + exDivDays + 'd' : exDivDays + 'd ago'})` : ''}` : null],
+    [tip('Div Yield','divyield'),       d.dividend_yield ? (d.dividend_yield*100).toFixed(2)+'%' : null],
+    ['Annual Div/Share',                d.annual_dividend ? fmt(d.annual_dividend) : null],
+    [tip('Yield on Cost','yoc'),        yoc],
+    ['Proj. Income/yr',                 projIncome],
+    [tip('Ex-Div Date','exdiv'),        exDiv ? `${exDiv}${exDivDays != null ? ` (${exDivDays >= 0 ? 'in ' + exDivDays + 'd' : exDivDays + 'd ago'})` : ''}` : null],
   ].filter(([,v]) => v != null);
 
   if (!items.length) return '';
@@ -962,7 +1050,7 @@ function transactionSection(d) {
       </div>`;
     }).join('');
 
-  return `<div class="d-section"><div class="d-title">Transaction History &middot; AVCO: ${avco.avg_cost.toFixed(2)}</div>
+  return `<div class="d-section"><div class="d-title">Transaction History &middot; ${tip('AVCO','avco')}: ${avco.avg_cost.toFixed(2)}</div>
     <div class="tx-list">${rows}</div></div>`;
 }
 
@@ -994,7 +1082,7 @@ function rebalancingSection(d) {
       ? `<span class="g">Buy ~${fmtGBP(diffGBP)} to reach target</span>`
       : `<span class="r">Sell ~${fmtGBP(Math.abs(diffGBP))} to reach target</span>`;
 
-  return `<div class="d-section"><div class="d-title">Rebalancing</div>
+  return `<div class="d-section"><div class="d-title">${tip('Rebalancing','rebalancing')}</div>
     <div class="rebal-row">
       <div class="rebal-labels">
         <span>Current ${currentPct.toFixed(1)}%</span>
@@ -1071,17 +1159,17 @@ function renderCards() {
       <div class="metrics">
         <div class="metric"><div class="m-label">Week</div><div class="m-val ${pcC(d.week_change_pct)}">${pc(d.week_change_pct)}</div></div>
         <div class="metric"><div class="m-label">Month</div><div class="m-val ${pcC(d.month_change_pct)}">${pc(d.month_change_pct)}</div></div>
-        <div class="metric"><div class="m-label">vs 52W High</div><div class="m-val ${pcC(d.pct_from_52w_high != null ? d.pct_from_52w_high*100 : null)}">${pc(d.pct_from_52w_high != null ? d.pct_from_52w_high*100 : null)}</div></div>
-        <div class="metric"><div class="m-label">RSI</div><div class="m-val">${d.rsi != null ? d.rsi.toFixed(0) : '&mdash;'}</div></div>
+        <div class="metric"><div class="m-label">${tip('vs 52W High','52whigh')}</div><div class="m-val ${pcC(d.pct_from_52w_high != null ? d.pct_from_52w_high*100 : null)}">${pc(d.pct_from_52w_high != null ? d.pct_from_52w_high*100 : null)}</div></div>
+        <div class="metric"><div class="m-label">${tip('RSI','rsi')}</div><div class="m-val">${d.rsi != null ? d.rsi.toFixed(0) : '&mdash;'}</div></div>
       </div>
       <div class="detail" id="d${i}">
-        <div class="d-section"><div class="d-title">Technical Signals</div><ul class="signals">${sigs}</ul></div>
+        <div class="d-section"><div class="d-title">${tip('Technical Signals','blended')}</div><ul class="signals">${sigs}</ul></div>
         <div class="d-section"><div class="d-title">Key Levels</div><div class="stat-grid">
-          <div class="stat-box"><div class="sk">SMA 50</div><div class="sv">${fmt(d.sma_50)}</div></div>
-          <div class="stat-box"><div class="sk">SMA 200</div><div class="sv">${fmt(d.sma_200)}</div></div>
+          <div class="stat-box"><div class="sk">${tip('SMA 50','sma50')}</div><div class="sv">${fmt(d.sma_50)}</div></div>
+          <div class="stat-box"><div class="sk">${tip('SMA 200','sma200')}</div><div class="sv">${fmt(d.sma_200)}</div></div>
           <div class="stat-box"><div class="sk">52W High</div><div class="sv">${fmt(d.high_52w)}</div></div>
           <div class="stat-box"><div class="sk">52W Low</div><div class="sv">${fmt(d.low_52w)}</div></div>
-          ${d.stooq_price ? `<div class="stat-box"><div class="sk">Stooq Price</div><div class="sv">${d.stooq_price.toFixed(2)}</div></div>` : ''}
+          ${d.stooq_price ? `<div class="stat-box"><div class="sk">${tip('Stooq Price','stooq')}</div><div class="sv">${d.stooq_price.toFixed(2)}</div></div>` : ''}
           ${d.earnings_date ? `<div class="stat-box"><div class="sk">Next Earnings</div><div class="sv">${d.earnings_date}${earningsDays != null && earningsDays >= 0 ? ' ('+earningsDays+'d)' : ''}</div></div>` : ''}
         </div></div>
         ${dividendSection(d)}
