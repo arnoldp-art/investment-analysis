@@ -230,8 +230,10 @@ def fetch_and_analyse():
     for holding in HOLDINGS:
         ticker = holding["ticker"]
         try:
-            # Primary: Yahoo Finance price history
+            # Primary: Yahoo Finance price history — drop trailing NaN rows (partial pre-market bars)
             hist = yf.Ticker(ticker).history(period="1y")
+            if hist is not None:
+                hist = hist[hist["Close"].notna()]
             if hist is None or len(hist) < 30:
                 errors.append(f"{ticker}: insufficient data")
                 continue

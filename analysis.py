@@ -43,6 +43,8 @@ def compute_atr(high: pd.Series, low: pd.Series, close: pd.Series, period: int =
 
 def analyse(hist: pd.DataFrame) -> dict:
     """Run all technical indicators and produce a scored signal."""
+    # Drop any trailing rows where Close is NaN (e.g. partial pre-market bar)
+    hist = hist[hist["Close"].notna()]
     close = hist["Close"].squeeze()
     high = hist["High"].squeeze()
     low = hist["Low"].squeeze()
