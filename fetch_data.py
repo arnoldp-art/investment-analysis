@@ -248,8 +248,11 @@ def fetch_and_analyse():
             # 30-day closing price history for portfolio chart
             price_history = []
             for idx, row in hist.tail(30).iterrows():
+                c = float(row["Close"])
+                if not np.isfinite(c):
+                    continue
                 d_str = idx.strftime("%Y-%m-%d") if hasattr(idx, "strftime") else str(idx)[:10]
-                price_history.append({"d": d_str, "c": round(float(row["Close"]), 4)})
+                price_history.append({"d": d_str, "c": round(c, 4)})
 
             # Enhanced: Yahoo Finance analyst + news + fundamentals
             extras = fetch_extras(ticker)
@@ -304,8 +307,14 @@ def fetch_and_analyse():
         "errors":   errors,
     }
 
+    # Serialize with NaN/Infinity replaced by null (standard JSON does not allow them)
+    import re as _re
+    raw = json.dumps(payload, indent=2, default=str, allow_nan=True)
+    raw = _re.sub(r'\bNaN\b', 'null', raw)
+    raw = _re.sub(r'\bInfinity\b', 'null', raw)
+    raw = _re.sub(r'\b-Infinity\b', 'null', raw)
     with open("docs/data.json", "w") as f:
-        json.dump(payload, f, indent=2, default=str)
+        f.write(raw)
 
     print(f"\nWrote docs/data.json — {len(output)} holdings, {len(errors)} errors")
     return len(output) > 0
