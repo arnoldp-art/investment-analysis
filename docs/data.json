@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-05T05:44:06.382260+00:00",
+  "generated": "2026-06-05T05:49:51.303900+00:00",
   "sources": [
     "Yahoo Finance \u2014 OHLCV price history (1 year)",
     "Yahoo Finance \u2014 fundamentals: P/E, beta, P/B, dividend yield, ROE, D/E, short ratio",
@@ -25,13 +25,13 @@
         "RSI neutral at 51.1",
         "MACD below signal line \u2014 bearish momentum"
       ],
-      "rsi": 51.13971474146721,
-      "macd": 3.75889911637654,
-      "signal_line": 4.786715754954031,
+      "rsi": 51.13971474144614,
+      "macd": 3.758899116364347,
+      "signal_line": 4.786715754937215,
       "sma_50": null,
       "sma_200": null,
       "high_52w": 235.74000549316406,
-      "low_52w": 139.95703125,
+      "low_52w": 139.95701599121094,
       "pct_from_52w_high": null,
       "atr_pct": null,
       "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $5.3T \u2014 mega-cap liquidity supports institutional ownership. Risk/reward is unfavourable at current levels; consider reducing exposure.",
@@ -195,16 +195,16 @@
           "time": "2026-06-04T12:00:00Z"
         },
         {
+          "title": "Beyond Nvidia: Europe's best-performing AI stocks of 2026",
+          "publisher": "Euronews",
+          "link": "https://www.euronews.com/2026/06/05/beyond-nvidia-europes-best-performing-ai-stocks-of-2026?utm_source=yahoo&utm_campaign=feeds_business_articles_2024&utm_medium=referral",
+          "time": "2026-06-05T05:37:05Z"
+        },
+        {
           "title": "Nvidia CEO sees robotics as next major sector in South Korea",
           "publisher": "Reuters",
           "link": "https://finance.yahoo.com/sectors/technology/articles/nvidia-ceo-sees-robotics-next-051530964.html",
           "time": "2026-06-05T05:15:30Z"
-        },
-        {
-          "title": "Is Lululemon Athletica a Buy After Its Latest Earnings Report?",
-          "publisher": "Motley Fool",
-          "link": "https://www.fool.com/investing/2026/06/05/is-lululemon-athletica-a-buy-after-its-latest-earn/",
-          "time": "2026-06-05T04:50:00Z"
         }
       ],
       "earnings_date": "2026-08-26",
@@ -213,7 +213,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
+      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
     },
     {
       "ticker": "AAPL",
@@ -231,9 +231,9 @@
         "RSI strengthening at 65.9",
         "MACD below signal line \u2014 bearish momentum"
       ],
-      "rsi": 65.85891293468838,
-      "macd": 9.55879985696788,
-      "signal_line": 9.755334895094123,
+      "rsi": 65.85891293569816,
+      "macd": 9.558799861923262,
+      "signal_line": 9.75533490191239,
       "sma_50": null,
       "sma_200": null,
       "high_52w": 315.20001220703125,
@@ -419,7 +419,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
+      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
     },
     {
       "ticker": "GOOGL",
@@ -438,13 +438,13 @@
         "MACD below signal line \u2014 bearish momentum",
         "Above-average volume on price decline \u2014 distribution signal"
       ],
-      "rsi": 38.827053114367786,
-      "macd": 3.3444086435767986,
-      "signal_line": 8.29339371391941,
+      "rsi": 38.82705311436942,
+      "macd": 3.3444086435753206,
+      "signal_line": 8.293393713917396,
       "sma_50": null,
       "sma_200": null,
       "high_52w": 402.6199951171875,
-      "low_52w": 164.81846618652344,
+      "low_52w": 164.8184814453125,
       "pct_from_52w_high": null,
       "atr_pct": null,
       "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $4.5T \u2014 mega-cap liquidity supports institutional ownership. Risk/reward is unfavourable at current levels; consider reducing exposure.",
@@ -626,7 +626,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
+      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
     },
     {
       "ticker": "AMZN",
@@ -831,7 +831,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
+      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
     },
     {
       "ticker": "RBLX",
@@ -1036,7 +1036,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
+      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
     },
     {
       "ticker": "ILMN",
@@ -1242,7 +1242,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
+      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
     },
     {
       "ticker": "NKTR",
@@ -1447,7 +1447,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
+      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
     },
     {
       "ticker": "VWRL.L",
@@ -1467,15 +1467,15 @@
         "MACD above signal line \u2014 bullish momentum",
         "Near 52-week high \u2014 strong momentum but limited upside buffer"
       ],
-      "rsi": 72.14047493055696,
-      "macd": 2.246350382611382,
-      "signal_line": 2.2305333025912346,
+      "rsi": 72.14047493921895,
+      "macd": 2.2463503825224223,
+      "signal_line": 2.2305333024604037,
       "sma_50": 129.94780014038085,
-      "sma_200": 123.93758090972901,
+      "sma_200": 123.93758113861084,
       "high_52w": 138.63999938964844,
-      "low_52w": 106.11397552490234,
+      "low_52w": 106.11398315429688,
       "pct_from_52w_high": -0.004832646940961671,
-      "atr_pct": 0.888730442343166,
+      "atr_pct": 0.8887304422358155,
       "commentary": "Vanguard FTSE All-World ETF provides diversified exposure. Mixed signals present \u2014 no clear directional conviction. RSI elevated (72) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Hold current position; re-assess on a decisive technical break either way.",
       "price_history": [
         {
@@ -1619,7 +1619,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
+      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
     },
     {
       "ticker": "XDWH.L",
@@ -1791,7 +1791,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "BUY",
-      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
+      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
     },
     {
       "ticker": "IIND.L",
@@ -1963,7 +1963,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
+      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
     },
     {
       "ticker": "SGLN.L",
@@ -2147,7 +2147,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:38:36.219997+00:00"
+      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
     }
   ],
   "macro": {
@@ -2168,8 +2168,8 @@
     },
     "gold": {
       "label": "Gold",
-      "value": 4468.2998,
-      "change_pct": -0.17
+      "value": 4472.2998,
+      "change_pct": -0.08
     },
     "treasury10y": {
       "label": "US 10Y",
