@@ -42,7 +42,18 @@
   .refresh-btn {
     background: var(--accent); color: #fff; border: none; border-radius: 8px;
     padding: 7px 14px; font-size: 0.78rem; font-weight: 600; cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent; transition: opacity 0.2s;
+  }
+  .refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .refresh-pending {
+    display: none; align-items: center; gap: 6px; font-size: 0.72rem;
+    color: var(--accent); padding: 4px 0;
+  }
+  .refresh-pending.visible { display: flex; }
+  .mini-spinner {
+    width: 13px; height: 13px; border: 2px solid rgba(99,102,241,0.3);
+    border-top-color: var(--accent); border-radius: 50%;
+    animation: spin 0.7s linear infinite; flex-shrink: 0;
   }
   .export-btn {
     display: none; background: rgba(34,197,94,0.15); color: var(--green);
@@ -429,12 +440,16 @@
         <span id="portfolio-btn-icon">&#128274;</span>
         <span id="portfolio-btn-label">My Portfolio</span>
       </button>
-      <button class="refresh-btn" onclick="location.reload()">&#8635;</button>
+      <button class="refresh-btn" id="refresh-btn" onclick="doRefresh()">&#8635; Refresh</button>
     </div>
   </div>
   <div class="status-bar">
     <div class="dot" id="dot"></div>
     <span id="status-txt">Loading&hellip;</span>
+  </div>
+  <div class="refresh-pending" id="refresh-pending">
+    <div class="mini-spinner"></div>
+    <span id="refresh-pending-txt">Fetching live data&hellip; this takes about 2 minutes</span>
   </div>
 </header>
 
@@ -511,9 +526,64 @@ document.addEventListener('click', e => {
 
 // ── State ────────────────────────────────────────────────────────────────────
 let allData = [], filter = 'all', macroData = {};
-let positionsMap = {};   // {ticker: {shares, avg_cost, alert_above, alert_below, target_weight_pct, transactions}}
+let positionsMap = {};
 let watchlistTickers = [];
 let isPortfolioMode = false;
+let githubToken = null;  // optional, from positions.enc — used to trigger live refresh
+
+const GH_REPO  = 'arnoldp-art/investment-analysis';
+const GH_WF    = 'pages.yml';
+
+// ── Refresh ───────────────────────────────────────────────────────────────────
+async function doRefresh() {
+  if (!githubToken) {
+    location.reload();
+    return;
+  }
+
+  const btn = document.getElementById('refresh-btn');
+  const pending = document.getElementById('refresh-pending');
+  btn.disabled = true;
+  btn.textContent = '⏳ Updating…';
+  pending.classList.add('visible');
+
+  try {
+    const resp = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/${GH_WF}/dispatches`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${githubToken}`,
+        Accept: 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ref: 'main' }),
+    });
+
+    if (resp.status === 204) {
+      // Poll data.json until the generated timestamp changes
+      const oldGenerated = allData.length ? document.getElementById('status-txt').textContent : '';
+      let attempts = 0;
+      const poll = setInterval(async () => {
+        attempts++;
+        try {
+          const r = await fetch('data.json?v=' + Date.now());
+          const d = await r.json();
+          if (d.generated !== (allData._generated || '') || attempts > 24) {
+            clearInterval(poll);
+            location.reload();
+          }
+        } catch(e) { /* keep polling */ }
+        document.getElementById('refresh-pending-txt').textContent =
+          `Fetching live data… (~${Math.max(0, 120 - attempts*5)}s remaining)`;
+      }, 5000);
+
+    } else {
+      // Token didn't work — fall back to plain reload
+      location.reload();
+    }
+  } catch(e) {
+    location.reload();
+  }
+}
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 const pc  = v => v == null ? '&mdash;' : (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
@@ -621,6 +691,7 @@ function handlePortfolioBtn() {
     isPortfolioMode = false;
     positionsMap = {};
     watchlistTickers = [];
+    githubToken = null;
     sessionStorage.removeItem('ptpwd');
     document.getElementById('portfolio-btn').classList.remove('authed');
     document.getElementById('portfolio-btn-icon').textContent = '🔒';
@@ -671,6 +742,7 @@ function applyPortfolioData(data, pwd) {
   positionsMap = {};
   (data.positions || []).forEach(p => { positionsMap[p.ticker] = p; });
   watchlistTickers = data.watchlist || [];
+  githubToken = data.github_token || null;
   isPortfolioMode = true;
   if (pwd) sessionStorage.setItem('ptpwd', pwd);
 
@@ -1262,6 +1334,7 @@ async function load() {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const payload = await res.json();
     allData = payload.holdings || [];
+    allData._generated = payload.generated;
     document.getElementById('overlay').style.display = 'none';
     if (!allData.length) throw new Error('No holdings in data');
 
