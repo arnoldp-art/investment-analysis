@@ -44,6 +44,13 @@
     padding: 7px 14px; font-size: 0.78rem; font-weight: 600; cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
+  .export-btn {
+    display: none; background: rgba(34,197,94,0.15); color: var(--green);
+    border: 1px solid rgba(34,197,94,0.3); border-radius: 8px;
+    padding: 7px 12px; font-size: 0.78rem; font-weight: 600; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .export-btn.visible { display: flex; align-items: center; gap: 5px; }
   .portfolio-btn {
     background: var(--surface); color: var(--muted); border: 1px solid var(--border);
     border-radius: 8px; padding: 7px 12px; font-size: 0.78rem; font-weight: 600;
@@ -86,6 +93,35 @@
   .ps-label { font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
   .ps-val   { font-size: 1.05rem; font-weight: 800; margin-top: 3px; }
   .ps-sub   { font-size: 0.68rem; margin-top: 2px; }
+
+  /* ── Portfolio charts section ── */
+  .portfolio-charts {
+    display: none; padding: 14px 14px 8px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(15,23,42,0.4);
+    gap: 14px; flex-wrap: wrap;
+  }
+  .portfolio-charts.visible { display: flex; }
+  .chart-panel {
+    flex: 1; min-width: 220px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 12px 14px;
+  }
+  .chart-title { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 8px; }
+  .chart-sub { font-size: 0.68rem; color: var(--muted); margin-top: 4px; }
+  .donut-wrap { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .donut-legend { display: flex; flex-direction: column; gap: 5px; }
+  .dl-item { display: flex; align-items: center; gap: 6px; font-size: 0.68rem; color: var(--muted); }
+  .dl-dot  { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+
+  /* ── Alert banners ── */
+  .alerts-container { padding: 0 12px; }
+  .alert-banner {
+    display: flex; align-items: center; gap: 10px;
+    border-radius: 10px; padding: 10px 14px; margin-bottom: 8px;
+    font-size: 0.82rem; font-weight: 600;
+  }
+  .alert-banner.above { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: var(--green); }
+  .alert-banner.below { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: var(--red); }
 
   /* ── Summary strip ── */
   .summary {
@@ -198,12 +234,23 @@
     background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25);
     border-radius: 20px; padding: 2px 7px; margin-left: 6px; vertical-align: middle;
   }
+  .earnings-chip {
+    display: inline-flex; align-items: center; font-size: 0.62rem; color: var(--yellow);
+    background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3);
+    border-radius: 20px; padding: 2px 7px; margin-left: 6px; vertical-align: middle;
+  }
+  .alert-chip {
+    display: inline-flex; align-items: center; font-size: 0.62rem; font-weight: 700;
+    border-radius: 20px; padding: 2px 8px; margin-left: 6px; vertical-align: middle;
+  }
+  .alert-chip.above { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+  .alert-chip.below { background: rgba(239,68,68,0.15); color: var(--red);   border: 1px solid rgba(239,68,68,0.3); }
 
   .card-right { text-align: right; flex-shrink: 0; }
   .card-price { font-size: 1.08rem; font-weight: 800; }
   .card-day   { font-size: 0.84rem; font-weight: 600; margin-top: 3px; }
 
-  /* ── Position strip (shown when authenticated) ── */
+  /* ── Position strip ── */
   .position-strip {
     display: none; border-top: 1px solid rgba(245,158,11,0.2);
     background: rgba(245,158,11,0.04); padding: 8px 16px;
@@ -268,6 +315,26 @@
   .news-title a:hover { color: var(--blue); }
   .news-meta { font-size: 0.66rem; color: var(--muted); margin-top: 3px; }
 
+  /* ── Rebalancing ── */
+  .rebal-row { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+  .rebal-labels { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--muted); }
+  .rebal-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; position: relative; }
+  .rebal-current { height: 100%; border-radius: 3px; transition: width 0.3s; }
+  .rebal-target-line { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--accent); border-radius: 1px; }
+  .rebal-suggestion { font-size: 0.75rem; margin-top: 2px; }
+
+  /* ── Transaction history ── */
+  .tx-list { display: flex; flex-direction: column; gap: 5px; }
+  .tx-row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.76rem; padding: 6px 10px; border-radius: 7px; background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .tx-type { font-weight: 700; padding: 1px 7px; border-radius: 10px; font-size: 0.65rem; }
+  .tx-type.buy  { background: rgba(34,197,94,0.15); color: var(--green); }
+  .tx-type.sell { background: rgba(239,68,68,0.15); color: var(--red); }
+  .tx-date { color: var(--muted); font-size: 0.68rem; }
+
   .chevron { transition: transform 0.2s; display: inline-block; font-size: 0.65rem; margin-left: 4px; color: var(--muted); }
   .card.open .chevron { transform: rotate(180deg); }
 
@@ -321,6 +388,7 @@
   <div class="header-row">
     <div class="logo">Portfolio<span>Tracker</span></div>
     <div class="header-btns">
+      <button class="export-btn" id="export-btn" onclick="exportCSV()">&#8615; CSV</button>
       <button class="portfolio-btn" id="portfolio-btn" onclick="handlePortfolioBtn()">
         <span id="portfolio-btn-icon">&#128274;</span>
         <span id="portfolio-btn-label">My Portfolio</span>
@@ -336,6 +404,8 @@
 
 <div class="macro-bar" id="macro-bar"></div>
 <div class="portfolio-summary" id="portfolio-summary"></div>
+<div class="portfolio-charts" id="portfolio-charts"></div>
+<div class="alerts-container" id="alerts-container"></div>
 <div class="summary" id="summary"></div>
 
 <div class="tabs">
@@ -346,6 +416,7 @@
   <div class="tab" onclick="setFilter('equity',this)">Equities</div>
   <div class="tab" onclick="setFilter('etf',this)">ETFs / ETC</div>
   <div class="tab" onclick="setFilter('changed',this)">&#128260; Changed</div>
+  <div class="tab" id="watchlist-tab" style="display:none" onclick="setFilter('watchlist',this)">&#128065; Watchlist</div>
 </div>
 
 <div class="cards" id="cards"></div>
@@ -353,8 +424,9 @@
 
 <script>
 // ── State ────────────────────────────────────────────────────────────────────
-let allData = [], filter = 'all';
-let positionsMap = {};   // {ticker: {shares, avg_cost}}
+let allData = [], filter = 'all', macroData = {};
+let positionsMap = {};   // {ticker: {shares, avg_cost, alert_above, alert_below, target_weight_pct, transactions}}
+let watchlistTickers = [];
 let isPortfolioMode = false;
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -373,10 +445,62 @@ function fmtMoney(v, decimals=2) {
   return (v < 0 ? '-' : '') + s;
 }
 
+function fmtGBP(v) {
+  if (v == null) return '&mdash;';
+  return '&pound;' + fmtMoney(v);
+}
+
 function deltaChip(current, previous) {
   if (!previous || previous === current) return '';
   const up = REC_RANK[current] > REC_RANK[previous];
   return `<span class="delta-chip ${up?'delta-up':'delta-down'}">${up?'&#8593;':'&#8595;'} was ${previous}</span>`;
+}
+
+// GBP/USD from macro — UK .L stocks trade in pence (GBX) so divide by 100; USD divide by GBPUSD
+function getGBPRate() {
+  return macroData?.gbpusd?.value || null;
+}
+
+function toGBP(ticker, nativeValue) {
+  if (nativeValue == null) return null;
+  if (ticker.endsWith('.L')) return nativeValue / 100;
+  const rate = getGBPRate();
+  return rate ? nativeValue / rate : null;
+}
+
+// AVCO: compute average cost from transaction history
+function computeAVCO(transactions) {
+  if (!transactions || !transactions.length) return null;
+  const sorted = [...transactions].sort((a, b) => new Date(a.date) - new Date(b.date));
+  let totalShares = 0, totalCost = 0;
+  for (const tx of sorted) {
+    if (tx.type === 'buy') {
+      totalShares += tx.shares;
+      totalCost   += tx.shares * tx.price;
+    } else if (tx.type === 'sell') {
+      const avgCost = totalShares > 0 ? totalCost / totalShares : 0;
+      totalShares  -= tx.shares;
+      totalCost    -= tx.shares * avgCost;
+    }
+  }
+  return { shares: Math.max(0, totalShares), avg_cost: totalShares > 0 ? totalCost / totalShares : 0 };
+}
+
+// Resolve position (transactions take precedence if non-empty)
+function resolvePos(pos) {
+  if (!pos) return null;
+  if (pos.transactions && pos.transactions.length) {
+    const avco = computeAVCO(pos.transactions);
+    return { ...pos, shares: avco.shares, avg_cost: avco.avg_cost };
+  }
+  return pos;
+}
+
+// Days until a date string (YYYY-MM-DD)
+function daysUntil(dateStr) {
+  if (!dateStr) return null;
+  const diff = (new Date(dateStr) - new Date()) / 86400000;
+  return Math.round(diff);
 }
 
 // ── Crypto helpers ────────────────────────────────────────────────────────────
@@ -408,14 +532,19 @@ async function decryptPositions(password, enc) {
 // ── Login ─────────────────────────────────────────────────────────────────────
 function handlePortfolioBtn() {
   if (isPortfolioMode) {
-    // logout
     isPortfolioMode = false;
     positionsMap = {};
+    watchlistTickers = [];
     sessionStorage.removeItem('ptpwd');
     document.getElementById('portfolio-btn').classList.remove('authed');
     document.getElementById('portfolio-btn-icon').textContent = '🔒';
     document.getElementById('portfolio-btn-label').textContent = 'My Portfolio';
     document.getElementById('portfolio-summary').classList.remove('visible');
+    document.getElementById('portfolio-charts').classList.remove('visible');
+    document.getElementById('alerts-container').innerHTML = '';
+    document.getElementById('export-btn').classList.remove('visible');
+    document.getElementById('watchlist-tab').style.display = 'none';
+    if (filter === 'watchlist') { filter = 'all'; document.querySelectorAll('.tab').forEach((t,i)=>{ if(i===0) t.classList.add('active'); else t.classList.remove('active'); }); }
     renderCards();
   } else {
     openModal();
@@ -428,39 +557,22 @@ function openModal() {
   document.getElementById('modal-error').textContent = '';
   setTimeout(() => document.getElementById('pwd-input').focus(), 100);
 }
-function closeModal() {
-  document.getElementById('modal-backdrop').classList.remove('open');
-}
-function handleBackdropClick(e) {
-  if (e.target === document.getElementById('modal-backdrop')) closeModal();
-}
+function closeModal() { document.getElementById('modal-backdrop').classList.remove('open'); }
+function handleBackdropClick(e) { if (e.target === document.getElementById('modal-backdrop')) closeModal(); }
 
 async function doLogin() {
   const pwd = document.getElementById('pwd-input').value.trim();
   if (!pwd) return;
-
   document.getElementById('login-btn').style.display = 'none';
   document.getElementById('modal-spinner').style.display = 'block';
   document.getElementById('modal-error').textContent = '';
-
   try {
     const res = await fetch('positions.enc?v=' + Date.now());
     if (!res.ok) throw new Error('positions.enc not found');
     const enc = await res.json();
     const data = await decryptPositions(pwd, enc);
-
-    positionsMap = {};
-    (data.positions || []).forEach(p => { positionsMap[p.ticker] = p; });
-    isPortfolioMode = true;
-    sessionStorage.setItem('ptpwd', pwd);
-
+    applyPortfolioData(data, pwd);
     closeModal();
-    document.getElementById('portfolio-btn').classList.add('authed');
-    document.getElementById('portfolio-btn-icon').textContent = '✅';
-    document.getElementById('portfolio-btn-label').textContent = 'Portfolio On';
-
-    renderPortfolioSummary();
-    renderCards();
   } catch(e) {
     document.getElementById('modal-error').textContent = 'Incorrect password — try again.';
   } finally {
@@ -469,44 +581,220 @@ async function doLogin() {
   }
 }
 
+function applyPortfolioData(data, pwd) {
+  positionsMap = {};
+  (data.positions || []).forEach(p => { positionsMap[p.ticker] = p; });
+  watchlistTickers = data.watchlist || [];
+  isPortfolioMode = true;
+  if (pwd) sessionStorage.setItem('ptpwd', pwd);
+
+  document.getElementById('portfolio-btn').classList.add('authed');
+  document.getElementById('portfolio-btn-icon').textContent = '✅';
+  document.getElementById('portfolio-btn-label').textContent = 'Portfolio On';
+  document.getElementById('export-btn').classList.add('visible');
+
+  if (watchlistTickers.length) {
+    document.getElementById('watchlist-tab').style.display = '';
+  }
+
+  renderPortfolioSummary();
+  renderPortfolioCharts();
+  renderAlerts();
+  renderCards();
+}
+
 // ── Portfolio summary ─────────────────────────────────────────────────────────
 function renderPortfolioSummary() {
   if (!isPortfolioMode) return;
-
-  let totalCost = 0, totalValue = 0, positions = 0;
+  let totalCostGBP = 0, totalValueGBP = 0, positions = 0;
 
   allData.forEach(d => {
-    const pos = positionsMap[d.ticker];
+    const pos = resolvePos(positionsMap[d.ticker]);
     if (!pos || !pos.shares || !d.price) return;
+    const vGBP = toGBP(d.ticker, pos.shares * d.price);
+    const cGBP = toGBP(d.ticker, pos.shares * pos.avg_cost);
+    if (vGBP == null) return;
     positions++;
-    totalCost  += pos.shares * pos.avg_cost;
-    totalValue += pos.shares * d.price;
+    totalValueGBP += vGBP;
+    if (cGBP != null) totalCostGBP += cGBP;
   });
 
-  const pnl    = totalValue - totalCost;
-  const pnlPct = totalCost > 0 ? pnl / totalCost * 100 : 0;
+  const pnl    = totalValueGBP - totalCostGBP;
+  const pnlPct = totalCostGBP > 0 ? pnl / totalCostGBP * 100 : 0;
   const pnlCls = pnl >= 0 ? 'g' : 'r';
+  const rateStr = getGBPRate() ? ` &middot; GBP/USD ${getGBPRate().toFixed(4)}` : '';
 
   const el = document.getElementById('portfolio-summary');
   el.innerHTML =
-    card('Positions', positions, '', '') +
-    card('Total Cost',  fmtMoney(totalCost),  '', '') +
-    card('Market Value', fmtMoney(totalValue), '', '') +
-    card('Unrealised P&amp;L',
-      `<span class="${pnlCls}">${pnl >= 0 ? '+' : ''}${fmtMoney(pnl)}</span>`,
-      `<span class="${pnlCls}">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%</span>`, '');
+    psCard('Positions', positions, '') +
+    psCard('Total Cost', fmtGBP(totalCostGBP), '') +
+    psCard('Market Value', fmtGBP(totalValueGBP), '') +
+    psCard('Unrealised P&amp;L',
+      `<span class="${pnlCls}">${pnl >= 0 ? '+' : ''}${fmtGBP(pnl)}</span>`,
+      `<span class="${pnlCls}">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%</span>`) +
+    `<div class="ps-card" style="min-width:120px"><div class="ps-label">Base Currency</div><div class="ps-val" style="font-size:0.85rem">GBP${rateStr}</div></div>`;
   el.classList.add('visible');
+}
 
-  function card(label, val, sub) {
-    return `<div class="ps-card"><div class="ps-label">${label}</div><div class="ps-val">${val}</div>${sub ? `<div class="ps-sub">${sub}</div>` : ''}</div>`;
-  }
+function psCard(label, val, sub) {
+  return `<div class="ps-card"><div class="ps-label">${label}</div><div class="ps-val">${val}</div>${sub ? `<div class="ps-sub">${sub}</div>` : ''}</div>`;
+}
+
+// ── Portfolio charts: performance line + sector donut ─────────────────────────
+function renderPortfolioCharts() {
+  if (!isPortfolioMode) return;
+  const el = document.getElementById('portfolio-charts');
+
+  const lineHTML  = buildPerformanceChart();
+  const donutHTML = buildSectorDonut();
+  const rebalHTML = buildRebalancingPanel();
+
+  if (!lineHTML && !donutHTML && !rebalHTML) return;
+
+  el.innerHTML =
+    (lineHTML  ? `<div class="chart-panel" style="min-width:240px">${lineHTML}</div>`  : '') +
+    (donutHTML ? `<div class="chart-panel">${donutHTML}</div>` : '') +
+    (rebalHTML ? `<div class="chart-panel" style="min-width:260px">${rebalHTML}</div>` : '');
+  el.classList.add('visible');
+}
+
+function buildPerformanceChart() {
+  const dateMap = {};
+  allData.forEach(d => {
+    const pos = resolvePos(positionsMap[d.ticker]);
+    if (!pos || !(pos.shares > 0)) return;
+    (d.price_history || []).forEach(({d: date, c: price}) => {
+      const v = toGBP(d.ticker, pos.shares * price);
+      if (v == null) return;
+      dateMap[date] = (dateMap[date] || 0) + v;
+    });
+  });
+  const pts = Object.entries(dateMap).sort((a, b) => a[0].localeCompare(b[0]));
+  if (pts.length < 2) return '';
+
+  const values = pts.map(p => p[1]);
+  const minV = Math.min(...values), maxV = Math.max(...values);
+  const range = maxV - minV || 1;
+  const W = 260, H = 72;
+  const svgPts = pts.map(([, v], i) => {
+    const x = 2 + i / (pts.length - 1) * (W - 4);
+    const y = H - 2 - (v - minV) / range * (H - 8);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  const color = values[values.length - 1] >= values[0] ? '#22c55e' : '#ef4444';
+  const chgPct = ((values[values.length-1] - values[0]) / values[0] * 100);
+  const chgCls = chgPct >= 0 ? 'g' : 'r';
+
+  return `<div class="chart-title">30-Day Portfolio Performance (GBP)</div>
+    <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" style="display:block;overflow:visible">
+      <polyline points="${svgPts}" fill="none" stroke="${color}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    </svg>
+    <div class="chart-sub">
+      ${fmtGBP(values[values.length-1])} &nbsp;
+      <span class="${chgCls}">${chgPct >= 0 ? '+' : ''}${chgPct.toFixed(2)}% vs 30d ago</span>
+    </div>`;
+}
+
+function buildSectorDonut() {
+  const sectorMap = {};
+  allData.forEach(d => {
+    const pos = resolvePos(positionsMap[d.ticker]);
+    if (!pos || !(pos.shares > 0) || !d.price) return;
+    const v = toGBP(d.ticker, pos.shares * d.price);
+    if (v == null || v <= 0) return;
+    sectorMap[d.sector] = (sectorMap[d.sector] || 0) + v;
+  });
+  const entries = Object.entries(sectorMap).sort((a, b) => b[1] - a[1]);
+  const total = entries.reduce((s, [, v]) => s + v, 0);
+  if (!total) return '';
+
+  const colors = ['#6366f1','#22c55e','#f59e0b','#38bdf8','#ef4444','#a78bfa','#34d399','#fb923c'];
+  const cx = 55, cy = 55, r = 44, ir = 26;
+  let startAngle = -Math.PI / 2, paths = '';
+
+  entries.forEach(([, val], i) => {
+    const angle = (val / total) * 2 * Math.PI;
+    const endAngle = startAngle + angle;
+    const x1 = cx + r * Math.cos(startAngle),   y1 = cy + r * Math.sin(startAngle);
+    const x2 = cx + r * Math.cos(endAngle),     y2 = cy + r * Math.sin(endAngle);
+    const xi1 = cx + ir * Math.cos(endAngle),  yi1 = cy + ir * Math.sin(endAngle);
+    const xi2 = cx + ir * Math.cos(startAngle),yi2 = cy + ir * Math.sin(startAngle);
+    const large = angle > Math.PI ? 1 : 0;
+    paths += `<path d="M${x1.toFixed(1)},${y1.toFixed(1)} A${r},${r} 0 ${large},1 ${x2.toFixed(1)},${y2.toFixed(1)} L${xi1.toFixed(1)},${yi1.toFixed(1)} A${ir},${ir} 0 ${large},0 ${xi2.toFixed(1)},${yi2.toFixed(1)} Z" fill="${colors[i % colors.length]}" opacity="0.85"/>`;
+    startAngle = endAngle;
+  });
+
+  const legend = entries.map(([sec, val], i) =>
+    `<div class="dl-item"><div class="dl-dot" style="background:${colors[i%colors.length]}"></div>${sec} ${(val/total*100).toFixed(1)}%</div>`
+  ).join('');
+
+  return `<div class="chart-title">Sector Exposure (GBP)</div>
+    <div class="donut-wrap">
+      <svg width="110" height="110" viewBox="0 0 110 110">${paths}</svg>
+      <div class="donut-legend">${legend}</div>
+    </div>`;
+}
+
+function buildRebalancingPanel() {
+  const rows = [];
+  let totalValue = 0;
+  allData.forEach(d => {
+    const pos = resolvePos(positionsMap[d.ticker]);
+    if (!pos || !(pos.shares > 0) || !d.price) return;
+    const v = toGBP(d.ticker, pos.shares * d.price);
+    if (v != null) totalValue += v;
+  });
+  if (!totalValue) return '';
+
+  allData.forEach(d => {
+    const pos = resolvePos(positionsMap[d.ticker]);
+    if (!pos || pos.target_weight_pct == null) return;
+    const v = pos.shares > 0 && d.price ? (toGBP(d.ticker, pos.shares * d.price) || 0) : 0;
+    const currentPct = (v / totalValue * 100);
+    const targetPct  = pos.target_weight_pct;
+    const diff = targetPct - currentPct;
+    const diffGBP = diff / 100 * totalValue;
+    const action = Math.abs(diff) < 0.5 ? '' : diff > 0
+      ? `<span class="g">+${fmtGBP(diffGBP)} to buy</span>`
+      : `<span class="r">${fmtGBP(diffGBP)} to sell</span>`;
+    rows.push(`<div class="rebal-row">
+      <div class="rebal-labels"><span>${d.ticker}</span><span>${currentPct.toFixed(1)}% / <span style="color:var(--accent)">${targetPct}% target</span></span></div>
+      <div class="rebal-track">
+        <div class="rebal-current" style="width:${Math.min(currentPct/Math.max(targetPct,currentPct)*100,100).toFixed(1)}%;background:${diff>0.5?'var(--yellow)':diff<-0.5?'var(--red)':'var(--green)'}"></div>
+        <div class="rebal-target-line" style="left:${(targetPct/Math.max(targetPct,currentPct)*100).toFixed(1)}%"></div>
+      </div>
+      <div class="rebal-suggestion">${action}</div>
+    </div>`);
+  });
+
+  if (!rows.length) return '';
+  return `<div class="chart-title">Rebalancing</div>${rows.join('')}`;
+}
+
+// ── Price alerts ──────────────────────────────────────────────────────────────
+function renderAlerts() {
+  const el = document.getElementById('alerts-container');
+  if (!isPortfolioMode) { el.innerHTML = ''; return; }
+  const banners = [];
+  allData.forEach(d => {
+    const pos = positionsMap[d.ticker];
+    if (!pos || !d.price) return;
+    if (pos.alert_above != null && d.price >= pos.alert_above) {
+      banners.push(`<div class="alert-banner above">&#9650; ${d.ticker} hit your target — above ${pos.alert_above} (now ${d.price < 100 ? d.price.toFixed(2) : d.price.toFixed(1)})</div>`);
+    }
+    if (pos.alert_below != null && d.price <= pos.alert_below) {
+      banners.push(`<div class="alert-banner below">&#9660; ${d.ticker} alert — below ${pos.alert_below} (now ${d.price < 100 ? d.price.toFixed(2) : d.price.toFixed(1)})</div>`);
+    }
+  });
+  el.innerHTML = banners.length ? `<div style="padding-top:10px">${banners.join('')}</div>` : '';
 }
 
 // ── Position strip (per card) ────────────────────────────────────────────────
 function positionStrip(d) {
   if (!isPortfolioMode) return '<div class="position-strip"></div>';
 
-  const pos = positionsMap[d.ticker];
+  const rawPos = positionsMap[d.ticker];
+  const pos = resolvePos(rawPos);
   if (!pos || !pos.shares) {
     return '<div class="position-strip visible"><span class="pos-no-position">No position held</span></div>';
   }
@@ -521,28 +809,42 @@ function positionStrip(d) {
   const dayPnl   = shares * price * (d.day_change_pct || 0) / 100;
   const dayPnlCls = dayPnl >= 0 ? 'g' : 'r';
 
-  // Portfolio weight
-  let totalValue = 0;
+  const valueGBP = toGBP(d.ticker, value);
+  const pnlGBP   = toGBP(d.ticker, pnl);
+
+  let totalValueGBP = 0;
   allData.forEach(dd => {
-    const pp = positionsMap[dd.ticker];
-    if (pp && pp.shares && dd.price) totalValue += pp.shares * dd.price;
+    const pp = resolvePos(positionsMap[dd.ticker]);
+    if (pp && pp.shares && dd.price) {
+      const v = toGBP(dd.ticker, pp.shares * dd.price);
+      if (v != null) totalValueGBP += v;
+    }
   });
-  const weight = totalValue > 0 ? value / totalValue * 100 : 0;
+  const weight = totalValueGBP > 0 && valueGBP != null ? valueGBP / totalValueGBP * 100 : 0;
+
+  const alertChip = (() => {
+    if (!rawPos) return '';
+    if (rawPos.alert_above != null && price >= rawPos.alert_above) return '<span class="alert-chip above">&#9650; Alert</span>';
+    if (rawPos.alert_below != null && price <= rawPos.alert_below) return '<span class="alert-chip below">&#9660; Alert</span>';
+    return '';
+  })();
 
   return `<div class="position-strip visible">
     <div class="pos-item"><div class="pos-label">Shares</div><div class="pos-val">${shares.toLocaleString()}</div></div>
     <div class="pos-item"><div class="pos-label">Avg Cost</div><div class="pos-val">${avg_cost < 1000 ? avg_cost.toFixed(2) : avg_cost.toFixed(0)}</div></div>
-    <div class="pos-item"><div class="pos-label">Value</div><div class="pos-val">${fmtMoney(value)}</div></div>
-    <div class="pos-item"><div class="pos-label">P&amp;L</div><div class="pos-val ${pnlCls}">${pnl >= 0 ? '+' : ''}${fmtMoney(pnl)}</div></div>
+    <div class="pos-item"><div class="pos-label">Value (GBP)</div><div class="pos-val">${fmtGBP(valueGBP)}</div></div>
+    <div class="pos-item"><div class="pos-label">P&amp;L (GBP)</div><div class="pos-val ${pnlCls}">${pnlGBP != null ? (pnlGBP >= 0 ? '+' : '') + fmtGBP(pnlGBP) : '&mdash;'}</div></div>
     <div class="pos-item"><div class="pos-label">P&amp;L %</div><div class="pos-val ${pnlCls}">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(1)}%</div></div>
-    <div class="pos-item"><div class="pos-label">Today</div><div class="pos-val ${dayPnlCls}">${dayPnl >= 0 ? '+' : ''}${fmtMoney(dayPnl)}</div></div>
+    <div class="pos-item"><div class="pos-label">Today</div><div class="pos-val ${dayPnlCls}">${dayPnl >= 0 ? '+' : ''}${fmtGBP(toGBP(d.ticker, dayPnl))}</div></div>
     <div class="pos-item"><div class="pos-label">Weight</div><div class="pos-val">${weight.toFixed(1)}%</div></div>
+    ${alertChip}
   </div>`;
 }
 
 // ── Render helpers ────────────────────────────────────────────────────────────
 function renderMacro(macro) {
   if (!macro || !Object.keys(macro).length) return;
+  macroData = macro;
   document.getElementById('macro-bar').innerHTML = Object.values(macro).map(m => {
     const chg = m.change_pct;
     const cls = chg == null ? '' : chg >= 0 ? 'g' : 'r';
@@ -615,6 +917,95 @@ function fundamentalsSection(d) {
   return `<div class="d-section"><div class="d-title">Fundamentals</div><div class="stat-grid">${items.map(([k,v])=>`<div class="stat-box"><div class="sk">${k}</div><div class="sv">${v}</div></div>`).join('')}</div></div>`;
 }
 
+function dividendSection(d) {
+  if (!isPortfolioMode) return '';
+  const pos = resolvePos(positionsMap[d.ticker]);
+  const hasDiv = d.dividend_yield || d.annual_dividend || d.ex_dividend_date;
+  if (!hasDiv) return '';
+
+  const yoc = pos && pos.shares && pos.avg_cost && d.annual_dividend
+    ? (d.annual_dividend / pos.avg_cost * 100).toFixed(2) + '%' : null;
+  const projIncome = pos && pos.shares && d.annual_dividend
+    ? fmtGBP(toGBP(d.ticker, pos.shares * d.annual_dividend)) : null;
+  const exDiv = d.ex_dividend_date || null;
+  const exDivDays = exDiv ? daysUntil(exDiv) : null;
+
+  const items = [
+    ['Div Yield', d.dividend_yield ? (d.dividend_yield*100).toFixed(2)+'%' : null],
+    ['Annual Div/Share', d.annual_dividend ? fmt(d.annual_dividend) : null],
+    ['Yield on Cost', yoc],
+    ['Proj. Income/yr', projIncome],
+    ['Ex-Div Date', exDiv ? `${exDiv}${exDivDays != null ? ` (${exDivDays >= 0 ? 'in ' + exDivDays + 'd' : exDivDays + 'd ago'})` : ''}` : null],
+  ].filter(([,v]) => v != null);
+
+  if (!items.length) return '';
+  return `<div class="d-section"><div class="d-title">Dividend Tracker</div><div class="stat-grid">${items.map(([k,v])=>`<div class="stat-box"><div class="sk">${k}</div><div class="sv">${v}</div></div>`).join('')}</div></div>`;
+}
+
+function transactionSection(d) {
+  if (!isPortfolioMode) return '';
+  const pos = positionsMap[d.ticker];
+  if (!pos || !pos.transactions || !pos.transactions.length) return '';
+
+  const avco = computeAVCO(pos.transactions);
+  const rows = [...pos.transactions]
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .map(tx => {
+      const total = tx.shares * tx.price;
+      return `<div class="tx-row">
+        <span class="tx-type ${tx.type}">${tx.type.toUpperCase()}</span>
+        <span>${tx.shares.toLocaleString()} shares @ ${tx.price.toFixed(2)}</span>
+        <span style="color:var(--muted)">${fmtMoney(total)}</span>
+        <span class="tx-date">${tx.date}</span>
+      </div>`;
+    }).join('');
+
+  return `<div class="d-section"><div class="d-title">Transaction History &middot; AVCO: ${avco.avg_cost.toFixed(2)}</div>
+    <div class="tx-list">${rows}</div></div>`;
+}
+
+function rebalancingSection(d) {
+  if (!isPortfolioMode) return '';
+  const pos = resolvePos(positionsMap[d.ticker]);
+  if (!pos || pos.target_weight_pct == null) return '';
+
+  let totalValueGBP = 0;
+  allData.forEach(dd => {
+    const pp = resolvePos(positionsMap[dd.ticker]);
+    if (pp && pp.shares && dd.price) {
+      const v = toGBP(dd.ticker, pp.shares * dd.price);
+      if (v != null) totalValueGBP += v;
+    }
+  });
+  if (!totalValueGBP) return '';
+
+  const curValue = pos.shares > 0 && d.price ? (toGBP(d.ticker, pos.shares * d.price) || 0) : 0;
+  const currentPct = curValue / totalValueGBP * 100;
+  const targetPct  = pos.target_weight_pct;
+  const diff = targetPct - currentPct;
+  const diffGBP = diff / 100 * totalValueGBP;
+  const barMax = Math.max(targetPct, currentPct) * 1.1 || 1;
+  const barColor = Math.abs(diff) < 0.5 ? 'var(--green)' : diff > 0 ? 'var(--yellow)' : 'var(--red)';
+  const suggestion = Math.abs(diff) < 0.5
+    ? '<span class="g">On target</span>'
+    : diff > 0
+      ? `<span class="g">Buy ~${fmtGBP(diffGBP)} to reach target</span>`
+      : `<span class="r">Sell ~${fmtGBP(Math.abs(diffGBP))} to reach target</span>`;
+
+  return `<div class="d-section"><div class="d-title">Rebalancing</div>
+    <div class="rebal-row">
+      <div class="rebal-labels">
+        <span>Current ${currentPct.toFixed(1)}%</span>
+        <span>Target <span style="color:var(--accent)">${targetPct}%</span></span>
+      </div>
+      <div class="rebal-track" style="margin:6px 0">
+        <div class="rebal-current" style="width:${(currentPct/barMax*100).toFixed(1)}%;background:${barColor}"></div>
+        <div class="rebal-target-line" style="left:${(targetPct/barMax*100).toFixed(1)}%"></div>
+      </div>
+      <div class="rebal-suggestion">${suggestion}</div>
+    </div></div>`;
+}
+
 function newsSection(d) {
   if (!d.news?.length) return '';
   const items = d.news.map(n => {
@@ -630,26 +1021,36 @@ function newsSection(d) {
 
 function renderCards() {
   const f = allData.filter(d => {
-    if (filter==='all')     return true;
-    if (filter==='buy')     return d.recommendation==='BUY';
-    if (filter==='hold')    return d.recommendation==='HOLD';
-    if (filter==='sell')    return d.recommendation==='SELL';
-    if (filter==='equity')  return d.type==='equity';
-    if (filter==='etf')     return d.type==='etf'||d.type==='etc';
-    if (filter==='changed') return d.previous_recommendation && d.previous_recommendation !== d.recommendation;
+    if (filter === 'all')       return true;
+    if (filter === 'buy')       return d.recommendation === 'BUY';
+    if (filter === 'hold')      return d.recommendation === 'HOLD';
+    if (filter === 'sell')      return d.recommendation === 'SELL';
+    if (filter === 'equity')    return d.type === 'equity';
+    if (filter === 'etf')       return d.type === 'etf' || d.type === 'etc';
+    if (filter === 'changed')   return d.previous_recommendation && d.previous_recommendation !== d.recommendation;
+    if (filter === 'watchlist') return watchlistTickers.includes(d.ticker);
+    return true;
   });
+
   const el = document.getElementById('cards');
   if (!f.length) {
-    const msg = filter==='changed' ? 'No signal changes since last run.' : 'No holdings match this filter.';
+    const msg = filter === 'changed'   ? 'No signal changes since last run.'
+              : filter === 'watchlist' ? 'Your watchlist is empty. Add tickers to the watchlist array in positions.json.'
+              : 'No holdings match this filter.';
     el.innerHTML = `<div style="text-align:center;padding:40px;color:var(--muted)">${msg}</div>`;
     return;
   }
 
   el.innerHTML = f.map((d, i) => {
-    const rec = d.recommendation.toLowerCase();
-    const sigs = (d.reasons||[]).map(r=>`<li>${r}</li>`).join('');
-    const delta = deltaChip(d.recommendation, d.previous_recommendation);
+    const rec   = d.recommendation.toLowerCase();
+    const sigs  = (d.reasons || []).map(r => `<li>${r}</li>`).join('');
+    const delta    = deltaChip(d.recommendation, d.previous_recommendation);
     const verified = d.stooq_verified ? '<span class="verified-chip">&#10003; Stooq</span>' : '';
+
+    // Earnings badge
+    const earningsDays = daysUntil(d.earnings_date);
+    const earningsBadge = earningsDays != null && earningsDays >= 0 && earningsDays <= 14
+      ? `<span class="earnings-chip">&#128197; Earnings in ${earningsDays}d</span>` : '';
 
     return `<div class="card ${rec}" id="c${i}" onclick="toggle(${i})">
       <div class="card-top">
@@ -657,10 +1058,10 @@ function renderCards() {
           <div class="card-ticker">${d.ticker} <span class="chevron">&#9660;</span></div>
           <div class="card-name">${d.name}</div>
           <div class="card-sector">${d.sector} &middot; ${d.type.toUpperCase()}</div>
-          <div class="badge ${rec}">${d.recommendation}</div>${delta}${verified}
+          <div class="badge ${rec}">${d.recommendation}</div>${delta}${verified}${earningsBadge}
         </div>
         <div class="card-right">
-          <div class="card-price">${d.price!=null?(d.price<100?d.price.toFixed(2):d.price.toFixed(1)):'&mdash;'}</div>
+          <div class="card-price">${d.price != null ? (d.price < 100 ? d.price.toFixed(2) : d.price.toFixed(1)) : '&mdash;'}</div>
           <div class="card-day ${pcC(d.day_change_pct)}">${pc(d.day_change_pct)}</div>
         </div>
       </div>
@@ -668,8 +1069,8 @@ function renderCards() {
       <div class="metrics">
         <div class="metric"><div class="m-label">Week</div><div class="m-val ${pcC(d.week_change_pct)}">${pc(d.week_change_pct)}</div></div>
         <div class="metric"><div class="m-label">Month</div><div class="m-val ${pcC(d.month_change_pct)}">${pc(d.month_change_pct)}</div></div>
-        <div class="metric"><div class="m-label">vs 52W High</div><div class="m-val ${pcC(d.pct_from_52w_high!=null?d.pct_from_52w_high*100:null)}">${pc(d.pct_from_52w_high!=null?d.pct_from_52w_high*100:null)}</div></div>
-        <div class="metric"><div class="m-label">RSI</div><div class="m-val">${d.rsi!=null?d.rsi.toFixed(0):'&mdash;'}</div></div>
+        <div class="metric"><div class="m-label">vs 52W High</div><div class="m-val ${pcC(d.pct_from_52w_high != null ? d.pct_from_52w_high*100 : null)}">${pc(d.pct_from_52w_high != null ? d.pct_from_52w_high*100 : null)}</div></div>
+        <div class="metric"><div class="m-label">RSI</div><div class="m-val">${d.rsi != null ? d.rsi.toFixed(0) : '&mdash;'}</div></div>
       </div>
       <div class="detail" id="d${i}">
         <div class="d-section"><div class="d-title">Technical Signals</div><ul class="signals">${sigs}</ul></div>
@@ -678,8 +1079,12 @@ function renderCards() {
           <div class="stat-box"><div class="sk">SMA 200</div><div class="sv">${fmt(d.sma_200)}</div></div>
           <div class="stat-box"><div class="sk">52W High</div><div class="sv">${fmt(d.high_52w)}</div></div>
           <div class="stat-box"><div class="sk">52W Low</div><div class="sv">${fmt(d.low_52w)}</div></div>
-          ${d.stooq_price?`<div class="stat-box"><div class="sk">Stooq Price</div><div class="sv">${d.stooq_price.toFixed(2)}</div></div>`:''}
+          ${d.stooq_price ? `<div class="stat-box"><div class="sk">Stooq Price</div><div class="sv">${d.stooq_price.toFixed(2)}</div></div>` : ''}
+          ${d.earnings_date ? `<div class="stat-box"><div class="sk">Next Earnings</div><div class="sv">${d.earnings_date}${earningsDays != null && earningsDays >= 0 ? ' ('+earningsDays+'d)' : ''}</div></div>` : ''}
         </div></div>
+        ${dividendSection(d)}
+        ${rebalancingSection(d)}
+        ${transactionSection(d)}
         ${analystSection(d)}
         ${fundamentalsSection(d)}
         ${newsSection(d)}
@@ -700,6 +1105,50 @@ function setFilter(f, el) {
   renderCards();
 }
 
+// ── CSV export ────────────────────────────────────────────────────────────────
+function exportCSV() {
+  const rows = [['Ticker','Name','Sector','Type','Recommendation','Price','Shares','Avg Cost','Value (GBP)','Cost (GBP)','P&L (GBP)','P&L%','Weight%']];
+  let totalValueGBP = 0;
+  const resolved = allData.map(d => {
+    const pos = resolvePos(positionsMap[d.ticker]);
+    if (!pos || !pos.shares || !d.price) return null;
+    const v = toGBP(d.ticker, pos.shares * d.price);
+    if (v != null) totalValueGBP += v;
+    return { d, pos, v };
+  }).filter(Boolean);
+
+  resolved.forEach(({ d, pos, v }) => {
+    const c = toGBP(d.ticker, pos.shares * pos.avg_cost);
+    const pnl = v != null && c != null ? v - c : null;
+    const pnlPct = c && pnl != null ? pnl / c * 100 : null;
+    const wt = totalValueGBP && v != null ? v / totalValueGBP * 100 : null;
+    rows.push([
+      d.ticker, d.name, d.sector, d.type, d.recommendation,
+      d.price?.toFixed(4) ?? '',
+      pos.shares, pos.avg_cost?.toFixed(4) ?? '',
+      v?.toFixed(2) ?? '',
+      c?.toFixed(2) ?? '',
+      pnl?.toFixed(2) ?? '',
+      pnlPct?.toFixed(2) ?? '',
+      wt?.toFixed(2) ?? '',
+    ]);
+  });
+
+  // All holdings (even without positions)
+  allData.forEach(d => {
+    if (resolved.find(r => r.d.ticker === d.ticker)) return;
+    rows.push([d.ticker, d.name, d.sector, d.type, d.recommendation, d.price?.toFixed(4) ?? '', '', '', '', '', '', '', '']);
+  });
+
+  const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = `portfolio-${new Date().toISOString().slice(0,10)}.csv`;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+
 // ── Auto-restore session ──────────────────────────────────────────────────────
 async function tryRestoreSession() {
   const pwd = sessionStorage.getItem('ptpwd');
@@ -709,14 +1158,7 @@ async function tryRestoreSession() {
     if (!res.ok) return;
     const enc = await res.json();
     const data = await decryptPositions(pwd, enc);
-    positionsMap = {};
-    (data.positions || []).forEach(p => { positionsMap[p.ticker] = p; });
-    isPortfolioMode = true;
-    document.getElementById('portfolio-btn').classList.add('authed');
-    document.getElementById('portfolio-btn-icon').textContent = '✅';
-    document.getElementById('portfolio-btn-label').textContent = 'Portfolio On';
-    renderPortfolioSummary();
-    renderCards();
+    applyPortfolioData(data, null);
   } catch(e) {
     sessionStorage.removeItem('ptpwd');
   }
@@ -744,7 +1186,7 @@ async function load() {
 
     if (payload.sources?.length) {
       document.getElementById('sources-footer').innerHTML =
-        `<div class="sources-footer"><strong>Data sources:</strong><br>${payload.sources.map(s=>`&bull; ${s}`).join('<br>')}</div>`;
+        `<div class="sources-footer"><strong>Data sources:</strong><br>${payload.sources.map(s => `&bull; ${s}`).join('<br>')}</div>`;
     }
 
     await tryRestoreSession();

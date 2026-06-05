@@ -146,7 +146,7 @@ def fetch_extras(ticker: str) -> dict:
             raw = t.news or []
             headlines = []
             for n in raw[:5]:
-                # yfinance >=0.2.38 wraps headlines under content{}
+                # yfinance ≥0.2.38 wraps headlines under content{}
                 content = n.get("content", {}) or {}
                 title  = content.get("title")   or n.get("title",     "")
                 pub    = (content.get("provider", {}) or {}).get("displayName", "") or n.get("publisher", "")
@@ -157,6 +157,36 @@ def fetch_extras(ticker: str) -> dict:
             out["news"] = headlines
         except Exception:
             out["news"] = []
+
+        # Earnings date
+        try:
+            cal = t.calendar
+            if cal is not None:
+                ed = None
+                if isinstance(cal, dict):
+                    dates = cal.get("Earnings Date")
+                    if isinstance(dates, list) and dates:
+                        ed = dates[0]
+                    elif dates:
+                        ed = dates
+                elif hasattr(cal, "columns") and "Earnings Date" in cal.columns:
+                    ed = cal["Earnings Date"].iloc[0]
+                elif hasattr(cal, "index") and "Earnings Date" in cal.index:
+                    ed = cal.loc["Earnings Date"].iloc[0]
+                if ed is not None:
+                    out["earnings_date"] = str(ed)[:10]
+        except Exception:
+            pass
+
+        # Dividend details
+        try:
+            out["annual_dividend"] = _clean(info.get("dividendRate"))
+            ex_div = info.get("exDividendDate")
+            if ex_div:
+                from datetime import datetime as _dt, timezone as _tz
+                out["ex_dividend_date"] = _dt.fromtimestamp(int(ex_div), tz=_tz.utc).strftime("%Y-%m-%d")
+        except Exception:
+            pass
 
     except Exception as exc:
         print(f"  extras {ticker}: {exc}")
@@ -215,6 +245,12 @@ def fetch_and_analyse():
 
             commentary = _fund_manager_commentary(holding, result, info)
 
+            # 30-day closing price history for portfolio chart
+            price_history = []
+            for idx, row in hist.tail(30).iterrows():
+                d_str = idx.strftime("%Y-%m-%d") if hasattr(idx, "strftime") else str(idx)[:10]
+                price_history.append({"d": d_str, "c": round(float(row["Close"]), 4)})
+
             # Enhanced: Yahoo Finance analyst + news + fundamentals
             extras = fetch_extras(ticker)
 
@@ -238,6 +274,7 @@ def fetch_and_analyse():
                 "sector":                  holding["sector"],
                 **clean,
                 "commentary":              commentary,
+                "price_history":           price_history,
                 **extras,
                 "stooq_price":             stooq_price,
                 "stooq_verified":          stooq_verified,
