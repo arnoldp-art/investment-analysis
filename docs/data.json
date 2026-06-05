@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-05T05:49:51.303900+00:00",
+  "generated": "2026-06-05T06:00:26.763455+00:00",
   "sources": [
     "Yahoo Finance \u2014 OHLCV price history (1 year)",
     "Yahoo Finance \u2014 fundamentals: P/E, beta, P/B, dividend yield, ROE, D/E, short ratio",
@@ -14,28 +14,34 @@
       "name": "Nvidia",
       "type": "equity",
       "sector": "Technology",
-      "price": null,
-      "day_change_pct": null,
-      "week_change_pct": null,
-      "month_change_pct": null,
-      "recommendation": "SELL",
-      "score": -1.0,
+      "price": 214.75,
+      "day_change_pct": -3.621760640406192,
+      "week_change_pct": 0.2333722287047841,
+      "month_change_pct": 9.287531806615776,
+      "recommendation": "HOLD",
+      "score": -0.3333333333333333,
       "reasons": [
+        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
         "Price below EMA20 (215.73) \u2014 short-term momentum negative",
         "RSI neutral at 51.1",
-        "MACD below signal line \u2014 bearish momentum"
+        "MACD below signal line \u2014 bearish momentum",
+        "MACD histogram expanding negatively"
       ],
-      "rsi": 51.13971474144614,
-      "macd": 3.758899116364347,
-      "signal_line": 4.786715754937215,
-      "sma_50": null,
-      "sma_200": null,
+      "rsi": 51.139714741467536,
+      "macd": 3.7588991163769094,
+      "signal_line": 5.043669914598943,
+      "sma_50": 202.04940063476562,
+      "sma_200": 188.23082138061523,
       "high_52w": 235.74000549316406,
-      "low_52w": 139.95701599121094,
-      "pct_from_52w_high": null,
-      "atr_pct": null,
-      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $5.3T \u2014 mega-cap liquidity supports institutional ownership. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "low_52w": 139.95703125,
+      "pct_from_52w_high": -0.08903879275498161,
+      "atr_pct": 3.6677979033713926,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $5.3T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 39% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
       "price_history": [
+        {
+          "d": "2026-04-22",
+          "c": 202.5
+        },
         {
           "d": "2026-04-23",
           "c": 199.64
@@ -160,7 +166,7 @@
       "recommendation_key": "strong_buy",
       "beta": 2.244,
       "forward_pe": 17.275133,
-      "trailing_pe": 33.48545,
+      "trailing_pe": 33.43425,
       "price_to_book": 33.785538,
       "dividend_yield": 0.46,
       "revenue_growth": 0.852,
@@ -195,16 +201,16 @@
           "time": "2026-06-04T12:00:00Z"
         },
         {
+          "title": "This Former Bitcoin Miner May Be Sitting on a Hidden AI Opportunity",
+          "publisher": "Motley Fool",
+          "link": "https://www.fool.com/investing/2026/06/05/this-former-bitcoin-miner-may-be-sitting-on-a-hidd/",
+          "time": "2026-06-05T05:47:00Z"
+        },
+        {
           "title": "Beyond Nvidia: Europe's best-performing AI stocks of 2026",
           "publisher": "Euronews",
           "link": "https://www.euronews.com/2026/06/05/beyond-nvidia-europes-best-performing-ai-stocks-of-2026?utm_source=yahoo&utm_campaign=feeds_business_articles_2024&utm_medium=referral",
           "time": "2026-06-05T05:37:05Z"
-        },
-        {
-          "title": "Nvidia CEO sees robotics as next major sector in South Korea",
-          "publisher": "Reuters",
-          "link": "https://finance.yahoo.com/sectors/technology/articles/nvidia-ceo-sees-robotics-next-051530964.html",
-          "time": "2026-06-05T05:15:30Z"
         }
       ],
       "earnings_date": "2026-08-26",
@@ -213,35 +219,41 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
+      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
     },
     {
       "ticker": "AAPL",
       "name": "Apple",
       "type": "equity",
       "sector": "Technology",
-      "price": null,
-      "day_change_pct": null,
-      "week_change_pct": null,
-      "month_change_pct": null,
-      "recommendation": "HOLD",
-      "score": -0.3333333333333333,
+      "price": 310.260009765625,
+      "day_change_pct": -1.5672595971098924,
+      "week_change_pct": -0.719976938238697,
+      "month_change_pct": 9.277870258514083,
+      "recommendation": "BUY",
+      "score": 0.5,
       "reasons": [
-        "Price below EMA20 (301.17) \u2014 short-term momentum negative",
+        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
+        "Price above EMA20 (301.17) \u2014 short-term momentum positive",
         "RSI strengthening at 65.9",
-        "MACD below signal line \u2014 bearish momentum"
+        "MACD below signal line \u2014 bearish momentum",
+        "MACD histogram expanding negatively"
       ],
-      "rsi": 65.85891293569816,
-      "macd": 9.558799861923262,
-      "signal_line": 9.75533490191239,
-      "sma_50": null,
-      "sma_200": null,
+      "rsi": 65.85891293468595,
+      "macd": 9.558799856967937,
+      "signal_line": 9.804468654625826,
+      "sma_50": 278.7896670532227,
+      "sma_200": 263.9718344116211,
       "high_52w": 315.20001220703125,
-      "low_52w": 194.86692810058594,
-      "pct_from_52w_high": null,
-      "atr_pct": null,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $4.6T \u2014 mega-cap liquidity supports institutional ownership. Hold current position; re-assess on a decisive technical break either way.",
+      "low_52w": 194.86691284179688,
+      "pct_from_52w_high": -0.015672595971098924,
+      "atr_pct": 1.9571737138052616,
+      "commentary": "Technical picture is constructive \u2014 multiple indicators aligned to the upside. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Market cap $4.6T \u2014 mega-cap liquidity supports institutional ownership. Overall, the balance of evidence supports accumulation on weakness.",
       "price_history": [
+        {
+          "d": "2026-04-22",
+          "c": 272.9186
+        },
         {
           "d": "2026-04-23",
           "c": 273.1783
@@ -419,36 +431,43 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
+      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet (Google)",
       "type": "equity",
       "sector": "Technology",
-      "price": null,
-      "day_change_pct": null,
-      "week_change_pct": null,
-      "month_change_pct": null,
-      "recommendation": "SELL",
-      "score": -1.0,
+      "price": 358.989990234375,
+      "day_change_pct": -0.7903871275111851,
+      "week_change_pct": -7.981958387894661,
+      "month_change_pct": -7.579229976192785,
+      "recommendation": "HOLD",
+      "score": -0.16666666666666666,
       "reasons": [
+        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
         "Price below EMA20 (378.02) \u2014 short-term momentum negative",
         "RSI weakening at 38.8",
         "MACD below signal line \u2014 bearish momentum",
+        "MACD histogram expanding negatively",
+        "Price at/below lower Bollinger Band \u2014 mean reversion candidate",
         "Above-average volume on price decline \u2014 distribution signal"
       ],
-      "rsi": 38.82705311436942,
-      "macd": 3.3444086435753206,
-      "signal_line": 8.293393713917396,
-      "sma_50": null,
-      "sma_200": null,
+      "rsi": 38.82705311437337,
+      "macd": 3.344408643575889,
+      "signal_line": 9.53063998150378,
+      "sma_50": 351.31519958496096,
+      "sma_200": 302.1450526428223,
       "high_52w": 402.6199951171875,
       "low_52w": 164.8184814453125,
-      "pct_from_52w_high": null,
-      "atr_pct": null,
-      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $4.5T \u2014 mega-cap liquidity supports institutional ownership. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "pct_from_52w_high": -0.1083652213301365,
+      "atr_pct": 2.7333866097915895,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $4.5T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 20% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
       "price_history": [
+        {
+          "d": "2026-04-22",
+          "c": 339.32
+        },
         {
           "d": "2026-04-23",
           "c": 338.89
@@ -626,35 +645,42 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
+      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
     },
     {
       "ticker": "AMZN",
       "name": "Amazon",
       "type": "equity",
       "sector": "Consumer/Cloud",
-      "price": null,
-      "day_change_pct": null,
-      "week_change_pct": null,
-      "month_change_pct": null,
-      "recommendation": "SELL",
-      "score": -1.0,
+      "price": 250.02000427246094,
+      "day_change_pct": -2.533909644314114,
+      "week_change_pct": -8.751823258225935,
+      "month_change_pct": -8.60171250978671,
+      "recommendation": "HOLD",
+      "score": 0.0,
       "reasons": [
+        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
         "Price below EMA20 (262.95) \u2014 short-term momentum negative",
         "RSI weakening at 39.4",
-        "MACD below signal line \u2014 bearish momentum"
+        "MACD below signal line \u2014 bearish momentum",
+        "MACD histogram expanding negatively",
+        "Price at/below lower Bollinger Band \u2014 mean reversion candidate"
       ],
       "rsi": 39.38886695363231,
       "macd": 1.7715873845992292,
-      "signal_line": 4.125430529897324,
-      "sma_50": null,
-      "sma_200": null,
+      "signal_line": 4.713891316221847,
+      "sma_50": 249.54020080566406,
+      "sma_200": 231.92670013427735,
       "high_52w": 274.989990234375,
       "low_52w": 198.7899932861328,
-      "pct_from_52w_high": null,
-      "atr_pct": null,
-      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $2.7T \u2014 mega-cap liquidity supports institutional ownership. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "pct_from_52w_high": -0.09080325411347537,
+      "atr_pct": 2.8209411290779567,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $2.7T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 25% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
       "price_history": [
+        {
+          "d": "2026-04-22",
+          "c": 255.36
+        },
         {
           "d": "2026-04-23",
           "c": 255.08
@@ -831,35 +857,40 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
+      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
     },
     {
       "ticker": "RBLX",
       "name": "Roblox",
       "type": "equity",
       "sector": "Gaming/Metaverse",
-      "price": null,
-      "day_change_pct": null,
-      "week_change_pct": null,
-      "month_change_pct": null,
-      "recommendation": "HOLD",
-      "score": -0.3333333333333333,
+      "price": 43.68000030517578,
+      "day_change_pct": -2.933332655164931,
+      "week_change_pct": -6.726460394434632,
+      "month_change_pct": -0.8174400610074369,
+      "recommendation": "SELL",
+      "score": -0.5,
       "reasons": [
+        "Death Cross (SMA50 < SMA200) \u2014 bearish trend structure",
         "Price below EMA20 (46.56) \u2014 short-term momentum negative",
         "RSI weakening at 39.9",
         "MACD above signal line \u2014 bullish momentum"
       ],
       "rsi": 39.86861683652244,
       "macd": -1.6506480460979773,
-      "signal_line": -2.0181522049421807,
-      "sma_50": null,
-      "sma_200": null,
+      "signal_line": -2.1100282446532317,
+      "sma_50": 51.44520011901855,
+      "sma_200": 85.78954998016357,
       "high_52w": 141.55999755859375,
       "low_52w": 41.310001373291016,
-      "pct_from_52w_high": null,
-      "atr_pct": null,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $31.0B. P/E of -34x looks undemanding \u2014 value opportunity if fundamentals hold. Hold current position; re-assess on a decisive technical break either way.",
+      "pct_from_52w_high": -0.6914382519179121,
+      "atr_pct": 6.422865888971079,
+      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Down 69% from peak \u2014 high-risk, high-reward territory; position sizing is key. Market cap $31.0B. P/E of -34x looks undemanding \u2014 value opportunity if fundamentals hold. Consensus price target implies 48% upside from current levels. Risk/reward is unfavourable at current levels; consider reducing exposure.",
       "price_history": [
+        {
+          "d": "2026-04-22",
+          "c": 59.64
+        },
         {
           "d": "2026-04-23",
           "c": 55.45
@@ -1036,36 +1067,44 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
+      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
     },
     {
       "ticker": "ILMN",
       "name": "Illumina",
       "type": "equity",
       "sector": "Genomics",
-      "price": null,
-      "day_change_pct": null,
-      "week_change_pct": null,
-      "month_change_pct": null,
-      "recommendation": "SELL",
-      "score": -0.75,
+      "price": 170.92999267578125,
+      "day_change_pct": 5.155330339400333,
+      "week_change_pct": 7.7063616652290845,
+      "month_change_pct": 22.90931449891004,
+      "recommendation": "HOLD",
+      "score": 0.2857142857142857,
       "reasons": [
-        "Price below EMA20 (150.21) \u2014 short-term momentum negative",
+        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
+        "Price above EMA20 (150.21) \u2014 short-term momentum positive",
         "RSI overbought at 80.4 \u2014 risk of near-term pullback",
         "MACD above signal line \u2014 bullish momentum",
-        "Above-average volume on price decline \u2014 distribution signal"
+        "MACD histogram expanding positively",
+        "Price at/above upper Bollinger Band \u2014 stretched, watch for reversal",
+        "Above-average volume confirming upward price move",
+        "Strong 20-day momentum: +19.9%"
       ],
       "rsi": 80.37891413809305,
       "macd": 8.199926605347969,
-      "signal_line": 6.4384616026538115,
-      "sma_50": null,
-      "sma_200": null,
+      "signal_line": 5.998095351980272,
+      "sma_50": 136.25499954223633,
+      "sma_200": 123.25010021209717,
       "high_52w": 170.92999267578125,
       "low_52w": 82.25,
-      "pct_from_52w_high": null,
-      "atr_pct": null,
-      "commentary": "Technical picture is cautious \u2014 indicators skew negative. RSI elevated (80) \u2014 momentum is stretched; disciplined investors may trim on further strength. Market cap $25.4B. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "pct_from_52w_high": 0.0,
+      "atr_pct": 3.635842576209145,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI elevated (80) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. The 23% monthly surge warrants trailing stop discipline. Market cap $25.4B. Consensus price target implies 16% downside from current levels. Hold current position; re-assess on a decisive technical break either way.",
       "price_history": [
+        {
+          "d": "2026-04-22",
+          "c": 130.5
+        },
         {
           "d": "2026-04-23",
           "c": 125.44
@@ -1242,35 +1281,41 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
+      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
     },
     {
       "ticker": "NKTR",
       "name": "Nektar Therapeutics",
       "type": "equity",
       "sector": "Biotech",
-      "price": null,
-      "day_change_pct": null,
-      "week_change_pct": null,
-      "month_change_pct": null,
+      "price": 59.22999954223633,
+      "day_change_pct": 1.1441225294282455,
+      "week_change_pct": -8.890943553396548,
+      "month_change_pct": -29.622151895291644,
       "recommendation": "HOLD",
       "score": 0.0,
       "reasons": [
+        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
         "Price below EMA20 (69.18) \u2014 short-term momentum negative",
         "RSI oversold at 24.1 \u2014 potential reversal opportunity",
-        "MACD below signal line \u2014 bearish momentum"
+        "MACD below signal line \u2014 bearish momentum",
+        "Weak 20-day momentum: -30.4%"
       ],
       "rsi": 24.082082252890785,
       "macd": -5.240011740758945,
-      "signal_line": -4.359241055213755,
-      "sma_50": null,
-      "sma_200": null,
+      "signal_line": -4.139048383827458,
+      "sma_50": 77.04559997558594,
+      "sma_200": 59.04654993057251,
       "high_52w": 100.3499984741211,
       "low_52w": 8.510000228881836,
-      "pct_from_52w_high": null,
-      "atr_pct": null,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI deeply oversold (24) \u2014 price may be exhausting sellers; watch for a bounce catalyst. Market cap $2.0B. P/E of -5x looks undemanding \u2014 value opportunity if fundamentals hold. Hold current position; re-assess on a decisive technical break either way.",
+      "pct_from_52w_high": -0.4097658152181144,
+      "atr_pct": 6.059639746053333,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI deeply oversold (24) \u2014 price may be exhausting sellers; watch for a bounce catalyst. Down 41% from peak \u2014 high-risk, high-reward territory; position sizing is key. The -30% monthly drawdown raises questions about near-term support levels. Market cap $2.0B. P/E of -5x looks undemanding \u2014 value opportunity if fundamentals hold. Consensus price target implies 159% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
       "price_history": [
+        {
+          "d": "2026-04-22",
+          "c": 93.2
+        },
         {
           "d": "2026-04-23",
           "c": 91.26
@@ -1447,7 +1492,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
+      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
     },
     {
       "ticker": "VWRL.L",
@@ -1467,15 +1512,15 @@
         "MACD above signal line \u2014 bullish momentum",
         "Near 52-week high \u2014 strong momentum but limited upside buffer"
       ],
-      "rsi": 72.14047493921895,
-      "macd": 2.2463503825224223,
-      "signal_line": 2.2305333024604037,
+      "rsi": 72.14047493051955,
+      "macd": 2.2463503826101316,
+      "signal_line": 2.2305333025894027,
       "sma_50": 129.94780014038085,
-      "sma_200": 123.93758113861084,
+      "sma_200": 123.93758094787597,
       "high_52w": 138.63999938964844,
       "low_52w": 106.11398315429688,
       "pct_from_52w_high": -0.004832646940961671,
-      "atr_pct": 0.8887304422358155,
+      "atr_pct": 0.8887304423418896,
       "commentary": "Vanguard FTSE All-World ETF provides diversified exposure. Mixed signals present \u2014 no clear directional conviction. RSI elevated (72) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Hold current position; re-assess on a decisive technical break either way.",
       "price_history": [
         {
@@ -1619,7 +1664,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
+      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
     },
     {
       "ticker": "XDWH.L",
@@ -1791,7 +1836,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "BUY",
-      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
+      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
     },
     {
       "ticker": "IIND.L",
@@ -1963,7 +2008,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
+      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
     },
     {
       "ticker": "SGLN.L",
@@ -2147,7 +2192,7 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:44:06.382260+00:00"
+      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
     }
   ],
   "macro": {
@@ -2168,8 +2213,8 @@
     },
     "gold": {
       "label": "Gold",
-      "value": 4472.2998,
-      "change_pct": -0.08
+      "value": 4473.8999,
+      "change_pct": -0.04
     },
     "treasury10y": {
       "label": "US 10Y",
@@ -2178,8 +2223,8 @@
     },
     "gbpusd": {
       "label": "GBP/USD",
-      "value": 1.343,
-      "change_pct": 0.02
+      "value": 1.3426,
+      "change_pct": -0.01
     }
   },
   "errors": [
