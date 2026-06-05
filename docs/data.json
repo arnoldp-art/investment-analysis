@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-04T19:11:50.193388+00:00",
+  "generated": "2026-06-05T05:38:36.219997+00:00",
   "sources": [
     "Yahoo Finance \u2014 OHLCV price history (1 year)",
     "Yahoo Finance \u2014 fundamentals: P/E, beta, P/B, dividend yield, ROE, D/E, short ratio",
@@ -14,38 +14,159 @@
       "name": "Nvidia",
       "type": "equity",
       "sector": "Technology",
-      "price": 220.9499969482422,
-      "day_change_pct": 2.8870765765970607,
-      "week_change_pct": 4.646205165744026,
-      "month_change_pct": 6.312849445025153,
-      "recommendation": "BUY",
-      "score": 0.5,
+      "price": null,
+      "day_change_pct": null,
+      "week_change_pct": null,
+      "month_change_pct": null,
+      "recommendation": "SELL",
+      "score": -1.0,
       "reasons": [
-        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price above EMA20 (216.23) \u2014 short-term momentum positive",
-        "RSI strengthening at 55.9",
+        "Price below EMA20 (215.73) \u2014 short-term momentum negative",
+        "RSI neutral at 51.1",
         "MACD below signal line \u2014 bearish momentum"
       ],
-      "rsi": 55.889075834557175,
-      "macd": 3.7528263106592874,
-      "signal_line": 4.785501183808413,
-      "sma_50": 202.96440063476564,
-      "sma_200": 188.4256726074219,
+      "rsi": 51.139714741467536,
+      "macd": 3.7588991163769094,
+      "signal_line": 4.786715754954536,
+      "sma_50": null,
+      "sma_200": null,
       "high_52w": 235.74000549316406,
       "low_52w": 139.95703125,
-      "pct_from_52w_high": -0.06273864511872489,
-      "atr_pct": 3.653889192469743,
-      "commentary": "Technical picture is constructive \u2014 multiple indicators aligned to the upside. Market cap $5.4T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 35% upside from current levels. Overall, the balance of evidence supports accumulation on weakness.",
+      "pct_from_52w_high": null,
+      "atr_pct": null,
+      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $5.3T \u2014 mega-cap liquidity supports institutional ownership. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "price_history": [
+        {
+          "d": "2026-04-23",
+          "c": 199.64
+        },
+        {
+          "d": "2026-04-24",
+          "c": 208.27
+        },
+        {
+          "d": "2026-04-27",
+          "c": 216.61
+        },
+        {
+          "d": "2026-04-28",
+          "c": 213.17
+        },
+        {
+          "d": "2026-04-29",
+          "c": 209.25
+        },
+        {
+          "d": "2026-04-30",
+          "c": 199.57
+        },
+        {
+          "d": "2026-05-01",
+          "c": 198.45
+        },
+        {
+          "d": "2026-05-04",
+          "c": 198.48
+        },
+        {
+          "d": "2026-05-05",
+          "c": 196.5
+        },
+        {
+          "d": "2026-05-06",
+          "c": 207.83
+        },
+        {
+          "d": "2026-05-07",
+          "c": 211.5
+        },
+        {
+          "d": "2026-05-08",
+          "c": 215.2
+        },
+        {
+          "d": "2026-05-11",
+          "c": 219.44
+        },
+        {
+          "d": "2026-05-12",
+          "c": 220.78
+        },
+        {
+          "d": "2026-05-13",
+          "c": 225.83
+        },
+        {
+          "d": "2026-05-14",
+          "c": 235.74
+        },
+        {
+          "d": "2026-05-15",
+          "c": 225.32
+        },
+        {
+          "d": "2026-05-18",
+          "c": 222.32
+        },
+        {
+          "d": "2026-05-19",
+          "c": 220.61
+        },
+        {
+          "d": "2026-05-20",
+          "c": 223.47
+        },
+        {
+          "d": "2026-05-21",
+          "c": 219.51
+        },
+        {
+          "d": "2026-05-22",
+          "c": 215.33
+        },
+        {
+          "d": "2026-05-26",
+          "c": 214.86
+        },
+        {
+          "d": "2026-05-27",
+          "c": 212.6
+        },
+        {
+          "d": "2026-05-28",
+          "c": 214.25
+        },
+        {
+          "d": "2026-05-29",
+          "c": 211.14
+        },
+        {
+          "d": "2026-06-01",
+          "c": 224.36
+        },
+        {
+          "d": "2026-06-02",
+          "c": 222.82
+        },
+        {
+          "d": "2026-06-03",
+          "c": 214.75
+        },
+        {
+          "d": "2026-06-04",
+          "c": NaN
+        }
+      ],
       "analyst_target_mean": 298.06897,
       "analyst_target_high": 500.0,
       "analyst_target_low": 180.0,
       "analyst_count": 58,
       "recommendation_key": "strong_buy",
       "beta": 2.244,
-      "forward_pe": 17.49298,
-      "trailing_pe": 33.83461,
-      "price_to_book": 34.137825,
-      "dividend_yield": 0.47,
+      "forward_pe": 17.275133,
+      "trailing_pe": 33.48545,
+      "price_to_book": 33.785538,
+      "dividend_yield": 0.46,
       "revenue_growth": 0.852,
       "earnings_growth": 2.145,
       "roe": 1.14288,
@@ -60,10 +181,10 @@
       },
       "news": [
         {
-          "title": "Nvidia's laptop chip is a bet that AI will need more than the cloud to flourish",
+          "title": "Broadcom's sell-off just entered megacap history",
           "publisher": "Yahoo Finance",
-          "link": "https://finance.yahoo.com/markets/article/nvidias-laptop-chip-is-a-bet-that-ai-will-need-more-than-the-cloud-to-flourish-171209056.html",
-          "time": "2026-06-04T17:12:09Z"
+          "link": "https://finance.yahoo.com/markets/stocks/article/broadcoms-sell-off-just-entered-megacap-history-163942663.html",
+          "time": "2026-06-04T16:39:42Z"
         },
         {
           "title": "Broadcom stock sinks. Are AI earnings expectations 'insatiable'?",
@@ -78,61 +199,183 @@
           "time": "2026-06-04T12:00:00Z"
         },
         {
-          "title": "Why AMD Stock Is Sinking Today",
-          "publisher": "Motley Fool",
-          "link": "https://www.fool.com/investing/2026/06/04/why-amd-stock-is-sinking-today/",
-          "time": "2026-06-04T18:59:28Z"
+          "title": "Nvidia CEO sees robotics as next major sector in South Korea",
+          "publisher": "Reuters",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/nvidia-ceo-sees-robotics-next-051530964.html",
+          "time": "2026-06-05T05:15:30Z"
         },
         {
-          "title": "Robinhood\u2019s CEO Vlad Tenev Wants to Flatten Finance with Crypto",
-          "publisher": "Moby",
-          "link": "https://app.moby.co/home/news/news-robinhoods-ceo-vlad-tenev-wants-to-flatten-finance-with-crypto?utm_source=yahoo_finance&utm_medium=rss",
-          "time": "2026-06-04T18:56:54Z"
+          "title": "Is Lululemon Athletica a Buy After Its Latest Earnings Report?",
+          "publisher": "Motley Fool",
+          "link": "https://www.fool.com/investing/2026/06/05/is-lululemon-athletica-a-buy-after-its-latest-earn/",
+          "time": "2026-06-05T04:50:00Z"
         }
       ],
+      "earnings_date": "2026-08-26",
+      "annual_dividend": 1.0,
+      "ex_dividend_date": "2026-06-04",
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "BUY",
-      "previous_generated": "2026-06-04T18:08:09.675462+00:00"
+      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
     },
     {
       "ticker": "AAPL",
       "name": "Apple",
       "type": "equity",
       "sector": "Technology",
-      "price": 311.8349914550781,
-      "day_change_pct": 0.5076328369366356,
-      "week_change_pct": -0.07210347538164576,
-      "month_change_pct": 8.560496856505889,
-      "recommendation": "BUY",
-      "score": 0.5,
+      "price": null,
+      "day_change_pct": null,
+      "week_change_pct": null,
+      "month_change_pct": null,
+      "recommendation": "HOLD",
+      "score": -0.3333333333333333,
       "reasons": [
-        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price above EMA20 (302.18) \u2014 short-term momentum positive",
-        "RSI strengthening at 67.1",
-        "MACD below signal line \u2014 bearish momentum",
-        "MACD histogram expanding negatively",
-        "Near 52-week high \u2014 strong momentum but limited upside buffer"
+        "Price below EMA20 (301.17) \u2014 short-term momentum negative",
+        "RSI strengthening at 65.9",
+        "MACD below signal line \u2014 bearish momentum"
       ],
-      "rsi": 67.06535148796911,
-      "macd": 9.253074430724325,
-      "signal_line": 9.694189798572527,
-      "sma_50": 279.9981994628906,
-      "sma_200": 264.37981590270994,
+      "rsi": 65.85891293485153,
+      "macd": 9.558799856961173,
+      "signal_line": 9.755334895084957,
+      "sma_50": null,
+      "sma_200": null,
       "high_52w": 315.20001220703125,
       "low_52w": 194.86691284179688,
-      "pct_from_52w_high": -0.010675826845282276,
-      "atr_pct": 1.897300827777914,
-      "commentary": "Technical picture is constructive \u2014 multiple indicators aligned to the upside. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Market cap $4.6T \u2014 mega-cap liquidity supports institutional ownership. Overall, the balance of evidence supports accumulation on weakness.",
+      "pct_from_52w_high": null,
+      "atr_pct": null,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $4.6T \u2014 mega-cap liquidity supports institutional ownership. Hold current position; re-assess on a decisive technical break either way.",
+      "price_history": [
+        {
+          "d": "2026-04-23",
+          "c": 273.1783
+        },
+        {
+          "d": "2026-04-24",
+          "c": 270.8105
+        },
+        {
+          "d": "2026-04-27",
+          "c": 267.3636
+        },
+        {
+          "d": "2026-04-28",
+          "c": 270.4608
+        },
+        {
+          "d": "2026-04-29",
+          "c": 269.9213
+        },
+        {
+          "d": "2026-04-30",
+          "c": 271.1003
+        },
+        {
+          "d": "2026-05-01",
+          "c": 279.8821
+        },
+        {
+          "d": "2026-05-04",
+          "c": 276.5752
+        },
+        {
+          "d": "2026-05-05",
+          "c": 283.9184
+        },
+        {
+          "d": "2026-05-06",
+          "c": 287.2454
+        },
+        {
+          "d": "2026-05-07",
+          "c": 287.1754
+        },
+        {
+          "d": "2026-05-08",
+          "c": 293.05
+        },
+        {
+          "d": "2026-05-11",
+          "c": 292.68
+        },
+        {
+          "d": "2026-05-12",
+          "c": 294.8
+        },
+        {
+          "d": "2026-05-13",
+          "c": 298.87
+        },
+        {
+          "d": "2026-05-14",
+          "c": 298.21
+        },
+        {
+          "d": "2026-05-15",
+          "c": 300.23
+        },
+        {
+          "d": "2026-05-18",
+          "c": 297.84
+        },
+        {
+          "d": "2026-05-19",
+          "c": 298.97
+        },
+        {
+          "d": "2026-05-20",
+          "c": 302.25
+        },
+        {
+          "d": "2026-05-21",
+          "c": 304.99
+        },
+        {
+          "d": "2026-05-22",
+          "c": 308.82
+        },
+        {
+          "d": "2026-05-26",
+          "c": 308.33
+        },
+        {
+          "d": "2026-05-27",
+          "c": 310.85
+        },
+        {
+          "d": "2026-05-28",
+          "c": 312.51
+        },
+        {
+          "d": "2026-05-29",
+          "c": 312.06
+        },
+        {
+          "d": "2026-06-01",
+          "c": 306.31
+        },
+        {
+          "d": "2026-06-02",
+          "c": 315.2
+        },
+        {
+          "d": "2026-06-03",
+          "c": 310.26
+        },
+        {
+          "d": "2026-06-04",
+          "c": NaN
+        }
+      ],
       "analyst_target_mean": 310.507,
       "analyst_target_high": 400.0,
       "analyst_target_low": 215.0,
       "analyst_count": 43,
       "recommendation_key": "buy",
       "beta": 1.065,
-      "forward_pe": 32.45656,
-      "trailing_pe": 37.798786,
-      "price_to_book": 42.953167,
+      "forward_pe": 32.39307,
+      "trailing_pe": 37.72485,
+      "price_to_book": 42.869144,
       "dividend_yield": 0.35,
       "revenue_growth": 0.166,
       "earnings_growth": 0.218,
@@ -148,79 +391,203 @@
       },
       "news": [
         {
-          "title": "Alphabet and Nvidia reveal a surprising truth about the 'Magnificent 7' stocks",
+          "title": "Broadcom's sell-off just entered megacap history",
           "publisher": "Yahoo Finance",
-          "link": "https://finance.yahoo.com/sectors/technology/article/alphabet-and-nvidia-reveal-a-surprising-truth-about-the-magnificent-7-stocks-135842197.html",
-          "time": "2026-06-04T13:58:42Z"
+          "link": "https://finance.yahoo.com/markets/stocks/article/broadcoms-sell-off-just-entered-megacap-history-163942663.html",
+          "time": "2026-06-04T16:39:42Z"
         },
         {
-          "title": "Apple CEO Tim Cook explains why he's stepping down",
-          "publisher": "Yahoo Finance Video",
-          "link": "https://finance.yahoo.com/video/apple-ceo-tim-cook-explains-195727340.html",
-          "time": "2026-06-03T19:57:27Z"
+          "title": "Apple's App Store generated $1.4 trillion in sales last year",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com/news/apples-app-store-generated-14-trillion-in-sales-last-year-123000379.html",
+          "time": "2026-06-04T12:30:00Z"
         },
         {
-          "title": "Apple Stock And The Intelligence Test",
-          "publisher": "Trefis",
-          "link": "https://www.trefis.com/articles/601409/apple-stock-and-the-intelligence-test/2026-06-04",
-          "time": "2026-06-04T18:25:23Z"
+          "title": "Apple\u2019s Plan for AI Dominance Rests on Fixing Its Much-Maligned Chatbot",
+          "publisher": "The Wall Street Journal",
+          "link": "https://www.wsj.com/tech/ai/apples-plan-for-ai-dominance-rests-on-fixing-its-much-maligned-chatbot-9f2309cb?siteid=yhoof2&yptr=yahoo",
+          "time": "2026-06-05T00:30:00Z"
         },
         {
-          "title": "Intel Stock Drops After It Scores AI Partnership With Apple Supplier Foxconn",
-          "publisher": "Barrons.com",
-          "link": "https://www.barrons.com/articles/intel-stock-apple-foxconn-ai-996af601?siteid=yhoof2&yptr=yahoo",
-          "time": "2026-06-04T18:02:00Z"
+          "title": "NVIDIA Could Seal a Major Alliance With Apple After Launching Nemotron 3 Ultra AI model",
+          "publisher": "BeInCrypto",
+          "link": "https://beincrypto.com/nvidia-apple-ai-alliance-nemotron-siri/",
+          "time": "2026-06-04T21:00:00Z"
         },
         {
-          "title": "Apple closing 3 stores in these 3 states in June. See locations",
-          "publisher": "USA TODAY",
-          "link": "https://www.usatoday.com/story/money/2026/06/04/apple-store-closures-june-2026/90403188007/",
-          "time": "2026-06-04T17:49:43Z"
+          "title": "TSMC Forecasts Sustained AI Chip Demand",
+          "publisher": "Investor's Business Daily",
+          "link": "https://www.investors.com/news/technology/tsm-stock-chipmaker-tsmc-forecasts-sustained-demand/?src=A00220&yptr=yahoo",
+          "time": "2026-06-04T20:35:33Z"
         }
       ],
+      "earnings_date": "2026-07-30",
+      "annual_dividend": 1.08,
+      "ex_dividend_date": "2026-05-11",
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "BUY",
-      "previous_generated": "2026-06-04T18:08:09.675462+00:00"
+      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet (Google)",
       "type": "equity",
       "sector": "Technology",
-      "price": 371.0400085449219,
-      "day_change_pct": 3.356644652593165,
-      "week_change_pct": -2.445177441897729,
-      "month_change_pct": -6.783237719922027,
+      "price": null,
+      "day_change_pct": null,
+      "week_change_pct": null,
+      "month_change_pct": null,
       "recommendation": "SELL",
-      "score": -0.5,
+      "score": -1.0,
       "reasons": [
-        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price below EMA20 (377.36) \u2014 short-term momentum negative",
-        "RSI neutral at 47.9",
+        "Price below EMA20 (378.02) \u2014 short-term momentum negative",
+        "RSI weakening at 38.8",
         "MACD below signal line \u2014 bearish momentum",
         "Above-average volume on price decline \u2014 distribution signal"
       ],
-      "rsi": 47.92243185391526,
-      "macd": 2.5136550020010304,
-      "signal_line": 8.12724298642968,
-      "sma_50": 352.92719970703126,
-      "sma_200": 302.98504104614256,
+      "rsi": 38.82705311541171,
+      "macd": 3.344408643697136,
+      "signal_line": 8.293393714085003,
+      "sma_50": null,
+      "sma_200": null,
       "high_52w": 402.6199951171875,
-      "low_52w": 164.8184814453125,
-      "pct_from_52w_high": -0.07843621021125362,
-      "atr_pct": 2.7452471410170385,
-      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $4.5T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 16% upside from current levels. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "low_52w": 164.81846618652344,
+      "pct_from_52w_high": null,
+      "atr_pct": null,
+      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $4.5T \u2014 mega-cap liquidity supports institutional ownership. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "price_history": [
+        {
+          "d": "2026-04-23",
+          "c": 338.89
+        },
+        {
+          "d": "2026-04-24",
+          "c": 344.4
+        },
+        {
+          "d": "2026-04-27",
+          "c": 350.34
+        },
+        {
+          "d": "2026-04-28",
+          "c": 349.78
+        },
+        {
+          "d": "2026-04-29",
+          "c": 349.94
+        },
+        {
+          "d": "2026-04-30",
+          "c": 384.8
+        },
+        {
+          "d": "2026-05-01",
+          "c": 385.69
+        },
+        {
+          "d": "2026-05-04",
+          "c": 383.25
+        },
+        {
+          "d": "2026-05-05",
+          "c": 388.43
+        },
+        {
+          "d": "2026-05-06",
+          "c": 398.04
+        },
+        {
+          "d": "2026-05-07",
+          "c": 397.99
+        },
+        {
+          "d": "2026-05-08",
+          "c": 400.8
+        },
+        {
+          "d": "2026-05-11",
+          "c": 388.64
+        },
+        {
+          "d": "2026-05-12",
+          "c": 387.35
+        },
+        {
+          "d": "2026-05-13",
+          "c": 402.62
+        },
+        {
+          "d": "2026-05-14",
+          "c": 401.07
+        },
+        {
+          "d": "2026-05-15",
+          "c": 396.78
+        },
+        {
+          "d": "2026-05-18",
+          "c": 396.94
+        },
+        {
+          "d": "2026-05-19",
+          "c": 387.66
+        },
+        {
+          "d": "2026-05-20",
+          "c": 388.91
+        },
+        {
+          "d": "2026-05-21",
+          "c": 387.66
+        },
+        {
+          "d": "2026-05-22",
+          "c": 382.97
+        },
+        {
+          "d": "2026-05-26",
+          "c": 388.88
+        },
+        {
+          "d": "2026-05-27",
+          "c": 388.83
+        },
+        {
+          "d": "2026-05-28",
+          "c": 390.13
+        },
+        {
+          "d": "2026-05-29",
+          "c": 380.34
+        },
+        {
+          "d": "2026-06-01",
+          "c": 376.37
+        },
+        {
+          "d": "2026-06-02",
+          "c": 361.85
+        },
+        {
+          "d": "2026-06-03",
+          "c": 358.99
+        },
+        {
+          "d": "2026-06-04",
+          "c": NaN
+        }
+      ],
       "analyst_target_mean": 429.8698,
       "analyst_target_high": 515.0,
       "analyst_target_low": 340.0,
       "analyst_count": 52,
       "recommendation_key": "strong_buy",
       "beta": 1.267,
-      "forward_pe": 25.658012,
-      "trailing_pe": 28.322136,
-      "price_to_book": 9.389584,
-      "dividend_yield": 0.25,
+      "forward_pe": 25.738924,
+      "trailing_pe": 28.41145,
+      "price_to_book": 9.419193,
+      "dividend_yield": 0.24,
       "revenue_growth": 0.218,
       "earnings_growth": 0.82,
       "roe": 0.38884997,
@@ -235,10 +602,10 @@
       },
       "news": [
         {
-          "title": "Tech stocks today: Chip stocks drag down tech sector as Broadcom earnings give investors pause",
+          "title": "Broadcom stock sinks 12% as AI chip forecast disappoints",
           "publisher": "Yahoo Finance",
-          "link": "https://finance.yahoo.com/sectors/technology/live/tech-stocks-today-chip-stocks-drag-down-tech-sector-as-broadcom-earnings-give-investors-pause-100000485.html",
-          "time": "2026-06-01T10:00:00Z"
+          "link": "https://finance.yahoo.com/markets/article/broadcom-stock-sinks-12-as-ai-chip-forecast-disappoints-165602082.html",
+          "time": "2026-06-03T16:56:02Z"
         },
         {
           "title": "Is OpenAI coming for Tesla's robotics business?",
@@ -253,51 +620,174 @@
           "time": "2026-06-04T10:00:00Z"
         },
         {
-          "title": "AMD Is Up 55% in a Month and Trouncing Intel. Should Intel Stockholders Switch to AMD Now?",
-          "publisher": "24/7 Wall St.",
-          "link": "https://247wallst.com/investing/2026/06/04/amd-is-up-55-in-a-month-and-trouncing-intel-should-intel-stockholders-switch-to-amd-now/",
-          "time": "2026-06-04T18:56:50Z"
+          "title": "Dow Jones Futures: Techs Fall After Dow Hits High, AI Shrugs Off Broadcom, Ciena; Jobs Report Looms",
+          "publisher": "Investor's Business Daily",
+          "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-ai-stocks-broadcom-ciena-jobs-report/?src=A00220&yptr=yahoo",
+          "time": "2026-06-05T03:06:29Z"
         },
         {
-          "title": "Apple Stock And The Intelligence Test",
-          "publisher": "Trefis",
-          "link": "https://www.trefis.com/articles/601409/apple-stock-and-the-intelligence-test/2026-06-04",
-          "time": "2026-06-04T18:25:23Z"
+          "title": "Why Are Reddit (RDDT) Shares Soaring Today",
+          "publisher": "StockStory",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/why-reddit-rddt-shares-soaring-015730552.html",
+          "time": "2026-06-05T01:57:30Z"
         }
       ],
+      "earnings_date": "2026-07-23",
+      "annual_dividend": 0.88,
+      "ex_dividend_date": "2026-06-08",
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-04T18:08:09.675462+00:00"
+      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
     },
     {
       "ticker": "AMZN",
       "name": "Amazon",
       "type": "equity",
       "sector": "Consumer/Cloud",
-      "price": 253.7899932861328,
-      "day_change_pct": 1.5078749497034265,
-      "week_change_pct": -6.225990411725677,
-      "month_change_pct": -7.7093704138733745,
+      "price": null,
+      "day_change_pct": null,
+      "week_change_pct": null,
+      "month_change_pct": null,
       "recommendation": "SELL",
-      "score": -0.5,
+      "score": -1.0,
       "reasons": [
-        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price below EMA20 (262.08) \u2014 short-term momentum negative",
-        "RSI weakening at 43.5",
-        "MACD below signal line \u2014 bearish momentum",
-        "MACD histogram expanding negatively"
+        "Price below EMA20 (262.95) \u2014 short-term momentum negative",
+        "RSI weakening at 39.4",
+        "MACD below signal line \u2014 bearish momentum"
       ],
-      "rsi": 43.49822214737466,
-      "macd": 0.8959509286918887,
-      "signal_line": 3.9503032422408317,
-      "sma_50": 250.47120056152343,
-      "sma_200": 232.0382000732422,
+      "rsi": 39.38886695363231,
+      "macd": 1.7715873845992292,
+      "signal_line": 4.125430529897324,
+      "sma_50": null,
+      "sma_200": null,
       "high_52w": 274.989990234375,
       "low_52w": 198.7899932861328,
-      "pct_from_52w_high": -0.07709370413873375,
-      "atr_pct": 2.7440520563848123,
-      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $2.7T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 23% upside from current levels. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "pct_from_52w_high": null,
+      "atr_pct": null,
+      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $2.7T \u2014 mega-cap liquidity supports institutional ownership. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "price_history": [
+        {
+          "d": "2026-04-23",
+          "c": 255.08
+        },
+        {
+          "d": "2026-04-24",
+          "c": 263.99
+        },
+        {
+          "d": "2026-04-27",
+          "c": 261.12
+        },
+        {
+          "d": "2026-04-28",
+          "c": 259.7
+        },
+        {
+          "d": "2026-04-29",
+          "c": 263.04
+        },
+        {
+          "d": "2026-04-30",
+          "c": 265.06
+        },
+        {
+          "d": "2026-05-01",
+          "c": 268.26
+        },
+        {
+          "d": "2026-05-04",
+          "c": 272.05
+        },
+        {
+          "d": "2026-05-05",
+          "c": 273.55
+        },
+        {
+          "d": "2026-05-06",
+          "c": 274.99
+        },
+        {
+          "d": "2026-05-07",
+          "c": 271.17
+        },
+        {
+          "d": "2026-05-08",
+          "c": 272.68
+        },
+        {
+          "d": "2026-05-11",
+          "c": 268.99
+        },
+        {
+          "d": "2026-05-12",
+          "c": 265.82
+        },
+        {
+          "d": "2026-05-13",
+          "c": 270.13
+        },
+        {
+          "d": "2026-05-14",
+          "c": 267.22
+        },
+        {
+          "d": "2026-05-15",
+          "c": 264.14
+        },
+        {
+          "d": "2026-05-18",
+          "c": 264.86
+        },
+        {
+          "d": "2026-05-19",
+          "c": 259.34
+        },
+        {
+          "d": "2026-05-20",
+          "c": 265.01
+        },
+        {
+          "d": "2026-05-21",
+          "c": 268.46
+        },
+        {
+          "d": "2026-05-22",
+          "c": 266.32
+        },
+        {
+          "d": "2026-05-26",
+          "c": 265.29
+        },
+        {
+          "d": "2026-05-27",
+          "c": 271.85
+        },
+        {
+          "d": "2026-05-28",
+          "c": 274.0
+        },
+        {
+          "d": "2026-05-29",
+          "c": 270.64
+        },
+        {
+          "d": "2026-06-01",
+          "c": 261.26
+        },
+        {
+          "d": "2026-06-02",
+          "c": 256.52
+        },
+        {
+          "d": "2026-06-03",
+          "c": 250.02
+        },
+        {
+          "d": "2026-06-04",
+          "c": NaN
+        }
+      ],
       "analyst_target_mean": 312.7934,
       "analyst_target_high": 370.0,
       "analyst_target_low": 207.0,
@@ -305,7 +795,7 @@
       "recommendation_key": "strong_buy",
       "beta": 1.468,
       "forward_pe": 25.72941,
-      "trailing_pe": 32.125317,
+      "trailing_pe": 31.644636,
       "price_to_book": 6.175991,
       "dividend_yield": null,
       "revenue_growth": 0.166,
@@ -328,72 +818,194 @@
           "time": "2026-06-04T13:58:42Z"
         },
         {
-          "title": "After Layoffs, Pinterest Plans to Invest $4 Billion in Amazon\u2019s AI chips",
-          "publisher": "Sourcing Journal",
-          "link": "https://wwd.com/sourcing-journal/industry-news/after-layoffs-pinterest-plans-to-invest-4-billion-ai-chips-1238995330/",
-          "time": "2026-06-04T18:34:33Z"
+          "title": "The $200 Billion Reason Amazon Could Be an Overlooked AI Winner",
+          "publisher": "Motley Fool",
+          "link": "https://www.fool.com/investing/2026/06/04/the-200-billion-reason-amazon-could-be-an-overlook/",
+          "time": "2026-06-05T02:41:00Z"
         },
         {
-          "title": "Apple Stock And The Intelligence Test",
-          "publisher": "Trefis",
-          "link": "https://www.trefis.com/articles/601409/apple-stock-and-the-intelligence-test/2026-06-04",
-          "time": "2026-06-04T18:25:23Z"
+          "title": "Walmart Investors Reject Proposal To Disclose AI Impact On Workers\u2019 Safety And Well-Being: Report",
+          "publisher": "Stocktwits",
+          "link": "https://stocktwits.com/news-articles/markets/equity/walmart-ai-workforce-disclosure-proposal-rejected-wmt/cZ0FbgDRezO",
+          "time": "2026-06-05T00:01:41Z"
         },
         {
-          "title": "If You Bought SOXQ During the March 2026 Selloff, You\u2019re Sitting on a Triple-Digit Year",
-          "publisher": "24/7 Wall St.",
-          "link": "https://247wallst.com/investing/2026/06/04/if-you-bought-soxq-during-the-march-2026-selloff-youre-sitting-on-a-triple-digit-year/",
-          "time": "2026-06-04T18:20:54Z"
+          "title": "3 Mega-Cap Stocks with Exciting Potential",
+          "publisher": "StockStory",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/3-mega-cap-stocks-exciting-222130572.html",
+          "time": "2026-06-04T22:21:30Z"
         },
         {
-          "title": "Nvidia's $800 Billion AI Test Revives Cisco-Era Warning",
-          "publisher": "GuruFocus.com",
-          "link": "https://finance.yahoo.com/sectors/technology/articles/nvidias-800-billion-ai-test-173627544.html",
-          "time": "2026-06-04T17:36:27Z"
+          "title": "Amazon-Backed X-Energy Dives To A Post-IPO Low. Here's Why.",
+          "publisher": "Investor's Business Daily",
+          "link": "https://www.investors.com/news/x-energy-stock-amazon-backed-nuclear-startup/?src=A00220&yptr=yahoo",
+          "time": "2026-06-04T20:41:06Z"
         }
       ],
+      "earnings_date": "2026-07-30",
+      "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-04T18:08:09.675462+00:00"
+      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
     },
     {
       "ticker": "RBLX",
       "name": "Roblox",
       "type": "equity",
       "sector": "Gaming/Metaverse",
-      "price": 43.599998474121094,
-      "day_change_pct": -0.18315437384556937,
-      "week_change_pct": -7.529168476928566,
-      "month_change_pct": -0.36563037831145767,
+      "price": null,
+      "day_change_pct": null,
+      "week_change_pct": null,
+      "month_change_pct": null,
       "recommendation": "HOLD",
-      "score": -0.2,
+      "score": -0.3333333333333333,
       "reasons": [
-        "Death Cross (SMA50 < SMA200) \u2014 bearish trend structure",
-        "Price below EMA20 (46.27) \u2014 short-term momentum negative",
-        "RSI weakening at 39.7",
-        "MACD above signal line \u2014 bullish momentum",
-        "Down 69% from 52-week high \u2014 deep value zone"
+        "Price below EMA20 (46.56) \u2014 short-term momentum negative",
+        "RSI weakening at 39.9",
+        "MACD above signal line \u2014 bullish momentum"
       ],
-      "rsi": 39.70257481867714,
-      "macd": -1.7002223460800678,
-      "signal_line": -2.0280670487135453,
-      "sma_50": 51.217200088500974,
-      "sma_200": 85.40779998779297,
+      "rsi": 39.86861683652244,
+      "macd": -1.6506480460979773,
+      "signal_line": -2.0181522049421807,
+      "sma_50": null,
+      "sma_200": null,
       "high_52w": 141.55999755859375,
       "low_52w": 41.310001373291016,
-      "pct_from_52w_high": -0.6920033962555387,
-      "atr_pct": 6.266645779500125,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. Down 69% from peak \u2014 high-risk, high-reward territory; position sizing is key. Market cap $31.2B. P/E of -35x looks undemanding \u2014 value opportunity if fundamentals hold. Consensus price target implies 49% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "pct_from_52w_high": null,
+      "atr_pct": null,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $31.0B. P/E of -34x looks undemanding \u2014 value opportunity if fundamentals hold. Hold current position; re-assess on a decisive technical break either way.",
+      "price_history": [
+        {
+          "d": "2026-04-23",
+          "c": 55.45
+        },
+        {
+          "d": "2026-04-24",
+          "c": 56.09
+        },
+        {
+          "d": "2026-04-27",
+          "c": 57.52
+        },
+        {
+          "d": "2026-04-28",
+          "c": 56.11
+        },
+        {
+          "d": "2026-04-29",
+          "c": 56.28
+        },
+        {
+          "d": "2026-04-30",
+          "c": 55.26
+        },
+        {
+          "d": "2026-05-01",
+          "c": 45.13
+        },
+        {
+          "d": "2026-05-04",
+          "c": 47.57
+        },
+        {
+          "d": "2026-05-05",
+          "c": 44.04
+        },
+        {
+          "d": "2026-05-06",
+          "c": 43.76
+        },
+        {
+          "d": "2026-05-07",
+          "c": 44.78
+        },
+        {
+          "d": "2026-05-08",
+          "c": 41.91
+        },
+        {
+          "d": "2026-05-11",
+          "c": 41.31
+        },
+        {
+          "d": "2026-05-12",
+          "c": 41.54
+        },
+        {
+          "d": "2026-05-13",
+          "c": 41.96
+        },
+        {
+          "d": "2026-05-14",
+          "c": 43.72
+        },
+        {
+          "d": "2026-05-15",
+          "c": 42.85
+        },
+        {
+          "d": "2026-05-18",
+          "c": 46.98
+        },
+        {
+          "d": "2026-05-19",
+          "c": 44.45
+        },
+        {
+          "d": "2026-05-20",
+          "c": 45.79
+        },
+        {
+          "d": "2026-05-21",
+          "c": 46.14
+        },
+        {
+          "d": "2026-05-22",
+          "c": 48.16
+        },
+        {
+          "d": "2026-05-26",
+          "c": 46.0
+        },
+        {
+          "d": "2026-05-27",
+          "c": 45.63
+        },
+        {
+          "d": "2026-05-28",
+          "c": 46.83
+        },
+        {
+          "d": "2026-05-29",
+          "c": 47.15
+        },
+        {
+          "d": "2026-06-01",
+          "c": 47.0
+        },
+        {
+          "d": "2026-06-02",
+          "c": 45.0
+        },
+        {
+          "d": "2026-06-03",
+          "c": 43.68
+        },
+        {
+          "d": "2026-06-04",
+          "c": NaN
+        }
+      ],
       "analyst_target_mean": 64.8125,
       "analyst_target_high": 105.0,
       "analyst_target_low": 45.0,
       "analyst_count": 32,
       "recommendation_key": "buy",
       "beta": 1.444,
-      "forward_pe": -34.605644,
+      "forward_pe": -33.82649,
       "trailing_pe": null,
-      "price_to_book": 78.27648,
+      "price_to_book": 77.827644,
       "dividend_yield": null,
       "revenue_growth": 0.393,
       "earnings_growth": null,
@@ -439,49 +1051,171 @@
           "time": "2026-06-01T18:20:00Z"
         }
       ],
+      "earnings_date": "2026-07-30",
+      "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-04T18:08:09.675462+00:00"
+      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
     },
     {
       "ticker": "ILMN",
       "name": "Illumina",
       "type": "equity",
       "sector": "Genomics",
-      "price": 167.41000366210938,
-      "day_change_pct": -2.059316190546246,
-      "week_change_pct": 2.73072948263662,
-      "month_change_pct": 17.41478574286747,
-      "recommendation": "HOLD",
-      "score": 0.4,
+      "price": null,
+      "day_change_pct": null,
+      "week_change_pct": null,
+      "month_change_pct": null,
+      "recommendation": "SELL",
+      "score": -0.75,
       "reasons": [
-        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price above EMA20 (151.85) \u2014 short-term momentum positive",
-        "RSI overbought at 73.8 \u2014 risk of near-term pullback",
+        "Price below EMA20 (150.21) \u2014 short-term momentum negative",
+        "RSI overbought at 80.4 \u2014 risk of near-term pullback",
         "MACD above signal line \u2014 bullish momentum",
-        "Near 52-week high \u2014 strong momentum but limited upside buffer",
-        "Strong 20-day momentum: +20.7%"
+        "Above-average volume on price decline \u2014 distribution signal"
       ],
-      "rsi": 73.80489145256155,
-      "macd": 8.539806857521654,
-      "signal_line": 6.5064376483713,
-      "sma_50": 137.08359954833983,
-      "sma_200": 123.58450023651123,
+      "rsi": 80.37891413809305,
+      "macd": 8.199926605347969,
+      "signal_line": 6.4384616026538115,
+      "sma_50": null,
+      "sma_200": null,
       "high_52w": 170.92999267578125,
       "low_52w": 82.25,
-      "pct_from_52w_high": -0.020593161905462457,
-      "atr_pct": 3.891715250393906,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI elevated (74) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. The 17% monthly surge warrants trailing stop discipline. Market cap $25.3B. Consensus price target implies 14% downside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "pct_from_52w_high": null,
+      "atr_pct": null,
+      "commentary": "Technical picture is cautious \u2014 indicators skew negative. RSI elevated (80) \u2014 momentum is stretched; disciplined investors may trim on further strength. Market cap $25.4B. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "price_history": [
+        {
+          "d": "2026-04-23",
+          "c": 125.44
+        },
+        {
+          "d": "2026-04-24",
+          "c": 127.88
+        },
+        {
+          "d": "2026-04-27",
+          "c": 128.52
+        },
+        {
+          "d": "2026-04-28",
+          "c": 126.92
+        },
+        {
+          "d": "2026-04-29",
+          "c": 120.37
+        },
+        {
+          "d": "2026-04-30",
+          "c": 126.74
+        },
+        {
+          "d": "2026-05-01",
+          "c": 135.78
+        },
+        {
+          "d": "2026-05-04",
+          "c": 139.37
+        },
+        {
+          "d": "2026-05-05",
+          "c": 139.07
+        },
+        {
+          "d": "2026-05-06",
+          "c": 142.58
+        },
+        {
+          "d": "2026-05-07",
+          "c": 138.71
+        },
+        {
+          "d": "2026-05-08",
+          "c": 141.88
+        },
+        {
+          "d": "2026-05-11",
+          "c": 142.51
+        },
+        {
+          "d": "2026-05-12",
+          "c": 145.7
+        },
+        {
+          "d": "2026-05-13",
+          "c": 145.0
+        },
+        {
+          "d": "2026-05-14",
+          "c": 143.24
+        },
+        {
+          "d": "2026-05-15",
+          "c": 142.54
+        },
+        {
+          "d": "2026-05-18",
+          "c": 141.51
+        },
+        {
+          "d": "2026-05-19",
+          "c": 141.68
+        },
+        {
+          "d": "2026-05-20",
+          "c": 141.92
+        },
+        {
+          "d": "2026-05-21",
+          "c": 144.83
+        },
+        {
+          "d": "2026-05-22",
+          "c": 144.41
+        },
+        {
+          "d": "2026-05-26",
+          "c": 145.23
+        },
+        {
+          "d": "2026-05-27",
+          "c": 150.17
+        },
+        {
+          "d": "2026-05-28",
+          "c": 158.7
+        },
+        {
+          "d": "2026-05-29",
+          "c": 162.96
+        },
+        {
+          "d": "2026-06-01",
+          "c": 164.4
+        },
+        {
+          "d": "2026-06-02",
+          "c": 162.55
+        },
+        {
+          "d": "2026-06-03",
+          "c": 170.93
+        },
+        {
+          "d": "2026-06-04",
+          "c": NaN
+        }
+      ],
       "analyst_target_mean": 143.83333,
       "analyst_target_high": 180.0,
       "analyst_target_low": 95.0,
       "analyst_count": 18,
       "recommendation_key": "buy",
-      "beta": 1.424,
-      "forward_pe": 28.268831,
-      "trailing_pe": 30.438183,
-      "price_to_book": 9.509231,
+      "beta": 1.49,
+      "forward_pe": 28.37859,
+      "trailing_pe": 30.556364,
+      "price_to_book": 9.546152,
       "dividend_yield": null,
       "revenue_growth": 0.048,
       "earnings_growth": 0.061,
@@ -509,6 +1243,12 @@
           "time": "2026-06-04T15:30:13Z"
         },
         {
+          "title": "Honeywell Stock Is Likely to Reward Shareholders Following Quantinuum IPO, Split",
+          "publisher": "Barchart",
+          "link": "https://www.barchart.com/story/news/2305189/honeywell-stock-is-likely-to-reward-shareholders-following-quantinuum-ipo-split",
+          "time": "2026-06-04T13:35:02Z"
+        },
+        {
           "title": "Is Illumina\u2019s (ILMN) Deeper IDT DRAGEN Tie-Up Quietly Rewriting Its Oncology Software Edge?",
           "publisher": "Simply Wall St.",
           "link": "https://finance.yahoo.com/sectors/healthcare/articles/illumina-ilmn-deeper-idt-dragen-191328386.html",
@@ -519,57 +1259,172 @@
           "publisher": "Zacks",
           "link": "https://finance.yahoo.com/sectors/healthcare/articles/biomarin-bmrn-0-2-since-153005342.html",
           "time": "2026-06-03T15:30:05Z"
-        },
-        {
-          "title": "ILMN Stock Jumps 98.7% in a Year: What's Powering the Surge?",
-          "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/sectors/healthcare/articles/ilmn-stock-jumps-98-7-145200538.html",
-          "time": "2026-06-03T14:52:00Z"
         }
       ],
+      "earnings_date": "2026-07-30",
+      "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-04T18:08:09.675462+00:00"
+      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
     },
     {
       "ticker": "NKTR",
       "name": "Nektar Therapeutics",
       "type": "equity",
       "sector": "Biotech",
-      "price": 58.86000061035156,
-      "day_change_pct": -0.6246816389402857,
-      "week_change_pct": -9.27866352945825,
-      "month_change_pct": -30.826180346018923,
+      "price": null,
+      "day_change_pct": null,
+      "week_change_pct": null,
+      "month_change_pct": null,
       "recommendation": "HOLD",
-      "score": 0.16666666666666666,
+      "score": 0.0,
       "reasons": [
-        "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price below EMA20 (68.19) \u2014 short-term momentum negative",
-        "RSI oversold at 23.7 \u2014 potential reversal opportunity",
-        "MACD below signal line \u2014 bearish momentum",
-        "Down 41% from 52-week high \u2014 deep value zone",
-        "Weak 20-day momentum: -29.4%"
+        "Price below EMA20 (69.18) \u2014 short-term momentum negative",
+        "RSI oversold at 24.1 \u2014 potential reversal opportunity",
+        "MACD below signal line \u2014 bearish momentum"
       ],
-      "rsi": 23.69943539422158,
-      "macd": -5.393704122618132,
-      "signal_line": -4.389979537806065,
-      "sma_50": 76.76360000610352,
-      "sma_200": 59.20369993209839,
+      "rsi": 24.082082252890785,
+      "macd": -5.240011740758945,
+      "signal_line": -4.359241055213755,
+      "sma_50": null,
+      "sma_200": null,
       "high_52w": 100.3499984741211,
       "low_52w": 8.510000228881836,
-      "pct_from_52w_high": -0.41345289979719574,
-      "atr_pct": 6.001968159440469,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI deeply oversold (24) \u2014 price may be exhausting sellers; watch for a bounce catalyst. Down 41% from peak \u2014 high-risk, high-reward territory; position sizing is key. The -31% monthly drawdown raises questions about near-term support levels. Market cap $2.0B. P/E of -5x looks undemanding \u2014 value opportunity if fundamentals hold. Consensus price target implies 160% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "pct_from_52w_high": null,
+      "atr_pct": null,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI deeply oversold (24) \u2014 price may be exhausting sellers; watch for a bounce catalyst. Market cap $2.0B. P/E of -5x looks undemanding \u2014 value opportunity if fundamentals hold. Hold current position; re-assess on a decisive technical break either way.",
+      "price_history": [
+        {
+          "d": "2026-04-23",
+          "c": 91.26
+        },
+        {
+          "d": "2026-04-24",
+          "c": 91.68
+        },
+        {
+          "d": "2026-04-27",
+          "c": 86.74
+        },
+        {
+          "d": "2026-04-28",
+          "c": 83.81
+        },
+        {
+          "d": "2026-04-29",
+          "c": 83.2
+        },
+        {
+          "d": "2026-04-30",
+          "c": 85.04
+        },
+        {
+          "d": "2026-05-01",
+          "c": 86.46
+        },
+        {
+          "d": "2026-05-04",
+          "c": 86.89
+        },
+        {
+          "d": "2026-05-05",
+          "c": 84.16
+        },
+        {
+          "d": "2026-05-06",
+          "c": 85.09
+        },
+        {
+          "d": "2026-05-07",
+          "c": 83.37
+        },
+        {
+          "d": "2026-05-08",
+          "c": 81.89
+        },
+        {
+          "d": "2026-05-11",
+          "c": 78.72
+        },
+        {
+          "d": "2026-05-12",
+          "c": 78.43
+        },
+        {
+          "d": "2026-05-13",
+          "c": 75.95
+        },
+        {
+          "d": "2026-05-14",
+          "c": 74.33
+        },
+        {
+          "d": "2026-05-15",
+          "c": 70.62
+        },
+        {
+          "d": "2026-05-18",
+          "c": 68.43
+        },
+        {
+          "d": "2026-05-19",
+          "c": 67.58
+        },
+        {
+          "d": "2026-05-20",
+          "c": 69.49
+        },
+        {
+          "d": "2026-05-21",
+          "c": 68.58
+        },
+        {
+          "d": "2026-05-22",
+          "c": 66.61
+        },
+        {
+          "d": "2026-05-26",
+          "c": 65.56
+        },
+        {
+          "d": "2026-05-27",
+          "c": 65.4
+        },
+        {
+          "d": "2026-05-28",
+          "c": 65.01
+        },
+        {
+          "d": "2026-05-29",
+          "c": 64.88
+        },
+        {
+          "d": "2026-06-01",
+          "c": 63.86
+        },
+        {
+          "d": "2026-06-02",
+          "c": 58.56
+        },
+        {
+          "d": "2026-06-03",
+          "c": 59.23
+        },
+        {
+          "d": "2026-06-04",
+          "c": NaN
+        }
+      ],
       "analyst_target_mean": 153.25,
       "analyst_target_high": 192.0,
       "analyst_target_low": 80.0,
       "analyst_count": 8,
       "recommendation_key": "none",
-      "beta": 1.249,
-      "forward_pe": -4.6853733,
+      "beta": 1.151,
+      "forward_pe": -4.7211943,
       "trailing_pe": null,
-      "price_to_book": 3.0105877,
+      "price_to_book": 3.0336044,
       "dividend_yield": null,
       "revenue_growth": 0.038,
       "earnings_growth": null,
@@ -615,10 +1470,12 @@
           "time": "2026-05-08T11:07:36Z"
         }
       ],
+      "earnings_date": "2026-08-06",
+      "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-04T18:08:09.675462+00:00"
+      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
     },
     {
       "ticker": "VWRL.L",
@@ -638,16 +1495,138 @@
         "MACD above signal line \u2014 bullish momentum",
         "Near 52-week high \u2014 strong momentum but limited upside buffer"
       ],
-      "rsi": 72.14047493911563,
-      "macd": 2.24635038252282,
-      "signal_line": 2.2305333024609837,
+      "rsi": 72.14047493051947,
+      "macd": 2.2463503826101316,
+      "signal_line": 2.2305333025893845,
       "sma_50": 129.94780014038085,
-      "sma_200": 123.93758121490478,
+      "sma_200": 123.93758094787597,
       "high_52w": 138.63999938964844,
       "low_52w": 106.11398315429688,
       "pct_from_52w_high": -0.004832646940961671,
-      "atr_pct": 0.8887304422354376,
+      "atr_pct": 0.8887304423418908,
       "commentary": "Vanguard FTSE All-World ETF provides diversified exposure. Mixed signals present \u2014 no clear directional conviction. RSI elevated (72) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Hold current position; re-assess on a decisive technical break either way.",
+      "price_history": [
+        {
+          "d": "2026-04-22",
+          "c": 129.64
+        },
+        {
+          "d": "2026-04-23",
+          "c": 129.86
+        },
+        {
+          "d": "2026-04-24",
+          "c": 129.66
+        },
+        {
+          "d": "2026-04-27",
+          "c": 129.35
+        },
+        {
+          "d": "2026-04-28",
+          "c": 129.04
+        },
+        {
+          "d": "2026-04-29",
+          "c": 129.21
+        },
+        {
+          "d": "2026-04-30",
+          "c": 129.42
+        },
+        {
+          "d": "2026-05-01",
+          "c": 130.41
+        },
+        {
+          "d": "2026-05-05",
+          "c": 130.99
+        },
+        {
+          "d": "2026-05-06",
+          "c": 132.96
+        },
+        {
+          "d": "2026-05-07",
+          "c": 132.96
+        },
+        {
+          "d": "2026-05-08",
+          "c": 133.03
+        },
+        {
+          "d": "2026-05-11",
+          "c": 133.32
+        },
+        {
+          "d": "2026-05-12",
+          "c": 132.61
+        },
+        {
+          "d": "2026-05-13",
+          "c": 134.22
+        },
+        {
+          "d": "2026-05-14",
+          "c": 135.8
+        },
+        {
+          "d": "2026-05-15",
+          "c": 135.4
+        },
+        {
+          "d": "2026-05-18",
+          "c": 134.04
+        },
+        {
+          "d": "2026-05-19",
+          "c": 133.33
+        },
+        {
+          "d": "2026-05-20",
+          "c": 134.48
+        },
+        {
+          "d": "2026-05-21",
+          "c": 134.54
+        },
+        {
+          "d": "2026-05-22",
+          "c": 135.79
+        },
+        {
+          "d": "2026-05-26",
+          "c": 136.81
+        },
+        {
+          "d": "2026-05-27",
+          "c": 136.84
+        },
+        {
+          "d": "2026-05-28",
+          "c": 137.48
+        },
+        {
+          "d": "2026-05-29",
+          "c": 137.58
+        },
+        {
+          "d": "2026-06-01",
+          "c": 137.95
+        },
+        {
+          "d": "2026-06-02",
+          "c": 138.64
+        },
+        {
+          "d": "2026-06-03",
+          "c": 138.05
+        },
+        {
+          "d": "2026-06-04",
+          "c": 137.97
+        }
+      ],
       "analyst_target_mean": null,
       "analyst_target_high": null,
       "analyst_target_low": null,
@@ -664,10 +1643,11 @@
       "debt_to_equity": null,
       "short_ratio": null,
       "news": [],
+      "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-04T18:08:09.675462+00:00"
+      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
     },
     {
       "ticker": "XDWH.L",
@@ -697,6 +1677,128 @@
       "pct_from_52w_high": -0.05821238151099758,
       "atr_pct": 1.4499501107755635,
       "commentary": "Xtrackers MSCI World Hedged ETF provides diversified exposure. Technical picture is constructive \u2014 multiple indicators aligned to the upside. Overall, the balance of evidence supports accumulation on weakness.",
+      "price_history": [
+        {
+          "d": "2026-04-22",
+          "c": 56.04
+        },
+        {
+          "d": "2026-04-23",
+          "c": 55.84
+        },
+        {
+          "d": "2026-04-24",
+          "c": 54.94
+        },
+        {
+          "d": "2026-04-27",
+          "c": 55.08
+        },
+        {
+          "d": "2026-04-28",
+          "c": 55.08
+        },
+        {
+          "d": "2026-04-29",
+          "c": 54.34
+        },
+        {
+          "d": "2026-04-30",
+          "c": 55.545
+        },
+        {
+          "d": "2026-05-01",
+          "c": 55.55
+        },
+        {
+          "d": "2026-05-05",
+          "c": 55.31
+        },
+        {
+          "d": "2026-05-06",
+          "c": 55.78
+        },
+        {
+          "d": "2026-05-07",
+          "c": 55.22
+        },
+        {
+          "d": "2026-05-08",
+          "c": 54.86
+        },
+        {
+          "d": "2026-05-11",
+          "c": 54.9
+        },
+        {
+          "d": "2026-05-12",
+          "c": 55.455
+        },
+        {
+          "d": "2026-05-13",
+          "c": 55.64
+        },
+        {
+          "d": "2026-05-14",
+          "c": 55.87
+        },
+        {
+          "d": "2026-05-15",
+          "c": 55.3
+        },
+        {
+          "d": "2026-05-18",
+          "c": 55.1
+        },
+        {
+          "d": "2026-05-19",
+          "c": 56.01
+        },
+        {
+          "d": "2026-05-20",
+          "c": 55.97
+        },
+        {
+          "d": "2026-05-21",
+          "c": 56.12
+        },
+        {
+          "d": "2026-05-22",
+          "c": 56.75
+        },
+        {
+          "d": "2026-05-26",
+          "c": 56.53
+        },
+        {
+          "d": "2026-05-27",
+          "c": 56.76
+        },
+        {
+          "d": "2026-05-28",
+          "c": 57.0
+        },
+        {
+          "d": "2026-05-29",
+          "c": 56.73
+        },
+        {
+          "d": "2026-06-01",
+          "c": 55.7
+        },
+        {
+          "d": "2026-06-02",
+          "c": 55.2
+        },
+        {
+          "d": "2026-06-03",
+          "c": 55.45
+        },
+        {
+          "d": "2026-06-04",
+          "c": 57.11
+        }
+      ],
       "analyst_target_mean": null,
       "analyst_target_high": null,
       "analyst_target_low": null,
@@ -713,10 +1815,11 @@
       "debt_to_equity": null,
       "short_ratio": null,
       "news": [],
+      "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "BUY",
-      "previous_generated": "2026-06-04T18:08:09.675462+00:00"
+      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
     },
     {
       "ticker": "IIND.L",
@@ -746,6 +1849,128 @@
       "pct_from_52w_high": -0.35973665935508337,
       "atr_pct": 1.6349562625505871,
       "commentary": "iShares MSCI India ETF provides diversified exposure. Technical picture is cautious \u2014 indicators skew negative. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "price_history": [
+        {
+          "d": "2026-04-22",
+          "c": 6.586
+        },
+        {
+          "d": "2026-04-23",
+          "c": 6.569
+        },
+        {
+          "d": "2026-04-24",
+          "c": 6.506
+        },
+        {
+          "d": "2026-04-27",
+          "c": 6.467
+        },
+        {
+          "d": "2026-04-28",
+          "c": 6.439
+        },
+        {
+          "d": "2026-04-29",
+          "c": 6.475
+        },
+        {
+          "d": "2026-04-30",
+          "c": 6.427
+        },
+        {
+          "d": "2026-05-01",
+          "c": 6.448
+        },
+        {
+          "d": "2026-05-05",
+          "c": 6.435
+        },
+        {
+          "d": "2026-05-06",
+          "c": 6.579
+        },
+        {
+          "d": "2026-05-07",
+          "c": 6.536
+        },
+        {
+          "d": "2026-05-08",
+          "c": 6.503
+        },
+        {
+          "d": "2026-05-11",
+          "c": 6.323
+        },
+        {
+          "d": "2026-05-12",
+          "c": 6.207
+        },
+        {
+          "d": "2026-05-13",
+          "c": 6.284
+        },
+        {
+          "d": "2026-05-14",
+          "c": 6.375
+        },
+        {
+          "d": "2026-05-15",
+          "c": 6.378
+        },
+        {
+          "d": "2026-05-18",
+          "c": 6.301
+        },
+        {
+          "d": "2026-05-19",
+          "c": 6.246
+        },
+        {
+          "d": "2026-05-20",
+          "c": 6.353
+        },
+        {
+          "d": "2026-05-21",
+          "c": 6.321
+        },
+        {
+          "d": "2026-05-22",
+          "c": 6.414
+        },
+        {
+          "d": "2026-05-26",
+          "c": 6.394
+        },
+        {
+          "d": "2026-05-27",
+          "c": 6.405
+        },
+        {
+          "d": "2026-05-28",
+          "c": 6.367
+        },
+        {
+          "d": "2026-05-29",
+          "c": 6.405
+        },
+        {
+          "d": "2026-06-01",
+          "c": 6.287
+        },
+        {
+          "d": "2026-06-02",
+          "c": 6.321
+        },
+        {
+          "d": "2026-06-03",
+          "c": 6.248
+        },
+        {
+          "d": "2026-06-04",
+          "c": 6.321
+        }
+      ],
       "analyst_target_mean": null,
       "analyst_target_high": null,
       "analyst_target_low": null,
@@ -762,10 +1987,11 @@
       "debt_to_equity": null,
       "short_ratio": null,
       "news": [],
+      "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-04T18:08:09.675462+00:00"
+      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
     },
     {
       "ticker": "SGLN.L",
@@ -794,6 +2020,128 @@
       "pct_from_52w_high": -0.1600780234070221,
       "atr_pct": 1.7144749249003093,
       "commentary": "iShares Physical Gold ETC is a physical commodity instrument. Technical picture is cautious \u2014 indicators skew negative. Risk/reward is unfavourable at current levels; consider reducing exposure.",
+      "price_history": [
+        {
+          "d": "2026-04-22",
+          "c": 6796.0
+        },
+        {
+          "d": "2026-04-23",
+          "c": 6801.0
+        },
+        {
+          "d": "2026-04-24",
+          "c": 6785.0
+        },
+        {
+          "d": "2026-04-27",
+          "c": 6699.0
+        },
+        {
+          "d": "2026-04-28",
+          "c": 6569.0
+        },
+        {
+          "d": "2026-04-29",
+          "c": 6535.0
+        },
+        {
+          "d": "2026-04-30",
+          "c": 6605.0
+        },
+        {
+          "d": "2026-05-01",
+          "c": 6605.0
+        },
+        {
+          "d": "2026-05-05",
+          "c": 6548.0
+        },
+        {
+          "d": "2026-05-06",
+          "c": 6695.0
+        },
+        {
+          "d": "2026-05-07",
+          "c": 6758.0
+        },
+        {
+          "d": "2026-05-08",
+          "c": 6705.0
+        },
+        {
+          "d": "2026-05-11",
+          "c": 6727.0
+        },
+        {
+          "d": "2026-05-12",
+          "c": 6690.0
+        },
+        {
+          "d": "2026-05-13",
+          "c": 6736.0
+        },
+        {
+          "d": "2026-05-14",
+          "c": 6747.0
+        },
+        {
+          "d": "2026-05-15",
+          "c": 6618.0
+        },
+        {
+          "d": "2026-05-18",
+          "c": 6576.0
+        },
+        {
+          "d": "2026-05-19",
+          "c": 6520.0
+        },
+        {
+          "d": "2026-05-20",
+          "c": 6538.0
+        },
+        {
+          "d": "2026-05-21",
+          "c": 6528.0
+        },
+        {
+          "d": "2026-05-22",
+          "c": 6524.0
+        },
+        {
+          "d": "2026-05-26",
+          "c": 6503.0
+        },
+        {
+          "d": "2026-05-27",
+          "c": 6411.0
+        },
+        {
+          "d": "2026-05-28",
+          "c": 6468.0
+        },
+        {
+          "d": "2026-05-29",
+          "c": 6591.0
+        },
+        {
+          "d": "2026-06-01",
+          "c": 6461.0
+        },
+        {
+          "d": "2026-06-02",
+          "c": 6488.0
+        },
+        {
+          "d": "2026-06-03",
+          "c": 6414.0
+        },
+        {
+          "d": "2026-06-04",
+          "c": 6459.0
+        }
+      ],
       "analyst_target_mean": null,
       "analyst_target_high": null,
       "analyst_target_low": null,
@@ -823,42 +2171,43 @@
           "time": "2025-09-10T11:40:43Z"
         }
       ],
+      "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-04T18:08:09.675462+00:00"
+      "previous_generated": "2026-06-04T19:11:50.193388+00:00"
     }
   ],
   "macro": {
     "vix": {
       "label": "VIX",
-      "value": 15.39,
-      "change_pct": -4.17
+      "value": 16.06,
+      "change_pct": 1.84
     },
     "sp500": {
       "label": "S&P 500",
-      "value": 7593.2598,
-      "change_pct": 0.52
+      "value": NaN,
+      "change_pct": NaN
     },
     "ftse100": {
       "label": "FTSE 100",
-      "value": 10360.3203,
-      "change_pct": 0.27
+      "value": 10332.2998,
+      "change_pct": -0.4
     },
     "gold": {
       "label": "Gold",
-      "value": 4508.8999,
-      "change_pct": 1.63
+      "value": 4471.2002,
+      "change_pct": -0.1
     },
     "treasury10y": {
       "label": "US 10Y",
-      "value": 4.473,
-      "change_pct": -0.4
+      "value": 4.491,
+      "change_pct": 0.81
     },
     "gbpusd": {
       "label": "GBP/USD",
-      "value": 1.3423,
-      "change_pct": -0.23
+      "value": 1.3431,
+      "change_pct": 0.03
     }
   },
   "errors": [
