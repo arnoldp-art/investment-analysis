@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-05T06:00:26.763455+00:00",
+  "generated": "2026-06-05T10:47:40.137005+00:00",
   "sources": [
     "Yahoo Finance \u2014 OHLCV price history (1 year)",
     "Yahoo Finance \u2014 fundamentals: P/E, beta, P/B, dividend yield, ROE, D/E, short ratio",
@@ -14,149 +14,148 @@
       "name": "Nvidia",
       "type": "equity",
       "sector": "Technology",
-      "price": 214.75,
-      "day_change_pct": -3.621760640406192,
-      "week_change_pct": 0.2333722287047841,
-      "month_change_pct": 9.287531806615776,
+      "price": 218.66000366210938,
+      "day_change_pct": 1.9393956466710371,
+      "week_change_pct": 3.6823167485977844,
+      "month_change_pct": 5.33361373093635,
       "recommendation": "HOLD",
-      "score": -0.3333333333333333,
+      "score": 0.3333333333333333,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price below EMA20 (215.73) \u2014 short-term momentum negative",
-        "RSI neutral at 51.1",
-        "MACD below signal line \u2014 bearish momentum",
-        "MACD histogram expanding negatively"
+        "Price above EMA20 (215.78) \u2014 short-term momentum positive",
+        "RSI neutral at 54.4",
+        "MACD below signal line \u2014 bearish momentum"
       ],
-      "rsi": 51.139714741467536,
-      "macd": 3.7588991163769094,
-      "signal_line": 5.043669914598943,
-      "sma_50": 202.04940063476562,
-      "sma_200": 188.23082138061523,
-      "high_52w": 235.74000549316406,
-      "low_52w": 139.95703125,
-      "pct_from_52w_high": -0.08903879275498161,
-      "atr_pct": 3.6677979033713926,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $5.3T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 39% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "rsi": 54.43524997771026,
+      "macd": 3.586298280532759,
+      "signal_line": 4.747498490553374,
+      "sma_50": 202.6874673461914,
+      "sma_200": 188.19615531921386,
+      "high_52w": 235.465576171875,
+      "low_52w": 139.7941131591797,
+      "pct_from_52w_high": -0.07137167471774565,
+      "atr_pct": 3.688261984759501,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $5.3T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 36% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
       "price_history": [
         {
-          "d": "2026-04-22",
-          "c": 202.5
-        },
-        {
           "d": "2026-04-23",
-          "c": 199.64
+          "c": 199.4076
         },
         {
           "d": "2026-04-24",
-          "c": 208.27
+          "c": 208.0275
         },
         {
           "d": "2026-04-27",
-          "c": 216.61
+          "c": 216.3578
         },
         {
           "d": "2026-04-28",
-          "c": 213.17
+          "c": 212.9218
         },
         {
           "d": "2026-04-29",
-          "c": 209.25
+          "c": 209.0064
         },
         {
           "d": "2026-04-30",
-          "c": 199.57
+          "c": 199.3377
         },
         {
           "d": "2026-05-01",
-          "c": 198.45
+          "c": 198.219
         },
         {
           "d": "2026-05-04",
-          "c": 198.48
+          "c": 198.2489
         },
         {
           "d": "2026-05-05",
-          "c": 196.5
+          "c": 196.2712
         },
         {
           "d": "2026-05-06",
-          "c": 207.83
+          "c": 207.5881
         },
         {
           "d": "2026-05-07",
-          "c": 211.5
+          "c": 211.2538
         },
         {
           "d": "2026-05-08",
-          "c": 215.2
+          "c": 214.9495
         },
         {
           "d": "2026-05-11",
-          "c": 219.44
+          "c": 219.1845
         },
         {
           "d": "2026-05-12",
-          "c": 220.78
+          "c": 220.523
         },
         {
           "d": "2026-05-13",
-          "c": 225.83
+          "c": 225.5671
         },
         {
           "d": "2026-05-14",
-          "c": 235.74
+          "c": 235.4656
         },
         {
           "d": "2026-05-15",
-          "c": 225.32
+          "c": 225.0577
         },
         {
           "d": "2026-05-18",
-          "c": 222.32
+          "c": 222.0612
         },
         {
           "d": "2026-05-19",
-          "c": 220.61
+          "c": 220.3532
         },
         {
           "d": "2026-05-20",
-          "c": 223.47
+          "c": 223.2099
         },
         {
           "d": "2026-05-21",
-          "c": 219.51
+          "c": 219.2545
         },
         {
           "d": "2026-05-22",
-          "c": 215.33
+          "c": 215.0793
         },
         {
           "d": "2026-05-26",
-          "c": 214.86
+          "c": 214.6099
         },
         {
           "d": "2026-05-27",
-          "c": 212.6
+          "c": 212.3525
         },
         {
           "d": "2026-05-28",
-          "c": 214.25
+          "c": 214.0006
         },
         {
           "d": "2026-05-29",
-          "c": 211.14
+          "c": 210.8942
         },
         {
           "d": "2026-06-01",
-          "c": 224.36
+          "c": 224.0988
         },
         {
           "d": "2026-06-02",
-          "c": 222.82
+          "c": 222.5606
         },
         {
           "d": "2026-06-03",
-          "c": 214.75
+          "c": 214.5
+        },
+        {
+          "d": "2026-06-04",
+          "c": 218.66
         }
       ],
       "analyst_target_mean": 298.06897,
@@ -164,7 +163,7 @@
       "analyst_target_low": 180.0,
       "analyst_count": 58,
       "recommendation_key": "strong_buy",
-      "beta": 2.244,
+      "beta": 2.202,
       "forward_pe": 17.275133,
       "trailing_pe": 33.43425,
       "price_to_book": 33.785538,
@@ -201,16 +200,16 @@
           "time": "2026-06-04T12:00:00Z"
         },
         {
-          "title": "This Former Bitcoin Miner May Be Sitting on a Hidden AI Opportunity",
+          "title": "Stellantis Is Counting on This Brand to Soar in North America -- Huge Profits on the Line",
           "publisher": "Motley Fool",
-          "link": "https://www.fool.com/investing/2026/06/05/this-former-bitcoin-miner-may-be-sitting-on-a-hidd/",
-          "time": "2026-06-05T05:47:00Z"
+          "link": "https://www.fool.com/investing/2026/06/05/stellantis-counting-brand-ram-soar-profits/",
+          "time": "2026-06-05T10:33:00Z"
         },
         {
-          "title": "Beyond Nvidia: Europe's best-performing AI stocks of 2026",
-          "publisher": "Euronews",
-          "link": "https://www.euronews.com/2026/06/05/beyond-nvidia-europes-best-performing-ai-stocks-of-2026?utm_source=yahoo&utm_campaign=feeds_business_articles_2024&utm_medium=referral",
-          "time": "2026-06-05T05:37:05Z"
+          "title": "Market Chatter: Trump Officials Looking Into AI Chip Loophole That May Have Benefited China",
+          "publisher": "MT Newswires",
+          "link": "https://finance.yahoo.com/economy/policy/articles/market-chatter-trump-officials-looking-103049584.html",
+          "time": "2026-06-05T10:30:49Z"
         }
       ],
       "earnings_date": "2026-08-26",
@@ -218,42 +217,38 @@
       "ex_dividend_date": "2026-06-04",
       "stooq_price": null,
       "stooq_verified": null,
-      "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
+      "previous_recommendation": "HOLD",
+      "previous_generated": "2026-06-05T06:00:26.763455+00:00"
     },
     {
       "ticker": "AAPL",
       "name": "Apple",
       "type": "equity",
       "sector": "Technology",
-      "price": 310.260009765625,
-      "day_change_pct": -1.5672595971098924,
-      "week_change_pct": -0.719976938238697,
-      "month_change_pct": 9.277870258514083,
+      "price": 311.2300109863281,
+      "day_change_pct": 0.31264139436979915,
+      "week_change_pct": -0.265970191232147,
+      "month_change_pct": 8.349882326143145,
       "recommendation": "BUY",
       "score": 0.5,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price above EMA20 (301.17) \u2014 short-term momentum positive",
-        "RSI strengthening at 65.9",
+        "Price above EMA20 (302.13) \u2014 short-term momentum positive",
+        "RSI strengthening at 66.6",
         "MACD below signal line \u2014 bearish momentum",
         "MACD histogram expanding negatively"
       ],
-      "rsi": 65.85891293468595,
-      "macd": 9.558799856967937,
-      "signal_line": 9.804468654625826,
-      "sma_50": 278.7896670532227,
-      "sma_200": 263.9718344116211,
+      "rsi": 66.61215971568208,
+      "macd": 9.204813893937114,
+      "signal_line": 9.684537708271689,
+      "sma_50": 279.9860998535156,
+      "sma_200": 264.3767908477783,
       "high_52w": 315.20001220703125,
-      "low_52w": 194.86691284179688,
-      "pct_from_52w_high": -0.015672595971098924,
-      "atr_pct": 1.9571737138052616,
+      "low_52w": 194.86692810058594,
+      "pct_from_52w_high": -0.012595181049978922,
+      "atr_pct": 1.9009888709719935,
       "commentary": "Technical picture is constructive \u2014 multiple indicators aligned to the upside. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Market cap $4.6T \u2014 mega-cap liquidity supports institutional ownership. Overall, the balance of evidence supports accumulation on weakness.",
       "price_history": [
-        {
-          "d": "2026-04-22",
-          "c": 272.9186
-        },
         {
           "d": "2026-04-23",
           "c": 273.1783
@@ -369,6 +364,10 @@
         {
           "d": "2026-06-03",
           "c": 310.26
+        },
+        {
+          "d": "2026-06-04",
+          "c": 311.23
         }
       ],
       "analyst_target_mean": 310.507,
@@ -376,7 +375,7 @@
       "analyst_target_low": 215.0,
       "analyst_count": 43,
       "recommendation_key": "buy",
-      "beta": 1.065,
+      "beta": 1.086,
       "forward_pe": 32.39307,
       "trailing_pe": 37.72485,
       "price_to_book": 42.869144,
@@ -407,22 +406,22 @@
           "time": "2026-06-04T12:30:00Z"
         },
         {
-          "title": "Apple\u2019s Plan for AI Dominance Rests on Fixing Its Much-Maligned Chatbot",
-          "publisher": "The Wall Street Journal",
-          "link": "https://www.wsj.com/tech/ai/apples-plan-for-ai-dominance-rests-on-fixing-its-much-maligned-chatbot-9f2309cb?siteid=yhoof2&yptr=yahoo",
-          "time": "2026-06-05T00:30:00Z"
+          "title": "Here Is What Morgan Stanley Has to Say Ahead of Apple\u2019s (AAPL) WWDC 2026 Event?",
+          "publisher": "Insider Monkey",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-ahead-apple-aapl-095945061.html",
+          "time": "2026-06-05T09:59:45Z"
         },
         {
-          "title": "NVIDIA Could Seal a Major Alliance With Apple After Launching Nemotron 3 Ultra AI model",
-          "publisher": "BeInCrypto",
-          "link": "https://beincrypto.com/nvidia-apple-ai-alliance-nemotron-siri/",
-          "time": "2026-06-04T21:00:00Z"
+          "title": "Taiwan's Foxconn raises guidance for second-quarter outlook",
+          "publisher": "Reuters",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/taiwans-foxconn-raises-guidance-second-074245204.html",
+          "time": "2026-06-05T07:42:45Z"
         },
         {
-          "title": "TSMC Forecasts Sustained AI Chip Demand",
-          "publisher": "Investor's Business Daily",
-          "link": "https://www.investors.com/news/technology/tsm-stock-chipmaker-tsmc-forecasts-sustained-demand/?src=A00220&yptr=yahoo",
-          "time": "2026-06-04T20:35:33Z"
+          "title": "Warren Buffett's Successor, Greg Abel, Dumped Amazon and Bought 3 Million Shares of This Undervalued Stock",
+          "publisher": "Motley Fool",
+          "link": "https://www.fool.com/investing/2026/06/05/warren-buffetts-successor-greg-abel-dumped-amazon/",
+          "time": "2026-06-05T06:35:00Z"
         }
       ],
       "earnings_date": "2026-07-30",
@@ -430,44 +429,38 @@
       "ex_dividend_date": "2026-05-11",
       "stooq_price": null,
       "stooq_verified": null,
-      "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
+      "previous_recommendation": "BUY",
+      "previous_generated": "2026-06-05T06:00:26.763455+00:00"
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet (Google)",
       "type": "equity",
       "sector": "Technology",
-      "price": 358.989990234375,
-      "day_change_pct": -0.7903871275111851,
-      "week_change_pct": -7.981958387894661,
-      "month_change_pct": -7.579229976192785,
-      "recommendation": "HOLD",
-      "score": -0.16666666666666666,
+      "price": 372.19000244140625,
+      "day_change_pct": 3.676986146163383,
+      "week_change_pct": -2.1428179983584985,
+      "month_change_pct": -6.4943235726511785,
+      "recommendation": "SELL",
+      "score": -0.5,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price below EMA20 (378.02) \u2014 short-term momentum negative",
-        "RSI weakening at 38.8",
+        "Price below EMA20 (377.47) \u2014 short-term momentum negative",
+        "RSI neutral at 48.7",
         "MACD below signal line \u2014 bearish momentum",
-        "MACD histogram expanding negatively",
-        "Price at/below lower Bollinger Band \u2014 mean reversion candidate",
         "Above-average volume on price decline \u2014 distribution signal"
       ],
-      "rsi": 38.82705311437337,
-      "macd": 3.344408643575889,
-      "signal_line": 9.53063998150378,
-      "sma_50": 351.31519958496096,
-      "sma_200": 302.1450526428223,
+      "rsi": 48.651051320620056,
+      "macd": 2.6053924063114096,
+      "signal_line": 8.145590466608933,
+      "sma_50": 352.95019958496096,
+      "sma_200": 302.9907913208008,
       "high_52w": 402.6199951171875,
       "low_52w": 164.8184814453125,
-      "pct_from_52w_high": -0.1083652213301365,
-      "atr_pct": 2.7333866097915895,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $4.5T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 20% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "pct_from_52w_high": -0.07557993404407108,
+      "atr_pct": 2.736766625754898,
+      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $4.5T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 15% upside from current levels. Risk/reward is unfavourable at current levels; consider reducing exposure.",
       "price_history": [
-        {
-          "d": "2026-04-22",
-          "c": 339.32
-        },
         {
           "d": "2026-04-23",
           "c": 338.89
@@ -583,6 +576,10 @@
         {
           "d": "2026-06-03",
           "c": 358.99
+        },
+        {
+          "d": "2026-06-04",
+          "c": 372.19
         }
       ],
       "analyst_target_mean": 429.8698,
@@ -590,7 +587,7 @@
       "analyst_target_low": 340.0,
       "analyst_count": 52,
       "recommendation_key": "strong_buy",
-      "beta": 1.267,
+      "beta": 1.237,
       "forward_pe": 25.738924,
       "trailing_pe": 28.41145,
       "price_to_book": 9.419193,
@@ -621,22 +618,22 @@
           "time": "2026-06-04T12:00:00Z"
         },
         {
-          "title": "Former School of Rock CEO's guide to overcoming midlife burnout",
-          "publisher": "Yahoo Finance Video",
-          "link": "https://finance.yahoo.com/video/former-school-rock-ceos-guide-100000889.html",
-          "time": "2026-06-04T10:00:00Z"
-        },
-        {
-          "title": "Dow Jones Futures: Techs Fall After Dow Hits High, AI Shrugs Off Broadcom, Ciena; Jobs Report Looms",
+          "title": "Dow Jones Futures Rise, Techs Fall After Shrugging Off Broadcom, Ciena; Jobs Report Looms",
           "publisher": "Investor's Business Daily",
           "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-ai-stocks-broadcom-ciena-jobs-report/?src=A00220&yptr=yahoo",
-          "time": "2026-06-05T03:06:29Z"
+          "time": "2026-06-05T10:33:53Z"
         },
         {
-          "title": "Why Are Reddit (RDDT) Shares Soaring Today",
-          "publisher": "StockStory",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/why-reddit-rddt-shares-soaring-015730552.html",
-          "time": "2026-06-05T01:57:30Z"
+          "title": "Anthropic Calls for AI Pause Button to Let Humans Take Stock",
+          "publisher": "Bloomberg",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/anthropic-calls-ai-pause-button-093536556.html",
+          "time": "2026-06-05T09:35:36Z"
+        },
+        {
+          "title": "Zacks Investment Ideas feature highlights: Broadcom, Alphabet and Meta",
+          "publisher": "Zacks",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/zacks-investment-ideas-feature-highlights-092300263.html",
+          "time": "2026-06-05T09:23:00Z"
         }
       ],
       "earnings_date": "2026-07-23",
@@ -644,43 +641,38 @@
       "ex_dividend_date": "2026-06-08",
       "stooq_price": null,
       "stooq_verified": null,
-      "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
+      "previous_recommendation": "HOLD",
+      "previous_generated": "2026-06-05T06:00:26.763455+00:00"
     },
     {
       "ticker": "AMZN",
       "name": "Amazon",
       "type": "equity",
       "sector": "Consumer/Cloud",
-      "price": 250.02000427246094,
-      "day_change_pct": -2.533909644314114,
-      "week_change_pct": -8.751823258225935,
-      "month_change_pct": -8.60171250978671,
-      "recommendation": "HOLD",
-      "score": 0.0,
+      "price": 253.7899932861328,
+      "day_change_pct": 1.5078749497034265,
+      "week_change_pct": -6.225990411725677,
+      "month_change_pct": -7.7093704138733745,
+      "recommendation": "SELL",
+      "score": -0.5,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price below EMA20 (262.95) \u2014 short-term momentum negative",
-        "RSI weakening at 39.4",
+        "Price below EMA20 (262.08) \u2014 short-term momentum negative",
+        "RSI weakening at 43.5",
         "MACD below signal line \u2014 bearish momentum",
-        "MACD histogram expanding negatively",
-        "Price at/below lower Bollinger Band \u2014 mean reversion candidate"
+        "MACD histogram expanding negatively"
       ],
-      "rsi": 39.38886695363231,
-      "macd": 1.7715873845992292,
-      "signal_line": 4.713891316221847,
-      "sma_50": 249.54020080566406,
-      "sma_200": 231.92670013427735,
+      "rsi": 43.49822214116189,
+      "macd": 0.8959509259176457,
+      "signal_line": 3.9503032381610073,
+      "sma_50": 250.47120056152343,
+      "sma_200": 232.0382000732422,
       "high_52w": 274.989990234375,
       "low_52w": 198.7899932861328,
-      "pct_from_52w_high": -0.09080325411347537,
-      "atr_pct": 2.8209411290779567,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. Market cap $2.7T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 25% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "pct_from_52w_high": -0.07709370413873375,
+      "atr_pct": 2.7440550634169827,
+      "commentary": "Technical picture is cautious \u2014 indicators skew negative. Market cap $2.7T \u2014 mega-cap liquidity supports institutional ownership. Consensus price target implies 23% upside from current levels. Risk/reward is unfavourable at current levels; consider reducing exposure.",
       "price_history": [
-        {
-          "d": "2026-04-22",
-          "c": 255.36
-        },
         {
           "d": "2026-04-23",
           "c": 255.08
@@ -796,6 +788,10 @@
         {
           "d": "2026-06-03",
           "c": 250.02
+        },
+        {
+          "d": "2026-06-04",
+          "c": 253.79
         }
       ],
       "analyst_target_mean": 312.7934,
@@ -803,7 +799,7 @@
       "analyst_target_low": 207.0,
       "analyst_count": 62,
       "recommendation_key": "strong_buy",
-      "beta": 1.468,
+      "beta": 1.444,
       "forward_pe": 25.72941,
       "trailing_pe": 31.644636,
       "price_to_book": 6.175991,
@@ -828,36 +824,36 @@
           "time": "2026-06-04T13:58:42Z"
         },
         {
-          "title": "The $200 Billion Reason Amazon Could Be an Overlooked AI Winner",
+          "title": "3 Absurdly Cheap Stocks to Buy With $1,000 While the Market Is This Nervous",
           "publisher": "Motley Fool",
-          "link": "https://www.fool.com/investing/2026/06/04/the-200-billion-reason-amazon-could-be-an-overlook/",
-          "time": "2026-06-05T02:41:00Z"
+          "link": "https://www.fool.com/investing/2026/06/05/3-absurdly-cheap-stocks-to-buy-with-1000-while-the/",
+          "time": "2026-06-05T10:05:00Z"
         },
         {
-          "title": "Walmart Investors Reject Proposal To Disclose AI Impact On Workers\u2019 Safety And Well-Being: Report",
-          "publisher": "Stocktwits",
-          "link": "https://stocktwits.com/news-articles/markets/equity/walmart-ai-workforce-disclosure-proposal-rejected-wmt/cZ0FbgDRezO",
-          "time": "2026-06-05T00:01:41Z"
+          "title": "Amazon Leans Into AI With Pinterest Deal And Anthropic IPO Upside",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/amazon-leans-ai-pinterest-deal-081315547.html",
+          "time": "2026-06-05T08:13:15Z"
         },
         {
-          "title": "3 Mega-Cap Stocks with Exciting Potential",
-          "publisher": "StockStory",
-          "link": "https://finance.yahoo.com/markets/stocks/articles/3-mega-cap-stocks-exciting-222130572.html",
-          "time": "2026-06-04T22:21:30Z"
+          "title": "Cerebras Systems Partnerships With Amazon And OpenAI Put Valuation In Focus",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/cerebras-systems-partnerships-amazon-openai-081238321.html",
+          "time": "2026-06-05T08:12:38Z"
         },
         {
-          "title": "Amazon-Backed X-Energy Dives To A Post-IPO Low. Here's Why.",
-          "publisher": "Investor's Business Daily",
-          "link": "https://www.investors.com/news/x-energy-stock-amazon-backed-nuclear-startup/?src=A00220&yptr=yahoo",
-          "time": "2026-06-04T20:41:06Z"
+          "title": "MacKenzie Scott\u2019s approach to her $26 billion giving spree was inspired by a book she read in college about writing",
+          "publisher": "Fortune",
+          "link": "https://finance.yahoo.com/economy/policy/articles/mackenzie-scott-approach-her-26-070000422.html",
+          "time": "2026-06-05T07:00:00Z"
         }
       ],
       "earnings_date": "2026-07-30",
       "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
-      "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
+      "previous_recommendation": "HOLD",
+      "previous_generated": "2026-06-05T06:00:26.763455+00:00"
     },
     {
       "ticker": "RBLX",
@@ -1066,45 +1062,39 @@
       "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
-      "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
+      "previous_recommendation": "SELL",
+      "previous_generated": "2026-06-05T06:00:26.763455+00:00"
     },
     {
       "ticker": "ILMN",
       "name": "Illumina",
       "type": "equity",
       "sector": "Genomics",
-      "price": 170.92999267578125,
-      "day_change_pct": 5.155330339400333,
-      "week_change_pct": 7.7063616652290845,
-      "month_change_pct": 22.90931449891004,
-      "recommendation": "HOLD",
-      "score": 0.2857142857142857,
+      "price": 168.05999755859375,
+      "day_change_pct": -1.6790471187998504,
+      "week_change_pct": 3.1295966093578804,
+      "month_change_pct": 17.870665872013884,
+      "recommendation": "BUY",
+      "score": 0.5,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price above EMA20 (150.21) \u2014 short-term momentum positive",
-        "RSI overbought at 80.4 \u2014 risk of near-term pullback",
+        "Price above EMA20 (151.91) \u2014 short-term momentum positive",
+        "RSI overbought at 74.9 \u2014 risk of near-term pullback",
         "MACD above signal line \u2014 bullish momentum",
-        "MACD histogram expanding positively",
-        "Price at/above upper Bollinger Band \u2014 stretched, watch for reversal",
         "Above-average volume confirming upward price move",
-        "Strong 20-day momentum: +19.9%"
+        "Strong 20-day momentum: +21.2%"
       ],
-      "rsi": 80.37891413809305,
-      "macd": 8.199926605347969,
-      "signal_line": 5.998095351980272,
-      "sma_50": 136.25499954223633,
-      "sma_200": 123.25010021209717,
+      "rsi": 74.93664346391381,
+      "macd": 8.591658226195989,
+      "signal_line": 6.516807926823415,
+      "sma_50": 137.09659942626953,
+      "sma_200": 123.58775020599366,
       "high_52w": 170.92999267578125,
       "low_52w": 82.25,
-      "pct_from_52w_high": 0.0,
-      "atr_pct": 3.635842576209145,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI elevated (80) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. The 23% monthly surge warrants trailing stop discipline. Market cap $25.4B. Consensus price target implies 16% downside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "pct_from_52w_high": -0.016790471187998503,
+      "atr_pct": 3.8766635372108276,
+      "commentary": "Technical picture is constructive \u2014 multiple indicators aligned to the upside. RSI elevated (75) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. The 18% monthly surge warrants trailing stop discipline. Market cap $25.4B. Consensus price target implies 14% downside from current levels. Overall, the balance of evidence supports accumulation on weakness.",
       "price_history": [
-        {
-          "d": "2026-04-22",
-          "c": 130.5
-        },
         {
           "d": "2026-04-23",
           "c": 125.44
@@ -1220,6 +1210,10 @@
         {
           "d": "2026-06-03",
           "c": 170.93
+        },
+        {
+          "d": "2026-06-04",
+          "c": 168.06
         }
       ],
       "analyst_target_mean": 143.83333,
@@ -1280,42 +1274,38 @@
       "annual_dividend": null,
       "stooq_price": null,
       "stooq_verified": null,
-      "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
+      "previous_recommendation": "HOLD",
+      "previous_generated": "2026-06-05T06:00:26.763455+00:00"
     },
     {
       "ticker": "NKTR",
       "name": "Nektar Therapeutics",
       "type": "equity",
       "sector": "Biotech",
-      "price": 59.22999954223633,
-      "day_change_pct": 1.1441225294282455,
-      "week_change_pct": -8.890943553396548,
-      "month_change_pct": -29.622151895291644,
+      "price": 59.310001373291016,
+      "day_change_pct": 0.13506978165285816,
+      "week_change_pct": -8.585074161410384,
+      "month_change_pct": -30.297327622659402,
       "recommendation": "HOLD",
       "score": 0.0,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price below EMA20 (69.18) \u2014 short-term momentum negative",
-        "RSI oversold at 24.1 \u2014 potential reversal opportunity",
+        "Price below EMA20 (68.24) \u2014 short-term momentum negative",
+        "RSI oversold at 24.3 \u2014 potential reversal opportunity",
         "MACD below signal line \u2014 bearish momentum",
-        "Weak 20-day momentum: -30.4%"
+        "Weak 20-day momentum: -28.9%"
       ],
-      "rsi": 24.082082252890785,
-      "macd": -5.240011740758945,
-      "signal_line": -4.139048383827458,
-      "sma_50": 77.04559997558594,
-      "sma_200": 59.04654993057251,
+      "rsi": 24.346195612087868,
+      "macd": -5.3578066209637,
+      "signal_line": -4.382800031254706,
+      "sma_50": 76.77260002136231,
+      "sma_200": 59.20594993591308,
       "high_52w": 100.3499984741211,
       "low_52w": 8.510000228881836,
-      "pct_from_52w_high": -0.4097658152181144,
-      "atr_pct": 6.059639746053333,
-      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI deeply oversold (24) \u2014 price may be exhausting sellers; watch for a bounce catalyst. Down 41% from peak \u2014 high-risk, high-reward territory; position sizing is key. The -30% monthly drawdown raises questions about near-term support levels. Market cap $2.0B. P/E of -5x looks undemanding \u2014 value opportunity if fundamentals hold. Consensus price target implies 159% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
+      "pct_from_52w_high": -0.408968587193489,
+      "atr_pct": 5.9564296318755785,
+      "commentary": "Mixed signals present \u2014 no clear directional conviction. RSI deeply oversold (24) \u2014 price may be exhausting sellers; watch for a bounce catalyst. Down 41% from peak \u2014 high-risk, high-reward territory; position sizing is key. The -30% monthly drawdown raises questions about near-term support levels. Market cap $2.0B. P/E of -5x looks undemanding \u2014 value opportunity if fundamentals hold. Consensus price target implies 158% upside from current levels. Hold current position; re-assess on a decisive technical break either way.",
       "price_history": [
-        {
-          "d": "2026-04-22",
-          "c": 93.2
-        },
         {
           "d": "2026-04-23",
           "c": 91.26
@@ -1431,6 +1421,10 @@
         {
           "d": "2026-06-03",
           "c": 59.23
+        },
+        {
+          "d": "2026-06-04",
+          "c": 59.31
         }
       ],
       "analyst_target_mean": 153.25,
@@ -1492,41 +1486,38 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
+      "previous_generated": "2026-06-05T06:00:26.763455+00:00"
     },
     {
       "ticker": "VWRL.L",
       "name": "Vanguard FTSE All-World ETF",
       "type": "etf",
       "sector": "Global Equity",
-      "price": 137.97000122070312,
-      "day_change_pct": -0.05795134319895172,
-      "week_change_pct": 0.2834709873949184,
-      "month_change_pct": 3.768046219806197,
-      "recommendation": "HOLD",
-      "score": 0.25,
+      "price": 137.11000061035156,
+      "day_change_pct": -0.623324347860131,
+      "week_change_pct": -0.6089136328185534,
+      "month_change_pct": 3.12123472241939,
+      "recommendation": "BUY",
+      "score": 0.5,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price above EMA20 (135.47) \u2014 short-term momentum positive",
-        "RSI overbought at 72.1 \u2014 risk of near-term pullback",
-        "MACD above signal line \u2014 bullish momentum",
+        "Price above EMA20 (135.62) \u2014 short-term momentum positive",
+        "RSI strengthening at 65.2",
+        "MACD below signal line \u2014 bearish momentum",
+        "MACD histogram expanding negatively",
         "Near 52-week high \u2014 strong momentum but limited upside buffer"
       ],
-      "rsi": 72.14047493051955,
-      "macd": 2.2463503826101316,
-      "signal_line": 2.2305333025894027,
-      "sma_50": 129.94780014038085,
-      "sma_200": 123.93758094787597,
+      "rsi": 65.19671881610643,
+      "macd": 2.1057461049619235,
+      "signal_line": 2.205575862639812,
+      "sma_50": 130.27620010375978,
+      "sma_200": 124.05400115966796,
       "high_52w": 138.63999938964844,
-      "low_52w": 106.11398315429688,
-      "pct_from_52w_high": -0.004832646940961671,
-      "atr_pct": 0.8887304423418896,
-      "commentary": "Vanguard FTSE All-World ETF provides diversified exposure. Mixed signals present \u2014 no clear directional conviction. RSI elevated (72) \u2014 momentum is stretched; disciplined investors may trim on further strength. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Hold current position; re-assess on a decisive technical break either way.",
+      "low_52w": 106.11397552490234,
+      "pct_from_52w_high": -0.011035767354533849,
+      "atr_pct": 0.8866895184332282,
+      "commentary": "Vanguard FTSE All-World ETF provides diversified exposure. Technical picture is constructive \u2014 multiple indicators aligned to the upside. Near all-time/52-week highs \u2014 momentum is strong but entry risk is elevated. Overall, the balance of evidence supports accumulation on weakness.",
       "price_history": [
-        {
-          "d": "2026-04-22",
-          "c": 129.64
-        },
         {
           "d": "2026-04-23",
           "c": 129.86
@@ -1642,6 +1633,10 @@
         {
           "d": "2026-06-04",
           "c": 137.97
+        },
+        {
+          "d": "2026-06-05",
+          "c": 137.11
         }
       ],
       "analyst_target_mean": null,
@@ -1664,41 +1659,37 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "HOLD",
-      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
+      "previous_generated": "2026-06-05T06:00:26.763455+00:00"
     },
     {
       "ticker": "XDWH.L",
       "name": "Xtrackers MSCI World Hedged ETF",
       "type": "etf",
       "sector": "Developed Markets",
-      "price": 57.11000061035156,
-      "day_change_pct": 2.993687690842353,
-      "week_change_pct": 0.6698414792552888,
-      "month_change_pct": 2.3843704915037156,
+      "price": 57.54999923706055,
+      "day_change_pct": 0.7704405918518441,
+      "week_change_pct": 3.321361667470584,
+      "month_change_pct": 4.219482008058807,
       "recommendation": "BUY",
       "score": 0.5,
       "reasons": [
         "Death Cross (SMA50 < SMA200) \u2014 bearish trend structure",
-        "Price above EMA20 (56.04) \u2014 short-term momentum positive",
-        "RSI strengthening at 58.2",
+        "Price above EMA20 (56.19) \u2014 short-term momentum positive",
+        "RSI strengthening at 60.8",
         "MACD above signal line \u2014 bullish momentum",
         "MACD histogram expanding positively"
       ],
-      "rsi": 58.20982559711142,
-      "macd": 0.09375820169305626,
-      "signal_line": 0.04186868489207998,
-      "sma_50": 55.90710006713867,
-      "sma_200": 56.536897583007814,
+      "rsi": 60.8477461832112,
+      "macd": 0.2001776219473541,
+      "signal_line": 0.07353047271461326,
+      "sma_50": 55.96010002136231,
+      "sma_200": 56.56284757614136,
       "high_52w": 60.63999938964844,
       "low_52w": 49.310001373291016,
-      "pct_from_52w_high": -0.05821238151099758,
-      "atr_pct": 1.4499501107755635,
+      "pct_from_52w_high": -0.05095646740912352,
+      "atr_pct": 1.3906992052783684,
       "commentary": "Xtrackers MSCI World Hedged ETF provides diversified exposure. Technical picture is constructive \u2014 multiple indicators aligned to the upside. Overall, the balance of evidence supports accumulation on weakness.",
       "price_history": [
-        {
-          "d": "2026-04-22",
-          "c": 56.04
-        },
         {
           "d": "2026-04-23",
           "c": 55.84
@@ -1814,6 +1805,10 @@
         {
           "d": "2026-06-04",
           "c": 57.11
+        },
+        {
+          "d": "2026-06-05",
+          "c": 57.55
         }
       ],
       "analyst_target_mean": null,
@@ -1823,7 +1818,7 @@
       "recommendation_key": null,
       "beta": null,
       "forward_pe": null,
-      "trailing_pe": 25.833551,
+      "trailing_pe": 26.032585,
       "price_to_book": null,
       "dividend_yield": 0.0,
       "revenue_growth": null,
@@ -1836,41 +1831,38 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "BUY",
-      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
+      "previous_generated": "2026-06-05T06:00:26.763455+00:00"
     },
     {
       "ticker": "IIND.L",
       "name": "iShares MSCI India ETF",
       "type": "etf",
       "sector": "Emerging Markets",
-      "price": 6.321000099182129,
-      "day_change_pct": 1.1683731198779883,
-      "week_change_pct": -1.3114770940613936,
-      "month_change_pct": -3.9215670641855866,
+      "price": 6.327000141143799,
+      "day_change_pct": 0.09492235196209323,
+      "week_change_pct": 0.6362328727902102,
+      "month_change_pct": -3.19766892573385,
       "recommendation": "SELL",
       "score": -0.5,
       "reasons": [
         "Death Cross (SMA50 < SMA200) \u2014 bearish trend structure",
         "Price below EMA20 (6.36) \u2014 short-term momentum negative",
-        "RSI neutral at 46.6",
+        "RSI neutral at 47.0",
         "MACD below signal line \u2014 bearish momentum",
+        "Bollinger Band squeeze \u2014 volatility breakout likely imminent",
         "Down 36% from 52-week high \u2014 deep value zone"
       ],
-      "rsi": 46.56875625143238,
-      "macd": -0.036251741847910246,
-      "signal_line": -0.03392591670134734,
-      "sma_50": 6.3906099987030025,
-      "sma_200": 6.953627502918243,
+      "rsi": 46.96191867254801,
+      "macd": -0.03442503614559467,
+      "signal_line": -0.03402574078129878,
+      "sma_50": 6.392680006027222,
+      "sma_200": 6.94985000371933,
       "high_52w": 9.8725004196167,
       "low_52w": 6.091000080108643,
-      "pct_from_52w_high": -0.35973665935508337,
-      "atr_pct": 1.6349562625505871,
+      "pct_from_52w_high": -0.3591289063333922,
+      "atr_pct": 1.5878573964554412,
       "commentary": "iShares MSCI India ETF provides diversified exposure. Technical picture is cautious \u2014 indicators skew negative. Risk/reward is unfavourable at current levels; consider reducing exposure.",
       "price_history": [
-        {
-          "d": "2026-04-22",
-          "c": 6.586
-        },
         {
           "d": "2026-04-23",
           "c": 6.569
@@ -1986,6 +1978,10 @@
         {
           "d": "2026-06-04",
           "c": 6.321
+        },
+        {
+          "d": "2026-06-05",
+          "c": 6.327
         }
       ],
       "analyst_target_mean": null,
@@ -2008,40 +2004,37 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
+      "previous_generated": "2026-06-05T06:00:26.763455+00:00"
     },
     {
       "ticker": "SGLN.L",
       "name": "iShares Physical Gold ETC",
       "type": "etc",
       "sector": "Commodities",
-      "price": 6459.0,
-      "day_change_pct": 0.7015902712815716,
-      "week_change_pct": -2.0027309968138374,
-      "month_change_pct": -3.5250186706497386,
+      "price": 6425.32177734375,
+      "day_change_pct": -0.521415430503948,
+      "week_change_pct": -0.5522089870956508,
+      "month_change_pct": -4.9227319126405735,
       "recommendation": "SELL",
       "score": -0.5,
       "reasons": [
         "Golden Cross (SMA50 > SMA200) \u2014 bullish trend structure",
-        "Price below EMA20 (6550.37) \u2014 short-term momentum negative",
-        "RSI weakening at 42.0",
-        "MACD below signal line \u2014 bearish momentum"
+        "Price below EMA20 (6538.46) \u2014 short-term momentum negative",
+        "RSI weakening at 40.3",
+        "MACD below signal line \u2014 bearish momentum",
+        "MACD histogram expanding negatively"
       ],
-      "rsi": 41.98729726763614,
-      "macd": -77.118054449802,
-      "signal_line": -74.90440836298902,
-      "sma_50": 6665.42,
-      "sma_200": 6357.21,
+      "rsi": 40.293411184940915,
+      "macd": -77.77342672161285,
+      "signal_line": -75.47821190303415,
+      "sma_50": 6667.146435546875,
+      "sma_200": 6365.411608886719,
       "high_52w": 7690.0,
       "low_52w": 4636.0,
-      "pct_from_52w_high": -0.1600780234070221,
-      "atr_pct": 1.7144749249003093,
+      "pct_from_52w_high": -0.16445750619717164,
+      "atr_pct": 1.6378655907429422,
       "commentary": "iShares Physical Gold ETC is a physical commodity instrument. Technical picture is cautious \u2014 indicators skew negative. Risk/reward is unfavourable at current levels; consider reducing exposure.",
       "price_history": [
-        {
-          "d": "2026-04-22",
-          "c": 6796.0
-        },
         {
           "d": "2026-04-23",
           "c": 6801.0
@@ -2157,6 +2150,10 @@
         {
           "d": "2026-06-04",
           "c": 6459.0
+        },
+        {
+          "d": "2026-06-05",
+          "c": 6425.3218
         }
       ],
       "analyst_target_mean": null,
@@ -2192,39 +2189,39 @@
       "stooq_price": null,
       "stooq_verified": null,
       "previous_recommendation": "SELL",
-      "previous_generated": "2026-06-05T05:49:51.303900+00:00"
+      "previous_generated": "2026-06-05T06:00:26.763455+00:00"
     }
   ],
   "macro": {
     "vix": {
       "label": "VIX",
-      "value": 16.06,
-      "change_pct": 1.84
+      "value": 15.66,
+      "change_pct": 1.69
     },
     "sp500": {
       "label": "S&P 500",
-      "value": null,
-      "change_pct": null
+      "value": 7584.3101,
+      "change_pct": 0.41
     },
     "ftse100": {
       "label": "FTSE 100",
-      "value": 10332.2998,
-      "change_pct": -0.4
+      "value": 10396.8096,
+      "change_pct": 0.35
     },
     "gold": {
       "label": "Gold",
-      "value": 4473.8999,
-      "change_pct": -0.04
+      "value": 4489.3999,
+      "change_pct": 0.3
     },
     "treasury10y": {
       "label": "US 10Y",
-      "value": 4.491,
-      "change_pct": 0.81
+      "value": 4.477,
+      "change_pct": -0.31
     },
     "gbpusd": {
       "label": "GBP/USD",
-      "value": 1.3426,
-      "change_pct": -0.01
+      "value": 1.3478,
+      "change_pct": 0.38
     }
   },
   "errors": [
